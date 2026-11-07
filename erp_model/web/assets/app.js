@@ -221,7 +221,7 @@ $('predict-form').addEventListener('submit',async e=>{
   let gotAssembly=false;
   function consume(line){if(!line.trim())return;const item=JSON.parse(line);if(item.slot==='assembly')gotAssembly=true;resultEvent(item);}
   try {
-    const response=await fetch('predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:$('name').value,spec:$('spec').value,slot:$('slot').value||null,code_scheme_id:$('scheme').value||null,candidate_limit:Number($('candidate-limit').value)})});
+    const response=await fetch('predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:$('name').value,spec:$('spec').value,slot:$('slot').value||null,code_scheme_id:$('scheme').value||null,candidate_limit:Number($('candidate-limit').value),model_variant:$('model-variant')?.value||null})});
     if(!response.ok)throw new Error(`예측 요청에 실패했습니다. (HTTP ${response.status})`);
     if(!response.body)throw new Error('이 브라우저는 스트리밍 응답을 지원하지 않습니다.');
     const reader=response.body.getReader();const decoder=new TextDecoder();let buffer='';
@@ -239,6 +239,7 @@ async function loadModelInfo() {
     const response = await fetch('model-info');
     if (!response.ok) throw new Error('모델 정보 응답 오류');
     const info = await response.json();
+    window.renderEncoderComparison?.(info);
     $('batch-panel').hidden=!info.csv_upload;
     const metrics = info.generation_metrics;
     const spectrum = info.spectrum_metrics;
@@ -289,7 +290,7 @@ async function loadModelInfo() {
         $('assembly-evaluation').innerHTML += '<div class="table-scroll"><table><thead><tr><th>후보 수 상한</th><th>전체 정답 포함률</th><th>매뉴얼 해석 가능</th><th>규칙 미확인 · 추정 포함</th><th>평균 후보 수</th></tr></thead><tbody>'+[1,3,5,10].map(k=>'<tr><td>Top '+k+'</td><td>'+percent(point('all',k).rate)+'</td><td>'+percent(point('manual',k).rate)+'</td><td>'+percent(point('unmapped',k).rate)+'</td><td>'+point('all',k).average_candidates.toFixed(2)+'</td></tr>').join('')+'</tbody></table></div><p>위 표와 그래프는 규칙 미확인 품목의 확장 추정 후보를 포함합니다. 칸별 평가는 기존 해석값 기준이며, 미해석 코드의 세부 칸을 정답으로 간주하지 않습니다.</p>';
       }
       const validation=info.pipeline_validation;
-      if(validation) $('assembly-evaluation').innerHTML += '<p>정책 선택용 학습 검증 '+validation.scores.baseline.n+'행: 완성 코드 정확도 '+percent(validation.scores.baseline.accuracy)+' → '+percent(validation.scores[validation.selected].accuracy)+'. 최종 평가 CSV는 정책 선택에 사용하지 않았습니다.</p>';
+      if(validation?.scores?.baseline && validation.scores[validation.selected]) $('assembly-evaluation').innerHTML += '<p>정책 선택용 학습 검증 '+validation.scores.baseline.n+'행: 완성 코드 정확도 '+percent(validation.scores.baseline.accuracy)+' → '+percent(validation.scores[validation.selected].accuracy)+'. 최종 평가 CSV는 정책 선택에 사용하지 않았습니다.</p>';
       $('downloads').innerHTML=(info.downloads || []).map(name=>'<a class="download-link" href="downloads/'+encodeURIComponent(name)+'" download>'+escape({'original_code_parts.csv':'원본 코드 파트 전체','prediction_parts.csv':'1순위 예측 파트','spectrum_parts_top5.csv':'기존 Top 5 후보별 파트','exploratory_predictions.csv':'규칙 미확인 추정 후보'}[name] || name)+' CSV ↓</a>').join('');
     }
     const comparison = info.manual_comparison;

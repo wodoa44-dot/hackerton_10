@@ -9,6 +9,7 @@ from .features import Features
 from .preprocess import preprocess
 from .train import read_csv,write_json
 from .label_quality import unambiguous_indices
+from .encoder_data import load_training_data
 
 
 def main():
@@ -17,6 +18,13 @@ def main():
     prepared=[preprocess(r["품목명"],r["규격명"]) for r in raw]
     folds={int(r["source_row"])-2:int(r["fold"]) for r in csv.DictReader((base/"fold_assignments.csv").open(encoding="utf-8-sig"))}
     parsed={i:book.parse(raw[i]["품목코드"]) for i in folds};valid=[i for i in folds if parsed[i]]
+    audited=Path('artifacts/encoder_training_data')
+    if audited.is_dir():
+        records,_,_=load_training_data(audited,'dataset/ERP_원재료_training.csv')
+        clean={r['source_row']-2:r for r in records}
+        valid=[i for i in valid if clean[i]['labels']['classification'] is not None]
+        for i in valid:
+            parsed[i]['exclude_slots']=[s for s in ['trait','case','packing','vendor'] if clean[i]['labels'][s] is None]
     # Audit targets before fitting; CV uses the same per-field eligibility mask.
     vp=[prepared[i] for i in valid];vr=[parsed[i] for i in valid]
     categories=[p["category_id"] for p in vr]

@@ -23,6 +23,8 @@ from .manual_audit import capacity_policy, audit
 from .registry import Registry
 from .schema import SLOTS
 from .train import metrics, read_csv, thresholds, write_json
+from .accuracy_candidates import candidates as atomic_candidates
+from .encoder_data import load_training_data
 
 
 def cpu_inference(bundle):
@@ -35,7 +37,7 @@ def cpu_inference(bundle):
     return gpu_used
 
 
-def train(train_path="dataset/ERP_원재료_training.csv", evaluation_path="dataset/ERP_원재료_inference.csv", out_dir="artifacts/generation_v5", full_path=None):
+def train(train_path="dataset/ERP_원재료_training.csv", evaluation_path="dataset/ERP_원재료_inference.csv", out_dir="artifacts/generation_v5", full_path=None, audited_data=None):
     started = time.time()
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -51,10 +53,16 @@ def train(train_path="dataset/ERP_원재료_training.csv", evaluation_path="data
     evaluation_keys = {preprocess(row["품목명"], row["규격명"]).key for row in evaluation}
     keep = [i for i, row in enumerate(prepared) if row.key not in evaluation_keys
             and re.match(r"[A-Z0-9]", raw[i]["품목코드"].upper())]
-    for item in prepared:
-        item.candidates = identifier_candidates(item.normalized)
     prefix_labels = [actual_prefix(row["품목코드"]) for row in raw]
     parsed = [book.parse(row["품목코드"]) for row in raw]
+    for i,item in enumerate(prepared):
+        if parsed[i] and any(p['key'] in {'pn','sub','model','name'} for p in book.layout(parsed[i]['category_id'])[0]['part_number']):
+            item.candidates=atomic_candidates(item.normalized)
+    clean=None
+    if audited_data:
+        records,_,provenance=load_training_data(audited_data,train_path)
+        clean={r['source_row']-2:r for r in records}
+        assert set(clean)==set(keep),'Audited cohort differs'
     groups = [json.dumps(prepared[i].key, ensure_ascii=False) for i in keep]
     folds = {}
     split = StratifiedGroupKFold(3, shuffle=True, random_state=42)
@@ -63,6 +71,7 @@ def train(train_path="dataset/ERP_원재료_training.csv", evaluation_path="data
             folds[keep[index]] = fold
     for fold in range(3):
         assert not {prepared[i].key for i in keep if folds[i] == fold} & {prepared[i].key for i in keep if folds[i] != fold}
+    if clean:assert all(folds[i]==clean[i]['fold'] for i in keep),'Audited folds differ'
     shared = {fold: Features("classification", False).fit([prepared[i] for i in keep if folds[i] != fold]).text for fold in range(3)}
     final_text = Features("classification", False).fit([prepared[i] for i in keep]).text
     manifest = {
@@ -78,6 +87,8 @@ def train(train_path="dataset/ERP_원재료_training.csv", evaluation_path="data
         "capacity_policy": capacity_policy([raw[i] for i in keep], book),
         "training_device": os.environ.get("ERP_XGB_DEVICE", "cpu"),
         "validation": "Three shared grouped folds; evaluation input keys excluded",
+        "audited_learning_data":str(audited_data) if audited_data else None,
+        "candidate_version":"atomic_v6",
     }
     comparisons = {}
     counts = {}
@@ -92,6 +103,7 @@ def train(train_path="dataset/ERP_원재료_training.csv", evaluation_path="data
             i for i in keep if parsed[i] and parsed[i]["values"][slot]
             and (slot != "part_number" or any(part["key"] in {"pn", "sub", "model", "name"} for part in book.layout(parsed[i]["category_id"])[0][slot]))
         ]
+        if clean:indices=[i for i in indices if (clean[i]['rank_truth'] if slot=='part_number' else clean[i]['labels'][slot]) is not None]
         ambiguous = defaultdict(set)
         for i in indices:
             ambiguous[prepared[i].key].add(prefix_labels[i] if slot == "classification" else parsed[i]["values"][slot])
@@ -184,4 +196,8 @@ def train(train_path="dataset/ERP_원재료_training.csv", evaluation_path="data
 
 
 if __name__ == "__main__":
-    train()
+    import argparse
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--audited-data')
+    args=parser.parse_args()
+    train(audited_data=args.audited_data)

@@ -1,0 +1,288 @@
+{
+  "training_only": true,
+  "inference_targets_read": false,
+  "weights_modified": false,
+  "training_csv": "dataset/ERP_원재료_training.csv",
+  "training_sha256": "88b20641573ff5b1b0cd759a1ca29efc8390363791cb46258578f4685758eba2",
+  "rules_sha256": "a3c20d88bb5c1ec2390f0493c4654edd7c20f9165aeb5a915af87ac8c561333a",
+  "source_rows": 11399,
+  "retained_training_rows": 10834,
+  "excluded_before_fit": 565,
+  "retained_manual_status": {
+    "outside_manual": 7697,
+    "layout_conflict": 1206,
+    "matched": 1931
+  },
+  "cross_fold_normalized_input_groups": 0,
+  "whole_code_conflicting_rows": 1173,
+  "whole_code_conflicting_input_groups": 538,
+  "numeric_review_rows": 40,
+  "numeric_checks": 1332,
+  "numeric_conflicts_by_field": {
+    "volt": 16,
+    "res": 11,
+    "cap": 14
+  },
+  "family_schema_review_rows": 6,
+  "slots": {
+    "classification": {
+      "eligible_before_conflict_filter": 10834,
+      "model_label_rows": 10629,
+      "distinct_labels": 89,
+      "unique_input_groups": 10107,
+      "excluded_conflicting_rows": 205,
+      "conflicting_input_groups": 92,
+      "placeholder_rows": 0,
+      "labels_in_only_one_input_group": 11,
+      "oof_truth_absent_from_training_rows": 11,
+      "oof_closed_class_limit_applies": true,
+      "exclusion_counts_retained": {
+        "conflicting_input_labels": 205
+      }
+    },
+    "trait": {
+      "eligible_before_conflict_filter": 1527,
+      "model_label_rows": 1521,
+      "distinct_labels": 201,
+      "unique_input_groups": 1519,
+      "excluded_conflicting_rows": 6,
+      "conflicting_input_groups": 3,
+      "placeholder_rows": 0,
+      "labels_in_only_one_input_group": 89,
+      "oof_truth_absent_from_training_rows": 142,
+      "oof_closed_class_limit_applies": true,
+      "exclusion_counts_retained": {
+        "outside_manual": 7697,
+        "layout_conflict": 1206,
+        "not_applicable": 404,
+        "conflicting_input_labels": 6
+      }
+    },
+    "part_number": {
+      "eligible_before_conflict_filter": 726,
+      "model_label_rows": 724,
+      "distinct_labels": 702,
+      "unique_input_groups": 724,
+      "excluded_conflicting_rows": 2,
+      "conflicting_input_groups": 1,
+      "placeholder_rows": 0,
+      "labels_in_only_one_input_group": 685,
+      "oof_truth_absent_from_training_rows": 697,
+      "oof_closed_class_limit_applies": false,
+      "exclusion_counts_retained": {
+        "outside_manual": 7697,
+        "layout_conflict": 1206,
+        "deterministic_numeric_encoding": 1167,
+        "not_applicable": 38,
+        "conflicting_input_labels": 2
+      },
+      "candidate_covered_rows": 546,
+      "actual_rank_training_groups": 546,
+      "candidate_missing_rows": 178
+    },
+    "case": {
+      "eligible_before_conflict_filter": 1392,
+      "model_label_rows": 1386,
+      "distinct_labels": 119,
+      "unique_input_groups": 1384,
+      "excluded_conflicting_rows": 6,
+      "conflicting_input_groups": 3,
+      "placeholder_rows": 114,
+      "labels_in_only_one_input_group": 53,
+      "oof_truth_absent_from_training_rows": 69,
+      "oof_closed_class_limit_applies": true,
+      "exclusion_counts_retained": {
+        "outside_manual": 7697,
+        "layout_conflict": 1206,
+        "not_applicable": 539,
+        "conflicting_input_labels": 6
+      }
+    },
+    "packing": {
+      "eligible_before_conflict_filter": 1423,
+      "model_label_rows": 1423,
+      "distinct_labels": 48,
+      "unique_input_groups": 1418,
+      "excluded_conflicting_rows": 0,
+      "conflicting_input_groups": 0,
+      "placeholder_rows": 109,
+      "labels_in_only_one_input_group": 25,
+      "oof_truth_absent_from_training_rows": 30,
+      "oof_closed_class_limit_applies": true,
+      "exclusion_counts_retained": {
+        "outside_manual": 7697,
+        "layout_conflict": 1206,
+        "not_applicable": 508
+      }
+    },
+    "vendor": {
+      "eligible_before_conflict_filter": 1885,
+      "model_label_rows": 1883,
+      "distinct_labels": 21,
+      "unique_input_groups": 1878,
+      "excluded_conflicting_rows": 2,
+      "conflicting_input_groups": 1,
+      "placeholder_rows": 1676,
+      "labels_in_only_one_input_group": 7,
+      "oof_truth_absent_from_training_rows": 9,
+      "oof_closed_class_limit_applies": true,
+      "exclusion_counts_retained": {
+        "outside_manual": 7697,
+        "layout_conflict": 1206,
+        "conflicting_input_labels": 2,
+        "not_applicable": 46
+      }
+    }
+  },
+  "attribute_models": {
+    "shape": {
+      "current_rows": 929,
+      "conflicting_rows": 6,
+      "conflicting_groups": 3
+    },
+    "tol": {
+      "current_rows": 1167,
+      "conflicting_rows": 4,
+      "conflicting_groups": 2
+    },
+    "pack": {
+      "current_rows": 1362,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "vend": {
+      "current_rows": 1416,
+      "conflicting_rows": 2,
+      "conflicting_groups": 1
+    },
+    "ver": {
+      "current_rows": 469,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "watt": {
+      "current_rows": 279,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "tc": {
+      "current_rows": 206,
+      "conflicting_rows": 4,
+      "conflicting_groups": 2
+    },
+    "volt": {
+      "current_rows": 432,
+      "conflicting_rows": 4,
+      "conflicting_groups": 2
+    },
+    "char": {
+      "current_rows": 333,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "name": {
+      "current_rows": 37,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "tip": {
+      "current_rows": 37,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "head": {
+      "current_rows": 37,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "slot": {
+      "current_rows": 37,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "mat": {
+      "current_rows": 37,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "fin": {
+      "current_rows": 37,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "d": {
+      "current_rows": 149,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "len": {
+      "current_rows": 149,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "mid": {
+      "current_rows": 146,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "case": {
+      "current_rows": 179,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "type": {
+      "current_rows": 7,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "pin": {
+      "current_rows": 7,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "dia": {
+      "current_rows": 34,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "temp": {
+      "current_rows": 56,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    },
+    "pitch": {
+      "current_rows": 56,
+      "conflicting_rows": 0,
+      "conflicting_groups": 0
+    }
+  },
+  "router": {
+    "current_rows": 1931,
+    "conflicting_rows": 0,
+    "conflicting_groups": 0
+  },
+  "reconciles_with_saved_training_counts": {
+    "classification": true,
+    "trait": true,
+    "part_number": true,
+    "case": true,
+    "packing": true,
+    "vendor": true
+  },
+  "review_issue_counts": {
+    "conflicting_input_labels": 221,
+    "numeric_input_code_disagreement": 41,
+    "missing_input": 33,
+    "input_family_schema_disagreement": 6,
+    "attribute_conflicting_input_labels": 20,
+    "identifier_truth_missing_from_input_candidates": 178
+  },
+  "interpretation": [
+    "Code-table validity does not prove agreement between input description and code.",
+    "Numeric/family disagreements are review flags, not confirmed source errors.",
+    "Unknown manual layouts are unavailable semantic labels, not invalid source codes.",
+    "PN labels absent from the input-only pool cannot train the current ranker.",
+    "Single-group PN strings are expected for an open candidate ranker, not closed classes.",
+    "Attribute conflict checks use (normalized input, schema, field); router checks use normalized input."
+  ]
+}

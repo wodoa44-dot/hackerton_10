@@ -17,7 +17,7 @@ from .manual_audit import capacity_modes
 from .material_schema import silver_family
 from .preprocess import preprocess
 from .schema import SLOTS
-from .train import read_csv
+from .training_io import read_csv
 
 
 from .label_quality import conflicting_indices, explicit_resistance

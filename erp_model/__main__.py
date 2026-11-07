@@ -27,7 +27,7 @@ def main():
             from .artifact_paths import generation_directory
             current=generation_directory(a.models)
             version=json.loads((current/"manifest.json").read_text())["version"]
-            if str(version).startswith("6"):
+            if str(version).startswith(("6", "7")):
                 from .spectrum import SpectrumPredictor
                 events=SpectrumPredictor(current,a.slot).events(a.name,a.spec,a.code_scheme)
             else:

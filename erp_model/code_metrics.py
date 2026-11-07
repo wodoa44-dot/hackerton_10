@@ -1,6 +1,6 @@
 """Code equivalence and independently readable numeric input constraints."""
 import re,math
-from .accuracy_runtime import resistance
+from .numeric_inputs import resistance
 from .schema import SLOTS
 
 def _detail(book,code):

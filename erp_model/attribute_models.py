@@ -56,6 +56,7 @@ class AttributeBundle:
             for field in category["fields"]:
                 if field["t"] not in {"sel"} and not (field["k"]=="ver" and field["n"]==1):continue
                 slot=__import__("erp_model.company_schema",fromlist=["field_slot"]).field_slot(category,field["k"])
+                if slot in record.get('exclude_slots',[]):continue
                 if slot=="part_number":continue
                 parts=book.parts(record["category_id"],slot,record["values"][slot]) or []
                 value=next(p["value"] for p in parts if p["key"]==field["k"])

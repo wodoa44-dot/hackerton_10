@@ -4,10 +4,9 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from transformers import AutoTokenizer
 
 from .accuracy_candidates import candidates
-from .encoder_network import CLASSIFIER_SLOTS, ERPEncoder, byte_ids
+from .encoder_network import CLASSIFIER_SLOTS, EMBEDDING_DIMENSION, CharacterTokenizer, ERPEncoder
 from .preprocess import preprocess
 from .spectrum import SpectrumPredictor
 from .train_encoder import rank_batch
@@ -16,28 +15,42 @@ from .train_encoder import rank_batch
 class EncoderBundle:
     def __init__(self, directory, device="cuda"):
         self.directory = Path(directory)
-        self.config = json.loads((self.directory / "encoder_config.json").read_text())
+        self.config = json.loads((self.directory / "encoder_config.json").read_text(encoding="utf-8"))
         if not self.config.get("trained"):
             raise ValueError("Encoder training is incomplete")
         self.device = torch.device(device)
-        self.tokenizer = AutoTokenizer.from_pretrained(self.directory / "tokenizer", local_files_only=True)
-        self.model = ERPEncoder(str(self.directory / "backbone"), self.config["classes"],
+        self.tokenizer = CharacterTokenizer.from_pretrained(self.directory / "tokenizer")
+        self.model = ERPEncoder(self.config['model_name'], self.config["classes"],
                                 len(self.config["feature_keys"])).to(self.device)
-        missing = self.model.load_state_dict(torch.load(self.directory / "heads.pt", map_location=self.device,
-                                                       weights_only=True), strict=False)
-        if missing.unexpected_keys or any(not k.startswith("backbone.") for k in missing.missing_keys):
-            raise ValueError("Saved encoder heads do not match their backbone")
+        self.model.load_state_dict(torch.load(self.directory / "weights.pt", map_location=self.device,
+                                              weights_only=True), strict=True)
         self.model.eval()
 
+    def _tokens(self, prepared):
+        tokens = self.tokenizer.encode_fields([p.normalized["품목명"] for p in prepared],
+                                               [p.normalized["규격명"] for p in prepared])
+        return {key: value.to(self.device) for key, value in tokens.items()}
+
     @torch.inference_mode()
-    def predict(self, prepared):
-        text = ["query: 품목명: " + p.normalized["품목명"] + " 규격명: " + p.normalized["규격명"] for p in prepared]
-        tokens = self.tokenizer(text, max_length=self.config["max_length"], padding=True,
-                                truncation=True, return_tensors="pt")
-        tokens = {k: v.to(self.device) for k, v in tokens.items()}
-        bs = torch.tensor([byte_ids(p.normalized["품목명"] + " | " + p.normalized["규격명"], 256)
-                           for p in prepared], device=self.device)
-        vectors = self.model.encode(tokens, bs)
+    def encode_vectors(self, prepared, batch_size=64):
+        """Return input-only float32 features for the identical tree-head A/B fit."""
+        if not 1 <= batch_size <= 64:
+            raise ValueError("Encoder batch size must be between 1 and 64")
+        vectors = [self.model.encode(self._tokens(prepared[start:start + batch_size])).float().cpu().numpy()
+                   for start in range(0, len(prepared), batch_size)]
+        return np.concatenate(vectors) if vectors else np.empty((0, EMBEDDING_DIMENSION), dtype=np.float32)
+
+    @torch.inference_mode()
+    def predict(self, prepared, batch_size=64):
+        if not 1 <= batch_size <= 64:
+            raise ValueError("Encoder batch size must be between 1 and 64")
+        output = []
+        for start in range(0, len(prepared), batch_size):
+            output.extend(self._predict_batch(prepared[start:start + batch_size]))
+        return output
+
+    def _predict_batch(self, prepared):
+        vectors = self.model.encode(self._tokens(prepared))
         probabilities = {slot: torch.softmax(logits.float(), -1).cpu().numpy()
                          for slot, logits in self.model.classify(vectors).items()}
         pools = [p.candidates for p in prepared]

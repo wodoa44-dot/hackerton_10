@@ -81,6 +81,7 @@ class GenerationState:
                 raise ValueError("Model and code-rule snapshot differ")
         self.registry = Registry.load(self.directory / "operational_master.json")
         self.models, self.model_lock = {}, threading.Lock()
+        self._encoder_bundle, self._encoder_lock = None, threading.Lock()
         self.bridge = CompanyBridge(self.manifest.get("node_executable"), frozen_rules if frozen_rules.exists() else None)
 
     def model(self, slot):
@@ -88,8 +89,37 @@ class GenerationState:
             if slot not in self.models:
                 model = joblib.load(self.directory / (slot + ".joblib"))
                 model.feature.text = self.shared
+                if getattr(model.feature, "encoder_dimensions", 0):
+                    if not self.manifest.get("encoder_augmentation"):
+                        raise ValueError("Augmented tree artifact has no encoder manifest")
+                    # Batch CSV/evaluation callers can invoke the raw bundle
+                    # before prepare(); feature construction must work there too.
+                    model.feature._encoder_provider = self.ensure_embeddings
                 self.models[slot] = model
             return self.models[slot]
+
+    def ensure_embeddings(self, prepared, batch_size=64):
+        """Attach input-only vectors once; TF-IDF retrieval remains unchanged."""
+        config = self.manifest.get("encoder_augmentation")
+        if not config:
+            return
+        directory = (self.directory / config["directory"]).resolve()
+        signature = str(directory)
+        with self._encoder_lock:
+            missing = [p for p in prepared if
+                       getattr(p, "_shared_char_embedding_signature", None) != signature]
+            if not missing:
+                return
+            if self._encoder_bundle is None:
+                from .encoder_runtime import EncoderBundle
+                self._encoder_bundle = EncoderBundle(directory, device=config.get("runtime_device", "cpu"))
+            vectors = np.asarray(self._encoder_bundle.encode_vectors(missing, batch_size=batch_size), dtype=np.float32)
+            expected = int(config["embedding_dimension"])
+            if vectors.shape != (len(missing), expected) or not np.isfinite(vectors).all():
+                raise ValueError("Shared character encoder returned invalid embeddings")
+            for row, vector in zip(missing, vectors):
+                row._shared_char_embedding = vector
+                row._shared_char_embedding_signature = signature
 
     def text_features(self, prepared):
         cached = getattr(prepared, "_text_cache", None)
@@ -143,6 +173,7 @@ class GenerationPredictor:
         signature = (id(self.state), id(self.registry), name, spec, scheme)
         if getattr(p, "_generation_signature", None) == signature:
             return p, p.generation_context
+        self.state.ensure_embeddings([p])
         self.state.text_features(p)
         if str(self.state.manifest.get("version", "")).startswith("5") and not getattr(p, "_identifier_pool_ready", False):
             p.candidates = identifier_candidates(p.normalized)

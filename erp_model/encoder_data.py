@@ -6,8 +6,10 @@ from collections import Counter
 from pathlib import Path
 
 from .accuracy_candidates import candidates
-from .encoder_network import CLASSIFIER_SLOTS
+from .schema import SLOTS
 from .preprocess import normalize
+
+CLASSIFIER_SLOTS=tuple(slot for slot in SLOTS if slot!='part_number')
 
 
 def read_records(path):

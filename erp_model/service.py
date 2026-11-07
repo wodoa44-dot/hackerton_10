@@ -17,6 +17,7 @@ class Input(BaseModel):
     slot: str | None = None
     code_scheme_id: str | None = None
     candidate_limit: int = Field(default=5, ge=1, le=10)
+    model_variant: str | None = None
 
 
 def create_app(directory, root_path=""):
@@ -34,13 +35,25 @@ def create_app(directory, root_path=""):
     app = FastAPI(root_path=root_path, lifespan=lifespan, title="ERP 원재료 품목코드 생성",
                   description="품목명과 규격명에서 실제 코드 분류값과 여섯 칸을 예측하고 회사 규칙에 맞춰 코드를 생성합니다.")
     manifest = json.loads((current / "manifest.json").read_text(encoding="utf-8"))
-    if str(manifest["version"]).startswith("6"):
+    if str(manifest["version"]).startswith(("6", "7")):
         from .spectrum import SpectrumPredictor
         predictor_type = SpectrumPredictor
     else:
         predictor_type = GenerationPredictor
     predictor = predictor_type(current)
     app.state.material_factory = lambda slot=None: predictor_type(current, slot)
+    comparison_root = current.parent / "encoder_comparison"
+    variant_paths = {"no_encoder": current.parent / "generation_v6",
+                     "encoder": current.parent / "generation_v7"}
+
+    def variants():
+        return {key: {"available": (path / "manifest.json").is_file(),
+                      "active": path.resolve() == current.resolve()}
+                for key, path in variant_paths.items()}
+
+    def comparison_report():
+        target = comparison_root / "comparison.json"
+        return json.loads(target.read_text(encoding="utf-8")) if target.is_file() else None
     web = Path(__file__).with_name("web")
     app.mount("/assets", StaticFiles(directory=web / "assets"), name="assets")
 
@@ -56,6 +69,9 @@ def create_app(directory, root_path=""):
         return {
             "version": manifest["version"],
             "csv_upload": True,
+            "encoder_comparison": comparison_report(),
+            "model_variants": variants(),
+            "active_model_variant": "encoder" if manifest.get("encoder_augmentation") else "no_encoder",
             "candidate_k_metrics": json.loads((current / "candidate_k_metrics.json").read_text(encoding="utf-8")) if (current / "candidate_k_metrics.json").exists() else None,
             "spectrum_metrics": json.loads((current / "spectrum_metrics.json").read_text(encoding="utf-8")) if (current / "spectrum_metrics.json").exists() else None,
             "pipeline_validation": json.loads((current / "pipeline_validation.json").read_text(encoding="utf-8")) if (current / "pipeline_validation.json").exists() else None,
@@ -77,6 +93,22 @@ def create_app(directory, root_path=""):
                         for key, row in predictor.state.book.categories.items() if row.get("generation_enabled", True)],
         }
 
+    @app.get("/comparison-downloads/{filename}")
+    def comparison_download(filename: str):
+        allowed = {"comparison.json", "candidate_k_curve.csv", "candidate_k_curve.svg",
+                   "top_k_comparison.csv", "six_slot_comparison.csv", "paired_predictions.csv"}
+        if filename not in allowed or not (comparison_root / filename).is_file():
+            raise HTTPException(404, "Comparison result not ready")
+        return FileResponse(comparison_root / filename, filename=filename)
+
+    @app.get("/comparison-downloads/{variant}/{filename}")
+    def comparison_parts(variant: str, filename: str):
+        allowed = {slot + "_predictions.csv" for slot in SLOTS} | {"prediction_parts.csv", "six_slot_predictions.csv"}
+        target = comparison_root / variant / filename
+        if variant not in variant_paths or filename not in allowed or not target.is_file():
+            raise HTTPException(404, "Comparison result not ready")
+        return FileResponse(target, media_type="text/csv; charset=utf-8", filename=variant + "_" + filename)
+
     @app.get("/downloads/{filename}")
     def download(filename: str):
         if filename not in {"original_code_parts.csv", "prediction_parts.csv", "spectrum_parts_top5.csv", "exploratory_predictions.csv", "candidate_k_curve.csv"}:
@@ -96,7 +128,13 @@ def create_app(directory, root_path=""):
             raise HTTPException(422, "Unknown slot")
         if not data.name.strip():
             raise HTTPException(422, "품목명을 입력하세요.")
-        current_predictor = app.state.material_factory(data.slot)
+        if data.model_variant is None:
+            current_predictor = app.state.material_factory(data.slot)
+        elif data.model_variant in variant_paths and variants()[data.model_variant]["available"]:
+            from .spectrum import SpectrumPredictor
+            current_predictor = SpectrumPredictor(variant_paths[data.model_variant], data.slot)
+        else:
+            raise HTTPException(422, "선택한 모델의 학습 결과가 아직 준비되지 않았습니다.")
         if hasattr(current_predictor, "candidate_limit"):
             current_predictor.candidate_limit = data.candidate_limit
         def stream():
