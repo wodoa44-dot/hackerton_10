@@ -59,16 +59,19 @@ def main():
         assert '<svg' in Path(download.value.path()).read_text(encoding='utf-8')
         page.locator('#encoder-part-variant').select_option('encoder')
         assert '/encoder/' in page.locator('#encoder-part-downloads a').first.get_attribute('href')
-        with page.expect_download() as download:page.locator('#encoder-part-downloads a').first.click()
-        assert Path(download.value.path()).stat().st_size>5
+        if not a.fixture:
+            with page.expect_download() as download:page.locator('#encoder-part-downloads a').first.click()
+            assert Path(download.value.path()).stat().st_size>5
         page.locator('#encoder-scope').select_option('all')
         page.screenshot(path=str(a.out/'desktop.png'),full_page=True)
         page.set_viewport_size({'width':390,'height':844});page.wait_for_timeout(300)
-        assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+        page.screenshot(path=str(a.out/'mobile.png'),full_page=True)
+        overflow=page.evaluate('''()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,wide:[...document.querySelectorAll('body *')].filter(el=>el.getBoundingClientRect().right>innerWidth+1 && getComputedStyle(el).display!=='none').slice(0,12).map(el=>({tag:el.tagName,id:el.id,cls:el.className,width:el.getBoundingClientRect().width,right:el.getBoundingClientRect().right}))})''')
+        assert overflow['scroll']<=overflow['width'],overflow
         assert page.locator('#encoder-chart svg').evaluate('el=>el.getBoundingClientRect().width')<=390
         page.screenshot(path=str(a.out/'mobile.png'),full_page=True)
         assert not errors,errors
-        proof.update(k_values=[1,3,5,10],curves=2,slots=6,export_verified=True,mobile_no_horizontal_overflow=True,javascript_errors=errors)
+        proof.update(k_values=[1,3,5,10],curves=2,slots=6,svg_export_verified=True,csv_browser_download_verified=not a.fixture,mobile_no_horizontal_overflow=True,javascript_errors=errors)
         (a.out/'proof.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2),encoding='utf-8')
         print(json.dumps(proof,ensure_ascii=False));browser.close()
 
