@@ -7,10 +7,15 @@
     5,
     10
   ],
-  "curves": 2,
-  "slots": 6,
+  "whole_code_curves": 2,
+  "independent_slot_panels": 6,
+  "slot_curves": 12,
+  "independent_k_controls": true,
+  "three_metric_modes_verified": true,
+  "slot_csv_exports_verified": 6,
+  "exported_slot_metric_checks": 120,
   "svg_export_verified": true,
-  "csv_browser_download_verified": true,
+  "row_csv_download_verified": true,
   "mobile_no_horizontal_overflow": true,
   "javascript_errors": []
 }
