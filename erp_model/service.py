@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
@@ -53,7 +53,10 @@ def create_app(directory, root_path=""):
 
     def comparison_report():
         target = comparison_root / "comparison.json"
-        return json.loads(target.read_text(encoding="utf-8")) if target.is_file() else None
+        try:
+            return json.loads(target.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError):
+            return None
     web = Path(__file__).with_name("web")
     app.mount("/assets", StaticFiles(directory=web / "assets"), name="assets")
 
@@ -62,22 +65,34 @@ def create_app(directory, root_path=""):
         return FileResponse(web / "index.html", headers={"Cache-Control": "no-store"})
 
     @app.get("/model-info")
-    def model_info():
+    def model_info(response: Response):
+        response.headers["Cache-Control"] = "no-store"
         manifest = predictor.state.manifest
         metrics_path = current / "evaluation_metrics.json"
-        legacy = Path(directory) / "final_metrics.json"
+        comparison = comparison_report()
+        active_variant = "encoder" if manifest.get("encoder_augmentation") else "no_encoder"
+        metrics = json.loads(metrics_path.read_text(encoding="utf-8")) if metrics_path.is_file() else None
+        measured = (comparison or {}).get("variants", {}).get(active_variant)
+        if measured:
+            groups = measured["candidate_k_metrics"]["groups"]
+            first = lambda name: next(p for p in groups[name]["points"] if p["k"] == 1)
+            metrics = {**measured, "company_layout_rows": measured["manual_parseable_rows"],
+                       "code_available": groups["all"]["predicted_rows"],
+                       "code_available_rate": groups["all"]["predicted_rows"] / measured["evaluation_rows"] if measured["evaluation_rows"] else None,
+                       "full_code_correct": first("all")["correct"], "full_code_exact_rate": first("all")["rate"],
+                       "manual_full_code_correct": first("manual")["correct"], "manual_full_code_exact_rate": first("manual")["rate"]}
         return {
             "version": manifest["version"],
             "csv_upload": True,
-            "encoder_comparison": comparison_report(),
+            "encoder_comparison": comparison,
             "model_variants": variants(),
-            "active_model_variant": "encoder" if manifest.get("encoder_augmentation") else "no_encoder",
+            "active_model_variant": active_variant,
             "candidate_k_metrics": json.loads((current / "candidate_k_metrics.json").read_text(encoding="utf-8")) if (current / "candidate_k_metrics.json").exists() else None,
             "spectrum_metrics": json.loads((current / "spectrum_metrics.json").read_text(encoding="utf-8")) if (current / "spectrum_metrics.json").exists() else None,
             "pipeline_validation": json.loads((current / "pipeline_validation.json").read_text(encoding="utf-8")) if (current / "pipeline_validation.json").exists() else None,
             "downloads": [name for name in ["original_code_parts.csv","prediction_parts.csv","spectrum_parts_top5.csv","exploratory_predictions.csv"] if (current / name).exists()],
-            "generation_metrics": json.loads(metrics_path.read_text(encoding="utf-8")) if metrics_path.exists() else None,
-            "metrics": json.loads(metrics_path.read_text(encoding="utf-8")) if metrics_path.exists() else None,
+            "generation_metrics": metrics,
+            "metrics": metrics,
             "web_lookup_audit": json.loads((current / "web_lookup_audit.json").read_text(encoding="utf-8")) if (current / "web_lookup_audit.json").exists() else None,
             "training_counts": json.loads((current / "training_counts.json").read_text(encoding="utf-8")),
             "data_audit": json.loads((current / "data_audit.json").read_text(encoding="utf-8")),

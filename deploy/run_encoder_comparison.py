@@ -53,6 +53,8 @@ def main():
                                stdout=log, stderr=subprocess.STDOUT, check=True)
             state['steps'][name].update(status='complete', finished_at=time.time())
             save()
+            if name=='no_encoder':
+                (ROOT/'artifacts/active_generation.json').write_text(json.dumps({'directory':'generation_v6','version':'6.0'}),encoding='utf-8')
             # Release only this task's clean file pages; never flush host caches.
             package_root=Path(sys.prefix)/'lib/python3.12/site-packages'
             if hasattr(os,'posix_fadvise') and package_root.is_dir():

@@ -34,7 +34,14 @@ def main():
     if pid:print('Already running',pid);return
     python=ROOT/'.venv/bin/python'
     if not python.exists():python=ROOT/'.venv/Scripts/python.exe'
-    env=os.environ.copy();env.update(OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',PYTHONUTF8='1')
+    env=os.environ.copy()
+    runtime=ROOT.parent/'runtime_environment.json'
+    if runtime.is_file():
+        saved=json.loads(runtime.read_text())
+        for key in ['PATH','LD_LIBRARY_PATH','TMPDIR','CUDA_CACHE_PATH','CUDA_CACHE_MAXSIZE','TRITON_CACHE_DIR']:
+            if key in saved:env[key]=saved[key]
+    env.update(OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',MKL_NUM_THREADS='2',PYTHONUTF8='1',
+               PYTHONDONTWRITEBYTECODE='1',MALLOC_ARENA_MAX='2')
     (ROOT/'artifacts').mkdir(exist_ok=True)
     with (ROOT/'artifacts/web.log').open('ab') as log:
         proc=subprocess.Popen([str(python),'-m','erp_model','serve','--models',str(ROOT/'artifacts/run1'),'--host','0.0.0.0','--port',str(a.port),'--root-path',a.prefix],cwd=ROOT,env=env,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
