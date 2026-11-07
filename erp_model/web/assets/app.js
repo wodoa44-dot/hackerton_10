@@ -245,7 +245,7 @@ async function loadModelInfo() {
     const spectrum = info.spectrum_metrics;
     const counts = info.training_counts;
     const curves=info.candidate_k_metrics;
-    window.renderKChart(curves);
+    if (!info.encoder_comparison?.variants) window.renderKChart(curves);
     const topOne=curves?.groups?.all?.points?.[0] || spectrum?.exact_at_k?.['1'];
     const topFive=curves?.groups?.all?.points?.[4] || spectrum?.exact_at_k?.['5'];
     $('connection').textContent = '전체 코드 모델 연결됨';

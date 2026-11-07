@@ -33,11 +33,11 @@ window.renderEncoderComparison = function(info) {
     panel = document.createElement('section'); panel.id = 'encoder-comparison'; panel.className = 'encoder-comparison';
     page.querySelector('.page-heading').after(panel);
   }
+  for (const child of page.children) if (child !== panel && !child.classList.contains('page-heading')) child.hidden = true;
   if (!report?.variants?.no_encoder || !report?.variants?.encoder) {
     panel.innerHTML = '<div class="panel table-panel"><h2>학습 인코더 유무 · Top-K 비교</h2><p class="muted">두 방식의 학습과 동일 평가가 끝나면 이곳에 실제 수치가 표시됩니다. 결과가 준비되기 전에는 정확도를 표시하지 않습니다.</p></div>';
     return;
   }
-  for (const child of page.children) if (child !== panel && !child.classList.contains('page-heading')) child.hidden = true;
   page.querySelector('.page-heading p').textContent = '동일한 평가 행과 후보 수로 학습 인코더의 효과를 비교합니다. 학습 내부 검증으로 모델과 학습 횟수를 정했습니다.';
   const badge = page.querySelector('.page-heading .outline-badge');
   if (badge) badge.textContent = '동일 조건 · 실제 비교 평가';
@@ -96,7 +96,7 @@ window.renderEncoderComparison = function(info) {
     const k=active.k, raw=active.mode==='raw';
     $c('encoder-a-k').textContent='없음 · Top-'+k;
     $c('encoder-b-k').textContent='사용 · Top-'+k;
-    $c('encoder-slot-note').textContent=raw ? '입력 규칙·조회·코드 조합 전, 각 칸 학습 모델의 후보를 따로 채점합니다. Top-K는 독립 칸 후보 K개 안의 정답 포함률입니다. 완성 코드 Top-K와는 다릅니다. 이 표의 평가 범위는 칸별 전체 채점 가능 행이며 위 그래프의 범위 필터와 독립적입니다.' : 'Top-1은 최종 표시된 칸 값의 정확도입니다. Top-K는 앞의 K개 완성 코드에서 해석 가능한 해당 칸 중 정답이 하나라도 있는 비율입니다. 각 칸의 후보를 임의로 섞지 않습니다. 이 표는 위 그래프의 범위 필터와 독립적으로 칸별 전체 채점 가능 행을 평가합니다.';
+    $c('encoder-slot-note').textContent=raw ? '입력 규칙·조회·코드 조합 전, 각 칸 학습 모델의 후보를 따로 채점합니다. Top-K는 독립 칸 후보 K개 안의 정답 포함률이며 완성 코드 Top-K와 다릅니다. 수치형 세분류도 같은 정답 범위에 포함하므로 규칙으로 계산해야 하는 값은 원시 품번 랭커에서 오답이 될 수 있습니다. 이 표는 위 범위 필터와 독립적으로 칸별 전체 채점 가능 행을 평가합니다.' : 'Top-1은 최종 표시된 칸 값의 정확도입니다. Top-K는 앞의 K개 완성 코드에서 해석 가능한 해당 칸 중 정답이 하나라도 있는 비율입니다. 각 칸의 후보를 임의로 섞지 않습니다. 이 표는 위 그래프의 범위 필터와 독립적으로 칸별 전체 채점 가능 행을 평가합니다.';
     $c('encoder-slot-table').innerHTML=slotLabels.map(([slot,label])=>{
       const values=series.map(([id])=>raw ? report.variants[id].raw_heads?.[slot] : report.variants[id].slots[slot]);
       const [a,b]=values, audits=series.map(([id])=>report.variants[id].slots[slot].audit || {});
