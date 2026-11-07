@@ -1,4 +1,5 @@
 """Durable, bounded-resource GPU training and paired evaluation, without downloads."""
+import argparse
 import json
 import os
 from pathlib import Path
@@ -18,10 +19,17 @@ STEPS = [
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--start-from',choices=[name for name,_ in STEPS],default='prepare')
+    args=parser.parse_args()
     ROOT.joinpath('artifacts').mkdir(exist_ok=True)
     state = {'status': 'running', 'started_at': time.time(), 'steps': {},
              'source_commit': os.environ.get('ERP_SOURCE_COMMIT'),
              'evaluation_used_for_fit_or_selection': False}
+    if args.start_from != 'prepare' and STATUS.is_file():
+        state=json.loads(STATUS.read_text(encoding='utf-8'))
+        state.update(status='running',resumed_at=time.time())
+        state.pop('error',None);state.pop('finished_at',None)
     env = os.environ.copy()
     env.update(OMP_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', MKL_NUM_THREADS='2',
                ERP_TRAIN_THREADS='2', ERP_XGB_DEVICE='cuda', PYTHONUNBUFFERED='1',
@@ -34,7 +42,8 @@ def main():
 
     save()
     try:
-        for name, command in STEPS:
+        names=[name for name,_ in STEPS]
+        for name, command in STEPS[names.index(args.start_from):]:
             state['phase'] = name
             state['steps'][name] = {'started_at': time.time(), 'status': 'running'}
             save()
@@ -44,6 +53,16 @@ def main():
                                stdout=log, stderr=subprocess.STDOUT, check=True)
             state['steps'][name].update(status='complete', finished_at=time.time())
             save()
+            # Release only this task's clean file pages; never flush host caches.
+            package_root=Path(sys.prefix)/'lib/python3.12/site-packages'
+            if hasattr(os,'posix_fadvise') and package_root.is_dir():
+                for file in package_root.rglob('*'):
+                    if file.is_file():
+                        try:
+                            with file.open('rb') as handle:
+                                os.posix_fadvise(handle.fileno(),0,0,os.POSIX_FADV_DONTNEED)
+                        except OSError:
+                            pass
         state.update(status='complete', phase='complete', finished_at=time.time())
         save()
         print('ENCODER_COMPARISON_COMPLETE', flush=True)
