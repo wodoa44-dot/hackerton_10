@@ -1,0 +1,9 @@
+{
+  "refinement_policy": {
+    "use_attributes": true,
+    "use_router": true
+  },
+  "policy_frozen_before_final_evaluation": true,
+  "final_evaluation_used_for_selection": false,
+  "note": "Both encoder and no-encoder variants use the same fitted router, attributes, rules, retrieval, and K limit."
+}

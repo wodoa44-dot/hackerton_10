@@ -1,0 +1,16 @@
+{
+  "url": "https://devopen-gpu.jntp-ax.or.kr/i/OsAdz8rQR7JSXeW6/",
+  "synthetic_fixture": false,
+  "k_values": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "curves": 2,
+  "slots": 6,
+  "svg_export_verified": true,
+  "csv_browser_download_verified": true,
+  "mobile_no_horizontal_overflow": true,
+  "javascript_errors": []
+}

@@ -1,0 +1,4332 @@
+{
+  "version": "6.0",
+  "seed": 42,
+  "feature_inputs": [
+    "품목명",
+    "규격명"
+  ],
+  "classification_target": "Actual leading ERP code fragment: two leading digits, otherwise one leading character",
+  "classification_is_semantic_family": false,
+  "other_class_used": false,
+  "company_rule_source": "품목코드메뉴얼(정신전자) PDF 30쪽 + CSV 대조, 2026-11-07",
+  "rule_count": 36,
+  "node_executable": "/data/erp_encoder_20261107_v7/tools/node",
+  "slots": {
+    "classification": {
+      "classes": [
+        "01",
+        "02",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "22",
+        "23",
+        "24",
+        "25",
+        "27",
+        "28",
+        "3",
+        "30",
+        "31",
+        "34",
+        "35",
+        "36",
+        "37",
+        "38",
+        "39",
+        "4",
+        "40",
+        "41",
+        "42",
+        "43",
+        "45",
+        "47",
+        "48",
+        "5",
+        "50",
+        "52",
+        "53",
+        "54",
+        "58",
+        "60",
+        "62",
+        "64",
+        "65",
+        "66",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "75",
+        "8",
+        "80",
+        "82",
+        "90",
+        "97",
+        "98",
+        "99",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "R",
+        "S",
+        "T",
+        "V",
+        "W",
+        "Z"
+      ],
+      "model": "forest",
+      "weights": {
+        "forest": 1.0
+      },
+      "unsafe_labels": [
+        "01",
+        "08",
+        "11",
+        "16",
+        "27",
+        "3",
+        "4",
+        "47",
+        "62",
+        "65",
+        "N"
+      ],
+      "thresholds": {
+        "01": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "02": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "04": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "05": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "06": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "07": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 11,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "08": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "09": {
+          "score": 0.7,
+          "margin": 0.0,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "1": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "10": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "11": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "12": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "13": {
+          "score": 0.5,
+          "margin": 0.0,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "14": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "16": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "17": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "18": {
+          "score": 0.95,
+          "margin": 0.0,
+          "oof_accepted": 21,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "19": {
+          "score": 0.6,
+          "margin": 0.0,
+          "oof_accepted": 382,
+          "oof_accuracy": 0.9842931937172775,
+          "target": 0.98
+        },
+        "2": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "20": {
+          "score": 0.95,
+          "margin": 0.0,
+          "oof_accepted": 65,
+          "oof_accuracy": 0.9846153846153847,
+          "target": 0.98
+        },
+        "22": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "23": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "24": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "25": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "27": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "28": {
+          "score": 0.95,
+          "margin": 0.0,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "3": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "30": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "31": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "34": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "35": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "36": {
+          "score": 0.0,
+          "margin": 0.3,
+          "oof_accepted": 1194,
+          "oof_accuracy": 0.9807370184254607,
+          "target": 0.98
+        },
+        "37": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "38": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 15,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "39": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "4": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "40": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "41": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 35,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "42": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 114,
+          "oof_accuracy": 0.9824561403508771,
+          "target": 0.98
+        },
+        "43": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 15,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "45": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "47": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "48": {
+          "score": 0.0,
+          "margin": 0.05,
+          "oof_accepted": 18,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "5": {
+          "score": 0.85,
+          "margin": 0.0,
+          "oof_accepted": 4,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "50": {
+          "score": 0.0,
+          "margin": 0.1,
+          "oof_accepted": 15,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "52": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 4,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "53": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "54": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "58": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "60": {
+          "score": 0.85,
+          "margin": 0.0,
+          "oof_accepted": 28,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "62": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "64": {
+          "score": 0.6,
+          "margin": 0.0,
+          "oof_accepted": 122,
+          "oof_accuracy": 0.9918032786885246,
+          "target": 0.98
+        },
+        "65": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "66": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 14,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "70": {
+          "score": 0.0,
+          "margin": 0.05,
+          "oof_accepted": 11,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "71": {
+          "score": 0.9,
+          "margin": 0.0,
+          "oof_accepted": 17,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "72": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "73": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "74": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "75": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "8": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "80": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "82": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "90": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "97": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 16,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "98": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "99": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 64,
+          "oof_accuracy": 0.984375,
+          "target": 0.98
+        },
+        "A": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "B": {
+          "score": 0.6,
+          "margin": 0.0,
+          "oof_accepted": 49,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "C": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 532,
+          "oof_accuracy": 0.9849624060150376,
+          "target": 0.98
+        },
+        "D": {
+          "score": 0.9,
+          "margin": 0.0,
+          "oof_accepted": 72,
+          "oof_accuracy": 0.9861111111111112,
+          "target": 0.98
+        },
+        "E": {
+          "score": 0.85,
+          "margin": 0.0,
+          "oof_accepted": 334,
+          "oof_accuracy": 0.9820359281437125,
+          "target": 0.98
+        },
+        "F": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 11,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "H": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 120,
+          "oof_accuracy": 0.9916666666666667,
+          "target": 0.98
+        },
+        "I": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "J": {
+          "score": 0.4,
+          "margin": 0.1,
+          "oof_accepted": 362,
+          "oof_accuracy": 0.9834254143646409,
+          "target": 0.98
+        },
+        "K": {
+          "score": 0.0,
+          "margin": 0.3,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "L": {
+          "score": 0.85,
+          "margin": 0.0,
+          "oof_accepted": 14,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "M": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "N": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "O": {
+          "score": 0.4,
+          "margin": 0.2,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "P": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 352,
+          "oof_accuracy": 0.9857954545454546,
+          "target": 0.98
+        },
+        "R": {
+          "score": 0.0,
+          "margin": 0.05,
+          "oof_accepted": 791,
+          "oof_accuracy": 0.9810366624525917,
+          "target": 0.98
+        },
+        "S": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 463,
+          "oof_accuracy": 0.980561555075594,
+          "target": 0.98
+        },
+        "T": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "V": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 48,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        },
+        "W": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.98
+        },
+        "Z": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 7,
+          "oof_accuracy": 1.0,
+          "target": 0.98
+        }
+      },
+      "model_status": "trained",
+      "selection_metric": "OOF macro F1, then accuracy",
+      "gpu_training_verified": true
+    },
+    "trait": {
+      "classes": [
+        "01",
+        "11",
+        "31",
+        "60",
+        "70",
+        "71",
+        "75",
+        "76",
+        "80",
+        "90",
+        "91",
+        "ABJ1H",
+        "ABJ3D",
+        "ABK1H",
+        "ABK2E",
+        "ABK3A",
+        "ABM2G",
+        "ABZ3A",
+        "AEK2E",
+        "AEK2G",
+        "AEM2E",
+        "AEM2G",
+        "AEM3A",
+        "AFZ1H",
+        "AFZ3D",
+        "AN-8J",
+        "ANK3A",
+        "ANK3D",
+        "AS-4J",
+        "AZZ1H",
+        "B",
+        "BBK1H",
+        "BFZ1H",
+        "BSN",
+        "BUT",
+        "BX",
+        "CAK1E",
+        "CAK1H",
+        "CAM1C",
+        "CB",
+        "CBF1C",
+        "CBJ1E",
+        "CBJ1H",
+        "CBK1A",
+        "CBK1C",
+        "CBK1E",
+        "CBK1H",
+        "CBK1V",
+        "CBK2A",
+        "CBK2E",
+        "CBK2H",
+        "CBK2J",
+        "CBM1E",
+        "CBM3A",
+        "CCA1H",
+        "CCC1H",
+        "CCF1H",
+        "CCJ1C",
+        "CCJ1H",
+        "CCJ2E",
+        "CCM1C",
+        "CCZ1H",
+        "CFZ1E",
+        "CFZ1H",
+        "CPF",
+        "CPJ",
+        "CR-2F",
+        "CR-2G",
+        "CR-2J",
+        "CR-4F",
+        "CR-4J",
+        "CR-6F",
+        "CR-6J",
+        "CR-8J",
+        "CSN",
+        "CSW",
+        "CSX",
+        "EA1CM",
+        "EA1EM",
+        "EA1HM",
+        "EA1VM",
+        "EA2GM",
+        "EA2WM",
+        "EC1AM",
+        "EC1CM",
+        "EC1EM",
+        "EC1HK",
+        "EC1HM",
+        "EC1JM",
+        "EC1VM",
+        "EC2AM",
+        "EC2GM",
+        "EC2WM",
+        "EE1HM",
+        "EF1EM",
+        "EF1HM",
+        "EF1JM",
+        "EF1VM",
+        "EF2AM",
+        "EF2WM",
+        "EG1EM",
+        "EH1HM",
+        "EL2GM",
+        "F",
+        "FM8J2A",
+        "FM8K2J",
+        "FMBJ2G",
+        "FNBK3A",
+        "FQ8J2J",
+        "FQ8K2A",
+        "FQ8K2G",
+        "FQ8K2J",
+        "FQ8K3A",
+        "FQ8K7E",
+        "FQ8M2J",
+        "FQAK2K",
+        "FQBK2J",
+        "FQBK2K",
+        "FW01J",
+        "FW02J",
+        "FX8K2F",
+        "FX8K2J",
+        "FX8K2K",
+        "FX8K3A",
+        "FX8K7E",
+        "FX8K7K",
+        "FX8M2J",
+        "FX8M7K",
+        "FXAK2G",
+        "FXAK7K",
+        "FXBK2J",
+        "FXBK7W",
+        "FXBM7F",
+        "JPSN05-",
+        "L",
+        "MA1CM",
+        "MA1HM",
+        "MA1VM",
+        "MC1AM",
+        "MC1CM",
+        "MC1DM",
+        "MC1EM",
+        "MC2GM",
+        "MC2WM",
+        "MF1HM",
+        "MF1VM",
+        "MSN",
+        "MSX",
+        "MX-2J",
+        "MX-4J",
+        "MX01J",
+        "MX02J",
+        "MX03J",
+        "NA-2F",
+        "NA-2J",
+        "NA-4F",
+        "NA-4J",
+        "NA-6F",
+        "NA01J",
+        "NA02J",
+        "P",
+        "R",
+        "S",
+        "SL",
+        "SU-2J",
+        "T",
+        "TP",
+        "TSB",
+        "TSJ1C",
+        "TSK1A",
+        "TSK1C",
+        "TSK1V",
+        "TSM0J",
+        "TSM1A",
+        "TSM1C",
+        "TSM1E",
+        "TSN",
+        "TSW",
+        "TSY",
+        "TUW",
+        "U",
+        "W",
+        "WA",
+        "WN01F",
+        "WN01J",
+        "WN02J",
+        "WS01J",
+        "WSX",
+        "XC02J",
+        "XC03J",
+        "XC05J",
+        "XC07J",
+        "XC10J",
+        "XM05J",
+        "Z",
+        "ZSN",
+        "ZUT"
+      ],
+      "model": "xgb",
+      "weights": {
+        "xgb": 1.0
+      },
+      "unsafe_labels": [
+        "31",
+        "75",
+        "80",
+        "ABJ1H",
+        "ABJ3D",
+        "ABK1H",
+        "ABM2G",
+        "ABZ3A",
+        "AEK2E",
+        "AEM2E",
+        "AEM3A",
+        "AFZ1H",
+        "AFZ3D",
+        "ANK3A",
+        "ANK3D",
+        "AS-4J",
+        "AZZ1H",
+        "BBK1H",
+        "BFZ1H",
+        "BSN",
+        "BX",
+        "CAM1C",
+        "CBF1C",
+        "CBJ1E",
+        "CBK1A",
+        "CBK1V",
+        "CBK2E",
+        "CBK2H",
+        "CBK2J",
+        "CBM1E",
+        "CBM3A",
+        "CCA1H",
+        "CCF1H",
+        "CCJ1C",
+        "CCM1C",
+        "CCZ1H",
+        "CFZ1E",
+        "CR-2F",
+        "CR-2G",
+        "CR-6F",
+        "CR-8J",
+        "CSN",
+        "CSX",
+        "EA2GM",
+        "EC1JM",
+        "EF1EM",
+        "EF1HM",
+        "EF1JM",
+        "EF2AM",
+        "EF2WM",
+        "EG1EM",
+        "EH1HM",
+        "EL2GM",
+        "FM8K2J",
+        "FMBJ2G",
+        "FNBK3A",
+        "FQ8K2A",
+        "FQ8K2G",
+        "FQ8K2J",
+        "FQ8K3A",
+        "FQ8K7E",
+        "FQ8M2J",
+        "FQAK2K",
+        "FQBK2J",
+        "FQBK2K",
+        "FW01J",
+        "FW02J",
+        "FX8K2F",
+        "FX8K2J",
+        "FX8K2K",
+        "FX8K3A",
+        "FX8K7E",
+        "FXAK2G",
+        "FXBK2J",
+        "FXBM7F",
+        "JPSN05-",
+        "MA1CM",
+        "MA1HM",
+        "MA1VM",
+        "MC1AM",
+        "MC1DM",
+        "MC2GM",
+        "MC2WM",
+        "MF1VM",
+        "MSX",
+        "MX-4J",
+        "NA-2F",
+        "NA-2J",
+        "NA-4J",
+        "NA-6F",
+        "P",
+        "SL",
+        "SU-2J",
+        "TSB",
+        "TSJ1C",
+        "TSK1A",
+        "TSM1A",
+        "TSM1E",
+        "TSW",
+        "TSY",
+        "TUW",
+        "WN01F",
+        "WN02J",
+        "WS01J",
+        "WSX",
+        "XC02J",
+        "XC07J",
+        "XC10J",
+        "ZSN"
+      ],
+      "thresholds": {
+        "01": {
+          "score": 0.8,
+          "margin": 0.0,
+          "oof_accepted": 16,
+          "oof_accuracy": 0.9375,
+          "target": 0.9
+        },
+        "11": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "31": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "60": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "70": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 12,
+          "oof_accuracy": 0.9166666666666666,
+          "target": 0.9
+        },
+        "71": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 20,
+          "oof_accuracy": 0.9,
+          "target": 0.9
+        },
+        "75": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "76": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "80": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "90": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "91": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ABJ1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ABJ3D": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ABK1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ABK2E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ABK3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ABM2G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ABZ3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AEK2E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AEK2G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AEM2E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AEM2G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AEM3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AFZ1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AFZ3D": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AN-8J": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "ANK3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ANK3D": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AS-4J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AZZ1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "B": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 14,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "BBK1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BFZ1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BSN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BUT": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BX": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CAK1E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CAK1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CAM1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CB": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBF1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBJ1E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBJ1H": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 7,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "CBK1A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBK1C": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "CBK1E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBK1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBK1V": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBK2A": {
+          "score": 0.6,
+          "margin": 0.0,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "CBK2E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBK2H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBK2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBM1E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CBM3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CCA1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CCC1H": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "CCF1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CCJ1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CCJ1H": {
+          "score": 0.7,
+          "margin": 0.0,
+          "oof_accepted": 31,
+          "oof_accuracy": 0.9354838709677419,
+          "target": 0.9
+        },
+        "CCJ2E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CCM1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CCZ1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CFZ1E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CFZ1H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CPF": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 224,
+          "oof_accuracy": 0.9732142857142857,
+          "target": 0.9
+        },
+        "CPJ": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 241,
+          "oof_accuracy": 0.983402489626556,
+          "target": 0.9
+        },
+        "CR-2F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CR-2G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CR-2J": {
+          "score": 0.0,
+          "margin": 0.3,
+          "oof_accepted": 23,
+          "oof_accuracy": 0.9130434782608695,
+          "target": 0.9
+        },
+        "CR-4F": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "CR-4J": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 67,
+          "oof_accuracy": 0.9253731343283582,
+          "target": 0.9
+        },
+        "CR-6F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CR-6J": {
+          "score": 0.0,
+          "margin": 0.1,
+          "oof_accepted": 15,
+          "oof_accuracy": 0.9333333333333333,
+          "target": 0.9
+        },
+        "CR-8J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CSN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CSW": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CSX": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EA1CM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EA1EM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EA1HM": {
+          "score": 0.85,
+          "margin": 0.0,
+          "oof_accepted": 4,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "EA1VM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EA2GM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EA2WM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC1AM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC1CM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC1EM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC1HK": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC1HM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC1JM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC1VM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC2AM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC2GM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EC2WM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EE1HM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EF1EM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EF1HM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EF1JM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EF1VM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EF2AM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EF2WM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EG1EM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EH1HM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EL2GM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FM8J2A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FM8K2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FMBJ2G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FNBK3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQ8J2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQ8K2A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQ8K2G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQ8K2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQ8K3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQ8K7E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQ8M2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQAK2K": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQBK2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FQBK2K": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FW01J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FW02J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8K2F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8K2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8K2K": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8K3A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8K7E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8K7K": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8M2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FX8M7K": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FXAK2G": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FXAK7K": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FXBK2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FXBK7W": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FXBM7F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "JPSN05-": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "L": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 61,
+          "oof_accuracy": 0.9836065573770492,
+          "target": 0.9
+        },
+        "MA1CM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MA1HM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MA1VM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MC1AM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MC1CM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MC1DM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MC1EM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MC2GM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MC2WM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MF1HM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MF1VM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MSN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MSX": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MX-2J": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 7,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "MX-4J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MX01J": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 47,
+          "oof_accuracy": 0.9787234042553191,
+          "target": 0.9
+        },
+        "MX02J": {
+          "score": 0.0,
+          "margin": 0.1,
+          "oof_accepted": 44,
+          "oof_accuracy": 0.9090909090909091,
+          "target": 0.9
+        },
+        "MX03J": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "NA-2F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "NA-2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "NA-4F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "NA-4J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "NA-6F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "NA01J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "NA02J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "P": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "R": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "S": {
+          "score": 0.7,
+          "margin": 0.0,
+          "oof_accepted": 33,
+          "oof_accuracy": 0.9090909090909091,
+          "target": 0.9
+        },
+        "SL": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "SU-2J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "T": {
+          "score": 0.0,
+          "margin": 0.05,
+          "oof_accepted": 26,
+          "oof_accuracy": 0.9230769230769231,
+          "target": 0.9
+        },
+        "TP": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSB": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSJ1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSK1A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSK1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSK1V": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSM0J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSM1A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSM1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSM1E": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSW": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TSY": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TUW": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "U": {
+          "score": 0.6,
+          "margin": 0.0,
+          "oof_accepted": 12,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "W": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "WA": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "WN01F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "WN01J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "WN02J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "WS01J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "WSX": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "XC02J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "XC03J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "XC05J": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 9,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "XC07J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "XC10J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "XM05J": {
+          "score": 0.0,
+          "margin": 0.1,
+          "oof_accepted": 4,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "Z": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 21,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "ZSN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "ZUT": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        }
+      },
+      "model_status": "trained",
+      "selection_metric": "OOF macro F1, then accuracy",
+      "gpu_training_verified": true
+    },
+    "part_number": {
+      "model": "mean_rank_ensemble",
+      "weights": {
+        "xgb_rank": 0.5,
+        "lgb_rank": 0.5
+      },
+      "model_status": "trained",
+      "rank_confirmation_enabled": false,
+      "gpu_training_verified": true,
+      "candidate_version": "atomic_v6"
+    },
+    "case": {
+      "classes": [
+        "-",
+        "--",
+        "05",
+        "06",
+        "060",
+        "08",
+        "10",
+        "10D",
+        "12",
+        "14",
+        "14D",
+        "21",
+        "2B13006",
+        "2B13008",
+        "2B22310",
+        "2B22510",
+        "2F22310",
+        "2F23010",
+        "2F23012",
+        "2F24008",
+        "2P22525",
+        "2P22608",
+        "2P23012",
+        "2P24010",
+        "2T14014",
+        "3",
+        "31",
+        "32",
+        "3R24010",
+        "43",
+        "45",
+        "46",
+        "47",
+        "52",
+        "55",
+        "5A",
+        "5B",
+        "63",
+        "66",
+        "68",
+        "6A",
+        "6B",
+        "8A",
+        "8B",
+        "8C",
+        "8H",
+        "A",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A7",
+        "A9",
+        "AC",
+        "AD",
+        "AG",
+        "AJ",
+        "BE",
+        "BJ",
+        "BK",
+        "BS",
+        "D1",
+        "D3",
+        "D4",
+        "DB",
+        "DJ",
+        "DK",
+        "DL",
+        "DM",
+        "EG",
+        "EM",
+        "F",
+        "GJ",
+        "GN",
+        "J",
+        "JN",
+        "JQ",
+        "KL",
+        "KN",
+        "KP",
+        "KQ",
+        "L",
+        "LQ",
+        "M",
+        "M3",
+        "MB23010",
+        "MBH6020",
+        "MBH6025",
+        "MBH6030",
+        "MBH8025",
+        "MD",
+        "MF23004",
+        "MF23016",
+        "MP24005",
+        "MP24006",
+        "MP24008",
+        "MP24010",
+        "MP24012",
+        "MP24015",
+        "MP25008",
+        "MP26025",
+        "MQ26010",
+        "MT23008",
+        "MT24005",
+        "MT24008",
+        "R",
+        "R5",
+        "S",
+        "S1",
+        "S2",
+        "SA",
+        "SB",
+        "SC",
+        "SD",
+        "SP",
+        "T1",
+        "T2",
+        "T9",
+        "TA"
+      ],
+      "model": "xgb",
+      "weights": {
+        "xgb": 1.0
+      },
+      "unsafe_labels": [
+        "060",
+        "10D",
+        "2B13006",
+        "2B13008",
+        "2B22310",
+        "2B22510",
+        "2F22310",
+        "2F23010",
+        "2F23012",
+        "2F24008",
+        "2P22525",
+        "2P22608",
+        "2P24010",
+        "2T14014",
+        "3R24010",
+        "43",
+        "47",
+        "5A",
+        "6A",
+        "8H",
+        "A3",
+        "A4",
+        "A7",
+        "A9",
+        "AC",
+        "BE",
+        "BS",
+        "DJ",
+        "DK",
+        "DM",
+        "EG",
+        "EM",
+        "GJ",
+        "GN",
+        "JQ",
+        "KN",
+        "KP",
+        "KQ",
+        "LQ",
+        "M3",
+        "MB23010",
+        "MBH6025",
+        "MBH6030",
+        "MBH8025",
+        "MD",
+        "MF23004",
+        "MF23016",
+        "MP24005",
+        "MP24006",
+        "MP24008",
+        "MP24010",
+        "MP24015",
+        "MP25008",
+        "MP26025",
+        "MQ26010",
+        "MT23008",
+        "MT24005",
+        "MT24008",
+        "R5",
+        "T2"
+      ],
+      "thresholds": {
+        "-": {
+          "score": 0.7,
+          "margin": 0.0,
+          "oof_accepted": 7,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "--": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 49,
+          "oof_accuracy": 0.9183673469387755,
+          "target": 0.9
+        },
+        "05": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "06": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "060": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "08": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "10": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 173,
+          "oof_accuracy": 0.9479768786127167,
+          "target": 0.9
+        },
+        "10D": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "12": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "14": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "14D": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "21": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 298,
+          "oof_accuracy": 0.9865771812080537,
+          "target": 0.9
+        },
+        "2B13006": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2B13008": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2B22310": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2B22510": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2F22310": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2F23010": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2F23012": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2F24008": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2P22525": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2P22608": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2P23012": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2P24010": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "2T14014": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "3": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "31": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 115,
+          "oof_accuracy": 0.9826086956521739,
+          "target": 0.9
+        },
+        "32": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "3R24010": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "43": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "45": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "46": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "47": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "52": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 9,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "55": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "5A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "5B": {
+          "score": 0.95,
+          "margin": 0.0,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "63": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 40,
+          "oof_accuracy": 0.925,
+          "target": 0.9
+        },
+        "66": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "68": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "6A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "6B": {
+          "score": 0.6,
+          "margin": 0.0,
+          "oof_accepted": 14,
+          "oof_accuracy": 0.9285714285714286,
+          "target": 0.9
+        },
+        "8A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "8B": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "8C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "8H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A2": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A3": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A4": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A5": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A7": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A9": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AC": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AD": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "AG": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "AJ": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BE": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BJ": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BK": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BS": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "D1": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "D3": {
+          "score": 0.0,
+          "margin": 0.3,
+          "oof_accepted": 7,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "D4": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "DB": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "DJ": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "DK": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "DL": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "DM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EG": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "EM": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "F": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "GJ": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "GN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "JN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "JQ": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "KL": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "KN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "KP": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "KQ": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "L": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "LQ": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "M": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 16,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "M3": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MB23010": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MBH6020": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MBH6025": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MBH6030": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MBH8025": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MD": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MF23004": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MF23016": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP24005": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP24006": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP24008": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP24010": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP24012": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP24015": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP25008": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MP26025": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MQ26010": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MT23008": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MT24005": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MT24008": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "R": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "R5": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "S": {
+          "score": 0.4,
+          "margin": 0.0,
+          "oof_accepted": 202,
+          "oof_accuracy": 0.9108910891089109,
+          "target": 0.9
+        },
+        "S1": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "S2": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "SA": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "SB": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "SC": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "SD": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "SP": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "T1": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "T2": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "T9": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "TA": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        }
+      },
+      "model_status": "trained",
+      "selection_metric": "OOF macro F1, then accuracy",
+      "gpu_training_verified": true
+    },
+    "packing": {
+      "classes": [
+        "-",
+        "--",
+        "-T",
+        "07",
+        "09",
+        "1-",
+        "10",
+        "12",
+        "1C",
+        "28",
+        "33",
+        "5H",
+        "A",
+        "B",
+        "B-",
+        "BS",
+        "C",
+        "C-",
+        "CP",
+        "D",
+        "DC",
+        "E-",
+        "F",
+        "F2",
+        "F4",
+        "F5",
+        "F7",
+        "FC",
+        "FG",
+        "FY",
+        "HP",
+        "HR",
+        "K",
+        "KG",
+        "L",
+        "M",
+        "MN",
+        "N",
+        "R",
+        "R4",
+        "S",
+        "S2",
+        "T",
+        "TP",
+        "U",
+        "W",
+        "WD",
+        "YG"
+      ],
+      "model": "forest",
+      "weights": {
+        "forest": 1.0
+      },
+      "unsafe_labels": [
+        "-T",
+        "07",
+        "09",
+        "10",
+        "12",
+        "1C",
+        "28",
+        "33",
+        "5H",
+        "B-",
+        "C-",
+        "CP",
+        "D",
+        "DC",
+        "E-",
+        "FC",
+        "FG",
+        "FY",
+        "HR",
+        "KG",
+        "MN",
+        "R4",
+        "S",
+        "S2",
+        "WD",
+        "YG"
+      ],
+      "thresholds": {
+        "-": {
+          "score": 0.0,
+          "margin": 0.3,
+          "oof_accepted": 54,
+          "oof_accuracy": 0.9074074074074074,
+          "target": 0.9
+        },
+        "--": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "-T": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "07": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "09": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "1-": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "10": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "12": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "1C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "28": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "33": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "5H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A": {
+          "score": 0.0,
+          "margin": 0.05,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "B": {
+          "score": 0.7,
+          "margin": 0.0,
+          "oof_accepted": 42,
+          "oof_accuracy": 0.9285714285714286,
+          "target": 0.9
+        },
+        "B-": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "BS": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "C": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "C-": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "CP": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "D": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "DC": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "E-": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "F": {
+          "score": 0.0,
+          "margin": 0.5,
+          "oof_accepted": 6,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "F2": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "F4": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 4,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "F5": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "F7": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FC": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FG": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "FY": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "HP": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "HR": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "K": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "KG": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "L": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "M": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "MN": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "N": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "R": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 240,
+          "oof_accuracy": 0.9208333333333333,
+          "target": 0.9
+        },
+        "R4": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "S": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "S2": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "T": {
+          "score": 0.6,
+          "margin": 0.0,
+          "oof_accepted": 356,
+          "oof_accuracy": 0.9129213483146067,
+          "target": 0.9
+        },
+        "TP": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 457,
+          "oof_accuracy": 0.9978118161925602,
+          "target": 0.9
+        },
+        "U": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "W": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "WD": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "YG": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        }
+      },
+      "model_status": "trained",
+      "selection_metric": "OOF macro F1, then accuracy",
+      "gpu_training_verified": true
+    },
+    "vendor": {
+      "classes": [
+        "-",
+        "0",
+        "1",
+        "3",
+        "4",
+        "6",
+        "A",
+        "B",
+        "D",
+        "H",
+        "J",
+        "M",
+        "N",
+        "P",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "Y"
+      ],
+      "model": "ensemble",
+      "weights": {
+        "xgb": 0.5,
+        "lgb": 0.5
+      },
+      "unsafe_labels": [
+        "3",
+        "4",
+        "6",
+        "A",
+        "J",
+        "M",
+        "N",
+        "R"
+      ],
+      "thresholds": {
+        "-": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 1692,
+          "oof_accuracy": 0.9509456264775413,
+          "target": 0.9
+        },
+        "0": {
+          "score": 0.0,
+          "margin": 0.2,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "1": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "3": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "4": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "6": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "A": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "B": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "D": {
+          "score": 0.85,
+          "margin": 0.0,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "H": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "J": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "M": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "N": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "P": {
+          "score": 0.85,
+          "margin": 0.0,
+          "oof_accepted": 11,
+          "oof_accuracy": 0.9090909090909091,
+          "target": 0.9
+        },
+        "R": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "S": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "T": {
+          "score": 0.0,
+          "margin": 0.0,
+          "oof_accepted": 3,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "U": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "V": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        },
+        "W": {
+          "score": 0.95,
+          "margin": 0.0,
+          "oof_accepted": 5,
+          "oof_accuracy": 1.0,
+          "target": 0.9
+        },
+        "Y": {
+          "score": 1.01,
+          "margin": 1.01,
+          "oof_accepted": 0,
+          "reason": "fewer than 3 correct-confidence validation predictions at target precision",
+          "target": 0.9
+        }
+      },
+      "model_status": "trained",
+      "selection_metric": "OOF macro F1, then accuracy",
+      "gpu_training_verified": true
+    }
+  },
+  "manual_source": {
+    "filename": "품목코드메뉴얼(정신전자) (1).pdf",
+    "sha256": "0a50aeb8e3529da605a9a7a98c022e262771c9b56697219fd0f439636e0c6767",
+    "pages": 30,
+    "reviewed_date": "2026-11-07",
+    "scope": "Manual layouts and code tables compared against original CSV values; no raw records overwritten",
+    "page_map": {
+      "17": [
+        25
+      ],
+      "18": [
+        26
+      ],
+      "19": [
+        27
+      ],
+      "25": [
+        28
+      ],
+      "98": [
+        30
+      ],
+      "99": [
+        29
+      ],
+      "J": [
+        1
+      ],
+      "CA": [
+        2,
+        3,
+        4
+      ],
+      "CB": [
+        2,
+        5,
+        6
+      ],
+      "CC": [
+        2,
+        5,
+        6
+      ],
+      "CE": [
+        2,
+        7,
+        8
+      ],
+      "CM": [
+        2,
+        7,
+        8
+      ],
+      "CF": [
+        2,
+        9,
+        10
+      ],
+      "CT": [
+        2,
+        11,
+        12
+      ],
+      "CV": [
+        13
+      ],
+      "D": [
+        13,
+        14,
+        15
+      ],
+      "DL": [
+        13,
+        14
+      ],
+      "RCP": [
+        16,
+        18
+      ],
+      "RAN": [
+        16,
+        17
+      ],
+      "RAS": [
+        16,
+        17
+      ],
+      "RCR": [
+        16,
+        19
+      ],
+      "RNA": [
+        16,
+        19
+      ],
+      "RMX": [
+        16,
+        19
+      ],
+      "RFU": [
+        16,
+        19
+      ],
+      "RFW": [
+        16,
+        19
+      ],
+      "RSU": [
+        16,
+        19
+      ],
+      "RWN": [
+        16,
+        19
+      ],
+      "RWS": [
+        16,
+        19
+      ],
+      "RXC": [
+        16,
+        19
+      ],
+      "RXM": [
+        16,
+        19
+      ],
+      "RJP": [
+        20
+      ],
+      "S": [
+        21
+      ],
+      "H": [
+        22,
+        23,
+        24
+      ],
+      "2590": [
+        28
+      ],
+      "2591": [
+        28
+      ]
+    },
+    "errata": [
+      {
+        "page": 21,
+        "conflict": "Semiconductor diagram S versus prose C / Fixed Capacitor",
+        "resolution": "Use diagram S; subtype SS/ST/SF and remaining layout are CSV-supported extensions, not definitions from this page"
+      },
+      {
+        "page": 25,
+        "conflict": "Variable resistor diagram 17 versus prose 18; switch entries are mixed with thermistors",
+        "resolution": "Use 17 for 75/76 thermistors, supported by CSV; explicitly support observed 1701 legacy switch but route new switches to 18"
+      },
+      {
+        "page": 27,
+        "conflict": "Connector diagram 19 versus prose 18",
+        "resolution": "Use diagram 19, supported by CSV connector rows"
+      }
+    ],
+    "decisions": [
+      "Thermistors 1775/1776 have 7-character part identifier, Packing at position 12, manufacturer/version at position 13",
+      "Separate six logical slot outputs from the actual category-specific order and widths",
+      "Reject prefix-plus-length-only matches when code table values are invalid",
+      "Keep out-of-manual customer and legacy codes unchanged as registered candidates; do not infer their segment semantics",
+      "Train detailed heads only from rule-validated reversible labels; fit selection on training folds only",
+      "Retain source and schema validation information for every output",
+      "Do not generate or reserve new serial identifiers from nearest neighbors",
+      "Fuse: 25 + 2-character subtype + 8-character series/current + 1-character version; Packing is not a fuse slot",
+      "Varistor: PDF p28 code tables plus CSV-confirmed physical positions. Disk=2590 + shape3 + identifier4 + pack1 + vendor1; Chip=2591 + shape2 + identifier5 + pack1 + vendor1",
+      "The PDF varistor paragraph says six identifier characters, inconsistent with its 13-position layout and CSV. The decoded widths are explicitly marked manual_and_csv, without changing any original code"
+    ]
+  },
+  "rules_sha256": "a3c20d88bb5c1ec2390f0493c4654edd7c20f9165aeb5a915af87ac8c561333a",
+  "detailed_label_policy": "Only code-table validated, reversible manual layouts; no invented segment labels for customer codes",
+  "identifier_candidate_widths": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    10
+  ],
+  "capacity_policy": {
+    "CE": {
+      "mode": "pf",
+      "evidence_counts": {
+        "pf": 117,
+        "uf": 5
+      },
+      "scope": "retained_training_only",
+      "manual_mode": "uf"
+    },
+    "CM": {
+      "mode": "uf",
+      "evidence_counts": {
+        "uf": 14,
+        "pf": 3
+      },
+      "scope": "retained_training_only",
+      "manual_mode": "uf"
+    }
+  },
+  "training_device": "cuda",
+  "validation": "Three shared grouped folds; evaluation input keys excluded",
+  "audited_learning_data": "artifacts/encoder_training_data",
+  "candidate_version": "atomic_v6",
+  "elapsed_seconds": 365.28153443336487,
+  "base_model": "generation_v5",
+  "refinement_policy": {
+    "use_attributes": true,
+    "use_router": true
+  },
+  "accuracy_inputs": [
+    "품목명",
+    "규격명"
+  ],
+  "prediction_contract": "one_shared_pipeline_six_heads_bounded_spectrum",
+  "spectrum_max_candidates": 10,
+  "web_lookup_scope": "retained_training_only",
+  "evaluation_rows_in_web_lookup": false
+}

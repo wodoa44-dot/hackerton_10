@@ -1,0 +1,7 @@
+{
+  "selected": "improved",
+  "candidate_policy": "atomic_v6, fixed before evaluation",
+  "training_only": true,
+  "final_evaluation_used_for_selection": false,
+  "gpu_training_verified": true
+}

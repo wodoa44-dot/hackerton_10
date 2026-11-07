@@ -25,7 +25,7 @@ from .schema import SLOTS
 
 class CompanyBridge:
     def __init__(self, node, rules_path=None):
-        self.node = node or shutil.which("node")
+        self.node = (shutil.which(node) if node else None) or shutil.which("node")
         self.rules_path = rules_path
         self.process = None
         self.lock = threading.Lock()

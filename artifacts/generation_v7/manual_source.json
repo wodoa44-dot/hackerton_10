@@ -1,0 +1,175 @@
+{
+  "filename": "품목코드메뉴얼(정신전자) (1).pdf",
+  "sha256": "0a50aeb8e3529da605a9a7a98c022e262771c9b56697219fd0f439636e0c6767",
+  "pages": 30,
+  "reviewed_date": "2026-11-07",
+  "scope": "Manual layouts and code tables compared against original CSV values; no raw records overwritten",
+  "page_map": {
+    "17": [
+      25
+    ],
+    "18": [
+      26
+    ],
+    "19": [
+      27
+    ],
+    "25": [
+      28
+    ],
+    "98": [
+      30
+    ],
+    "99": [
+      29
+    ],
+    "J": [
+      1
+    ],
+    "CA": [
+      2,
+      3,
+      4
+    ],
+    "CB": [
+      2,
+      5,
+      6
+    ],
+    "CC": [
+      2,
+      5,
+      6
+    ],
+    "CE": [
+      2,
+      7,
+      8
+    ],
+    "CM": [
+      2,
+      7,
+      8
+    ],
+    "CF": [
+      2,
+      9,
+      10
+    ],
+    "CT": [
+      2,
+      11,
+      12
+    ],
+    "CV": [
+      13
+    ],
+    "D": [
+      13,
+      14,
+      15
+    ],
+    "DL": [
+      13,
+      14
+    ],
+    "RCP": [
+      16,
+      18
+    ],
+    "RAN": [
+      16,
+      17
+    ],
+    "RAS": [
+      16,
+      17
+    ],
+    "RCR": [
+      16,
+      19
+    ],
+    "RNA": [
+      16,
+      19
+    ],
+    "RMX": [
+      16,
+      19
+    ],
+    "RFU": [
+      16,
+      19
+    ],
+    "RFW": [
+      16,
+      19
+    ],
+    "RSU": [
+      16,
+      19
+    ],
+    "RWN": [
+      16,
+      19
+    ],
+    "RWS": [
+      16,
+      19
+    ],
+    "RXC": [
+      16,
+      19
+    ],
+    "RXM": [
+      16,
+      19
+    ],
+    "RJP": [
+      20
+    ],
+    "S": [
+      21
+    ],
+    "H": [
+      22,
+      23,
+      24
+    ],
+    "2590": [
+      28
+    ],
+    "2591": [
+      28
+    ]
+  },
+  "errata": [
+    {
+      "page": 21,
+      "conflict": "Semiconductor diagram S versus prose C / Fixed Capacitor",
+      "resolution": "Use diagram S; subtype SS/ST/SF and remaining layout are CSV-supported extensions, not definitions from this page"
+    },
+    {
+      "page": 25,
+      "conflict": "Variable resistor diagram 17 versus prose 18; switch entries are mixed with thermistors",
+      "resolution": "Use 17 for 75/76 thermistors, supported by CSV; explicitly support observed 1701 legacy switch but route new switches to 18"
+    },
+    {
+      "page": 27,
+      "conflict": "Connector diagram 19 versus prose 18",
+      "resolution": "Use diagram 19, supported by CSV connector rows"
+    }
+  ],
+  "decisions": [
+    "Thermistors 1775/1776 have 7-character part identifier, Packing at position 12, manufacturer/version at position 13",
+    "Separate six logical slot outputs from the actual category-specific order and widths",
+    "Reject prefix-plus-length-only matches when code table values are invalid",
+    "Keep out-of-manual customer and legacy codes unchanged as registered candidates; do not infer their segment semantics",
+    "Train detailed heads only from rule-validated reversible labels; fit selection on training folds only",
+    "Retain source and schema validation information for every output",
+    "Do not generate or reserve new serial identifiers from nearest neighbors",
+    "Fuse: 25 + 2-character subtype + 8-character series/current + 1-character version; Packing is not a fuse slot",
+    "Varistor: PDF p28 code tables plus CSV-confirmed physical positions. Disk=2590 + shape3 + identifier4 + pack1 + vendor1; Chip=2591 + shape2 + identifier5 + pack1 + vendor1",
+    "The PDF varistor paragraph says six identifier characters, inconsistent with its 13-position layout and CSV. The decoded widths are explicitly marked manual_and_csv, without changing any original code"
+  ]
+}

@@ -16,7 +16,7 @@ def main():
                'grouped_validation.json','training_data_audit.json','tokenizer','validation_history.json','full_training_history.json']]
     else:
         files=['artifacts/'+name for name in ['generation_v6','generation_v7','encoder_v7','encoder_comparison','encoder_comparison_job.json']]
-    command='tar -czf - -C /data/erp_encoder_20261107_v7/source '+' '.join(files)
+    command='tar --exclude=*/batch_jobs -czf - -C /data/erp_encoder_20261107_v7/source '+' '.join(files)
     args.archive.parent.mkdir(parents=True,exist_ok=True)
     with args.archive.open('wb') as output:
         subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=8',

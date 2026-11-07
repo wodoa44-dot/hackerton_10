@@ -3,9 +3,12 @@ __pycache__/
 *.pyc
 .env
 *.joblib
+!artifacts/generation_v6/*.joblib
+!artifacts/generation_v7/*.joblib
 *.pt
 !artifacts/encoder_v7/weights.pt
+!artifacts/generation_v7/encoder/weights.pt
 *.safetensors
-artifacts/batch_jobs/
+**/batch_jobs/
 .recovery_env/
 *.log

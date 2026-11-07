@@ -1,0 +1,36 @@
+{
+  "status": "complete",
+  "started_at": 1794061419.6063538,
+  "steps": {
+    "prepare": {
+      "started_at": 1794061419.606816,
+      "status": "complete",
+      "finished_at": 1794061439.4805646
+    },
+    "encoder": {
+      "started_at": 1794061439.4810727,
+      "status": "complete",
+      "finished_at": 1794061538.0257704
+    },
+    "no_encoder": {
+      "started_at": 1794061713.0710123,
+      "status": "complete",
+      "finished_at": 1794062207.561835
+    },
+    "encoder_trees": {
+      "started_at": 1794062208.2491174,
+      "status": "complete",
+      "finished_at": 1794062426.0438347
+    },
+    "evaluation": {
+      "started_at": 1794062427.0941706,
+      "status": "complete",
+      "finished_at": 1794062711.3981507
+    }
+  },
+  "source_commit": "418b54412d38300c53469e1972a013cced969217",
+  "evaluation_used_for_fit_or_selection": false,
+  "phase": "complete",
+  "resumed_at": 1794061713.0705829,
+  "finished_at": 1794062712.3263657
+}

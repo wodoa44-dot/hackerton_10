@@ -1,0 +1,7 @@
+{
+  "kind": "fixed_utf8_bytes",
+  "vocabulary_size": 257,
+  "padding_id": 0,
+  "name_width": 128,
+  "spec_width": 384
+}

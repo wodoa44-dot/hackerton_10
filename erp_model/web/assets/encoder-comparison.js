@@ -58,6 +58,7 @@ window.renderEncoderComparison = function(info) {
     <section class="panel table-panel">
       <div class="context-heading"><h2>6개 칸별 비교</h2><label class="comparison-field-label">평가 결과<select id="encoder-slot-mode"><option value="final">최종 코드 결과</option><option value="raw">각 칸 학습 모델 자체</option></select></label></div>
       <p id="encoder-slot-note" class="muted"></p>
+      <p class="comparison-table-hint muted">표를 좌우로 밀어 두 모델의 결과를 비교하세요.</p>
       <div class="table-scroll"><table><thead><tr><th>예측 칸</th><th>채점 가능 / 전체</th><th>없음 · Top-1</th><th>사용 · Top-1</th><th id="encoder-a-k">없음 · Top-5</th><th id="encoder-b-k">사용 · Top-5</th><th>Top-K 차이</th><th>Macro F1 · 없음 / 사용</th></tr></thead><tbody id="encoder-slot-table"></tbody></table></div>
       <p class="muted">이 표는 각 칸 정답이 확인되는 행만 채점합니다. 위의 완성 코드 그래프는 선택한 범위 전체를 채점합니다. 지정값 정확도는 ‘-’, ‘--’ 등 미지정 정답을 제외한 별도 수치입니다.</p>
     </section>

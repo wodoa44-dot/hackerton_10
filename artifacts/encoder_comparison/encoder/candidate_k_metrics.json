@@ -1,0 +1,233 @@
+{
+  "max_k": 10,
+  "groups": {
+    "all": {
+      "n": 2850,
+      "predicted_rows": 2850,
+      "points": [
+        {
+          "k": 1,
+          "correct": 277,
+          "n": 2850,
+          "rate": 0.09719298245614034,
+          "average_candidates": 1.0
+        },
+        {
+          "k": 2,
+          "correct": 295,
+          "n": 2850,
+          "rate": 0.10350877192982456,
+          "average_candidates": 1.9992982456140351
+        },
+        {
+          "k": 3,
+          "correct": 310,
+          "n": 2850,
+          "rate": 0.10877192982456141,
+          "average_candidates": 2.9950877192982457
+        },
+        {
+          "k": 4,
+          "correct": 324,
+          "n": 2850,
+          "rate": 0.11368421052631579,
+          "average_candidates": 3.989122807017544
+        },
+        {
+          "k": 5,
+          "correct": 332,
+          "n": 2850,
+          "rate": 0.11649122807017544,
+          "average_candidates": 4.981754385964912
+        },
+        {
+          "k": 6,
+          "correct": 336,
+          "n": 2850,
+          "rate": 0.11789473684210526,
+          "average_candidates": 5.971578947368421
+        },
+        {
+          "k": 7,
+          "correct": 338,
+          "n": 2850,
+          "rate": 0.11859649122807017,
+          "average_candidates": 6.958947368421053
+        },
+        {
+          "k": 8,
+          "correct": 345,
+          "n": 2850,
+          "rate": 0.12105263157894737,
+          "average_candidates": 7.9445614035087715
+        },
+        {
+          "k": 9,
+          "correct": 349,
+          "n": 2850,
+          "rate": 0.1224561403508772,
+          "average_candidates": 8.922456140350878
+        },
+        {
+          "k": 10,
+          "correct": 350,
+          "n": 2850,
+          "rate": 0.12280701754385964,
+          "average_candidates": 9.896842105263158
+        }
+      ]
+    },
+    "manual": {
+      "n": 473,
+      "predicted_rows": 473,
+      "points": [
+        {
+          "k": 1,
+          "correct": 277,
+          "n": 473,
+          "rate": 0.5856236786469344,
+          "average_candidates": 1.0
+        },
+        {
+          "k": 2,
+          "correct": 285,
+          "n": 473,
+          "rate": 0.6025369978858351,
+          "average_candidates": 2.0
+        },
+        {
+          "k": 3,
+          "correct": 295,
+          "n": 473,
+          "rate": 0.6236786469344608,
+          "average_candidates": 3.0
+        },
+        {
+          "k": 4,
+          "correct": 306,
+          "n": 473,
+          "rate": 0.6469344608879493,
+          "average_candidates": 4.0
+        },
+        {
+          "k": 5,
+          "correct": 312,
+          "n": 473,
+          "rate": 0.6596194503171248,
+          "average_candidates": 5.0
+        },
+        {
+          "k": 6,
+          "correct": 315,
+          "n": 473,
+          "rate": 0.6659619450317125,
+          "average_candidates": 6.0
+        },
+        {
+          "k": 7,
+          "correct": 316,
+          "n": 473,
+          "rate": 0.6680761099365751,
+          "average_candidates": 7.0
+        },
+        {
+          "k": 8,
+          "correct": 321,
+          "n": 473,
+          "rate": 0.678646934460888,
+          "average_candidates": 7.997885835095137
+        },
+        {
+          "k": 9,
+          "correct": 325,
+          "n": 473,
+          "rate": 0.6871035940803383,
+          "average_candidates": 8.985200845665961
+        },
+        {
+          "k": 10,
+          "correct": 325,
+          "n": 473,
+          "rate": 0.6871035940803383,
+          "average_candidates": 9.972515856236786
+        }
+      ]
+    },
+    "unmapped": {
+      "n": 2377,
+      "predicted_rows": 2377,
+      "points": [
+        {
+          "k": 1,
+          "correct": 0,
+          "n": 2377,
+          "rate": 0.0,
+          "average_candidates": 1.0
+        },
+        {
+          "k": 2,
+          "correct": 10,
+          "n": 2377,
+          "rate": 0.004206983592763988,
+          "average_candidates": 1.9991586032814472
+        },
+        {
+          "k": 3,
+          "correct": 15,
+          "n": 2377,
+          "rate": 0.006310475389145982,
+          "average_candidates": 2.9941102229701304
+        },
+        {
+          "k": 4,
+          "correct": 18,
+          "n": 2377,
+          "rate": 0.007572570466975179,
+          "average_candidates": 3.9869583508624316
+        },
+        {
+          "k": 5,
+          "correct": 20,
+          "n": 2377,
+          "rate": 0.008413967185527976,
+          "average_candidates": 4.978123685317628
+        },
+        {
+          "k": 6,
+          "correct": 21,
+          "n": 2377,
+          "rate": 0.008834665544804375,
+          "average_candidates": 5.965923432898611
+        },
+        {
+          "k": 7,
+          "correct": 22,
+          "n": 2377,
+          "rate": 0.009255363904080775,
+          "average_candidates": 6.950778291964661
+        },
+        {
+          "k": 8,
+          "correct": 24,
+          "n": 2377,
+          "rate": 0.010096760622633571,
+          "average_candidates": 7.933950357593606
+        },
+        {
+          "k": 9,
+          "correct": 24,
+          "n": 2377,
+          "rate": 0.010096760622633571,
+          "average_candidates": 8.909970551114851
+        },
+        {
+          "k": 10,
+          "correct": 25,
+          "n": 2377,
+          "rate": 0.01051745898190997,
+          "average_candidates": 9.881783761043332
+        }
+      ]
+    }
+  }
+}

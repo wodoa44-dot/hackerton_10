@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "evaluation_rows": 2850,
+  "manual_rows": 473,
+  "checks": 120,
+  "k_values": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "variants": [
+    "no_encoder",
+    "encoder"
+  ],
+  "scope": "Recomputed complete-code curves and six slot results from exported per-row predictions."
+}

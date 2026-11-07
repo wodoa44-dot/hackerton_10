@@ -1,0 +1,475 @@
+{
+  "manual_source": {
+    "filename": "품목코드메뉴얼(정신전자) (1).pdf",
+    "sha256": "0a50aeb8e3529da605a9a7a98c022e262771c9b56697219fd0f439636e0c6767",
+    "pages": 30,
+    "reviewed_date": "2026-11-07",
+    "scope": "Manual layouts and code tables compared against original CSV values; no raw records overwritten",
+    "page_map": {
+      "17": [
+        25
+      ],
+      "18": [
+        26
+      ],
+      "19": [
+        27
+      ],
+      "25": [
+        28
+      ],
+      "98": [
+        30
+      ],
+      "99": [
+        29
+      ],
+      "J": [
+        1
+      ],
+      "CA": [
+        2,
+        3,
+        4
+      ],
+      "CB": [
+        2,
+        5,
+        6
+      ],
+      "CC": [
+        2,
+        5,
+        6
+      ],
+      "CE": [
+        2,
+        7,
+        8
+      ],
+      "CM": [
+        2,
+        7,
+        8
+      ],
+      "CF": [
+        2,
+        9,
+        10
+      ],
+      "CT": [
+        2,
+        11,
+        12
+      ],
+      "CV": [
+        13
+      ],
+      "D": [
+        13,
+        14,
+        15
+      ],
+      "DL": [
+        13,
+        14
+      ],
+      "RCP": [
+        16,
+        18
+      ],
+      "RAN": [
+        16,
+        17
+      ],
+      "RAS": [
+        16,
+        17
+      ],
+      "RCR": [
+        16,
+        19
+      ],
+      "RNA": [
+        16,
+        19
+      ],
+      "RMX": [
+        16,
+        19
+      ],
+      "RFU": [
+        16,
+        19
+      ],
+      "RFW": [
+        16,
+        19
+      ],
+      "RSU": [
+        16,
+        19
+      ],
+      "RWN": [
+        16,
+        19
+      ],
+      "RWS": [
+        16,
+        19
+      ],
+      "RXC": [
+        16,
+        19
+      ],
+      "RXM": [
+        16,
+        19
+      ],
+      "RJP": [
+        20
+      ],
+      "S": [
+        21
+      ],
+      "H": [
+        22,
+        23,
+        24
+      ],
+      "2590": [
+        28
+      ],
+      "2591": [
+        28
+      ]
+    },
+    "errata": [
+      {
+        "page": 21,
+        "conflict": "Semiconductor diagram S versus prose C / Fixed Capacitor",
+        "resolution": "Use diagram S; subtype SS/ST/SF and remaining layout are CSV-supported extensions, not definitions from this page"
+      },
+      {
+        "page": 25,
+        "conflict": "Variable resistor diagram 17 versus prose 18; switch entries are mixed with thermistors",
+        "resolution": "Use 17 for 75/76 thermistors, supported by CSV; explicitly support observed 1701 legacy switch but route new switches to 18"
+      },
+      {
+        "page": 27,
+        "conflict": "Connector diagram 19 versus prose 18",
+        "resolution": "Use diagram 19, supported by CSV connector rows"
+      }
+    ],
+    "decisions": [
+      "Thermistors 1775/1776 have 7-character part identifier, Packing at position 12, manufacturer/version at position 13",
+      "Separate six logical slot outputs from the actual category-specific order and widths",
+      "Reject prefix-plus-length-only matches when code table values are invalid",
+      "Keep out-of-manual customer and legacy codes unchanged as registered candidates; do not infer their segment semantics",
+      "Train detailed heads only from rule-validated reversible labels; fit selection on training folds only",
+      "Retain source and schema validation information for every output",
+      "Do not generate or reserve new serial identifiers from nearest neighbors",
+      "Fuse: 25 + 2-character subtype + 8-character series/current + 1-character version; Packing is not a fuse slot",
+      "Varistor: PDF p28 code tables plus CSV-confirmed physical positions. Disk=2590 + shape3 + identifier4 + pack1 + vendor1; Chip=2591 + shape2 + identifier5 + pack1 + vendor1",
+      "The PDF varistor paragraph says six identifier characters, inconsistent with its 13-position layout and CSV. The decoded widths are explicitly marked manual_and_csv, without changing any original code"
+    ]
+  },
+  "total_rows": 14249,
+  "status_counts": {
+    "outside_manual": 10313,
+    "layout_conflict": 1529,
+    "matched": 2407
+  },
+  "by_file": {
+    "dataset/ERP_원재료_training.csv": {
+      "outside_manual": 8234,
+      "layout_conflict": 1231,
+      "matched": 1934
+    },
+    "dataset/ERP_원재료_inference.csv": {
+      "outside_manual": 2079,
+      "layout_conflict": 298,
+      "matched": 473
+    }
+  },
+  "by_category": {
+    "outside_manual": {
+      "outside_manual": 10313
+    },
+    "J": {
+      "layout_conflict": 787
+    },
+    "RCP": {
+      "matched": 567,
+      "layout_conflict": 1
+    },
+    "19": {
+      "matched": 500
+    },
+    "RCR": {
+      "matched": 141,
+      "layout_conflict": 1
+    },
+    "CC": {
+      "matched": 201,
+      "layout_conflict": 1
+    },
+    "S": {
+      "layout_conflict": 456,
+      "matched": 84
+    },
+    "CT": {
+      "matched": 28,
+      "layout_conflict": 4
+    },
+    "RMX": {
+      "matched": 131,
+      "layout_conflict": 3
+    },
+    "DL": {
+      "matched": 71,
+      "layout_conflict": 35
+    },
+    "H": {
+      "matched": 45,
+      "layout_conflict": 30
+    },
+    "CE": {
+      "matched": 165,
+      "layout_conflict": 14
+    },
+    "99": {
+      "layout_conflict": 92,
+      "matched": 3
+    },
+    "D": {
+      "matched": 151,
+      "layout_conflict": 64
+    },
+    "17": {
+      "layout_conflict": 3,
+      "matched": 9
+    },
+    "RXC": {
+      "matched": 23
+    },
+    "CM": {
+      "matched": 28,
+      "layout_conflict": 2
+    },
+    "RAN": {
+      "matched": 7,
+      "layout_conflict": 1
+    },
+    "25": {
+      "layout_conflict": 7,
+      "matched": 24
+    },
+    "2590": {
+      "matched": 5
+    },
+    "CA": {
+      "matched": 45,
+      "layout_conflict": 7
+    },
+    "CF": {
+      "matched": 71,
+      "layout_conflict": 12
+    },
+    "RWN": {
+      "matched": 7
+    },
+    "RFW": {
+      "matched": 4
+    },
+    "18": {
+      "matched": 51,
+      "layout_conflict": 5
+    },
+    "RAS": {
+      "matched": 1
+    },
+    "RNA": {
+      "matched": 22
+    },
+    "RXM": {
+      "matched": 4
+    },
+    "RWS": {
+      "matched": 1
+    },
+    "CB": {
+      "matched": 7,
+      "layout_conflict": 2
+    },
+    "98": {
+      "matched": 6
+    },
+    "2591": {
+      "matched": 3,
+      "layout_conflict": 2
+    },
+    "RSU": {
+      "matched": 1
+    },
+    "RJP": {
+      "matched": 1
+    }
+  },
+  "field_conflicts": {
+    "J.mid:not_in_code_table": 787,
+    "J.origin:not_in_code_table": 787,
+    "J.state:not_in_code_table": 768,
+    "S.mid:not_in_code_table": 251,
+    "S.case:not_in_code_table": 439,
+    "S.pack:not_in_code_table": 258,
+    "S.vend:not_in_code_table": 219,
+    "DL.vend:not_in_code_table": 35,
+    "99.mid:not_in_code_table": 90,
+    "99.sep:fixed_separator": 91,
+    "17.pack:not_in_code_table": 3,
+    "25.mid:not_in_code_table": 7,
+    "CE.pack:not_in_code_table": 2,
+    "H.name:not_in_code_table": 17,
+    "H.tip:not_in_code_table": 17,
+    "H.len:invalid_dimension": 15,
+    "D.case:not_in_code_table": 52,
+    "D.pack:not_in_code_table": 14,
+    "D.char:not_in_code_table": 15,
+    "CA.tc:not_in_code_table": 1,
+    "CF.pitch:not_in_code_table": 5,
+    "18.mid:not_in_code_table": 5,
+    "CF.temp:not_in_code_table": 1,
+    "CF.vend:not_in_code_table": 2,
+    "CC.vend:not_in_code_table": 1,
+    "D.vend:not_in_code_table": 11,
+    "CM.volt:not_in_code_table": 2,
+    "RMX.res:invalid_resistance": 2,
+    "H.slot:not_in_code_table": 19,
+    "H.dia:invalid_dimension": 7,
+    "H.mat:not_in_code_table": 18,
+    "H.fin:not_in_code_table": 14,
+    "H.ext:fixed_separator": 10,
+    "H.head:not_in_code_table": 4,
+    "CF.volt:not_in_code_table": 4,
+    "CE.d:not_in_code_table": 2,
+    "CE.len:not_in_code_table": 5,
+    "CE.char:not_in_code_table": 4,
+    "RMX.shape:not_in_code_table": 1,
+    "CE.vend:not_in_code_table": 2,
+    "CA.volt:not_in_code_table": 5,
+    "RCR.shape:not_in_code_table": 1,
+    "CB.volt:not_in_code_table": 2,
+    "2591.vend:not_in_code_table": 2,
+    "CA.vend:not_in_code_table": 1,
+    "RCP.pack:not_in_code_table": 1,
+    "RCP.vend:not_in_code_table": 1,
+    "CT.volt:not_in_code_table": 2,
+    "CF.char:not_in_code_table": 1,
+    "CE.volt:not_in_code_table": 2,
+    "CE.tol:not_in_code_table": 1,
+    "17.mid:not_in_code_table": 1,
+    "CT.tol:not_in_code_table": 1,
+    "RAN.watt:not_in_code_table": 1,
+    "RAN.tol:not_in_code_table": 1,
+    "CT.pack:not_in_code_table": 1,
+    "RMX.pack:not_in_code_table": 1
+  },
+  "capacity_encoding": {
+    "CE": {
+      "pf": 150,
+      "uf": 8,
+      "value_conflict": 2
+    },
+    "CM": {
+      "uf": 18,
+      "pf": 3,
+      "value_conflict": 7
+    }
+  },
+  "source_hashes": {
+    "dataset/ERP_원재료_training.csv": "88b20641573ff5b1b0cd759a1ca29efc8390363791cb46258578f4685758eba2",
+    "dataset/ERP_원재료_inference.csv": "efe070556da31f6a0bbb81fd2a337dbe3706a8f2d45e682d80ee8340ec6f9d3a"
+  },
+  "samples": {
+    "outside_manual": [
+      {
+        "품목코드": "3612797960",
+        "품목명": "HARNESS AS",
+        "규격명": "T110‘S, PUMP-O, DRY-X, WATER_INLET-1, BUBBLE-O",
+        "comparison_notes": ""
+      },
+      {
+        "품목코드": "PZWF520-ACC08",
+        "품목명": "보조구",
+        "규격명": "290*65*290",
+        "comparison_notes": ""
+      },
+      {
+        "품목코드": "36151-0009800-00",
+        "품목명": "WINDOW COURSE",
+        "규격명": "TR-ABS, EURASIA, 1ST",
+        "comparison_notes": ""
+      },
+      {
+        "품목코드": "SZ417530101A",
+        "품목명": "MOLDING CASE(내수)",
+        "규격명": "ABS",
+        "comparison_notes": ""
+      }
+    ],
+    "layout_conflict": [
+      {
+        "품목코드": "JN200WSMPS---",
+        "품목명": "200W 방폭등 와이어작업",
+        "규격명": "200W방폭등 SMPS 와이어작업",
+        "comparison_notes": "mid=N2 (not_in_code_table); origin=- (not_in_code_table); state=- (not_in_code_table)"
+      },
+      {
+        "품목코드": "JSDSMPT0097--",
+        "품목명": "INDUCTOR",
+        "규격명": "SLF7055T-220M1R7-3PF SHIELDED,SMD,22uH,1.7A,64.3mOhm",
+        "comparison_notes": "mid=SD (not_in_code_table); origin=- (not_in_code_table); state=- (not_in_code_table)"
+      },
+      {
+        "품목코드": "SZ6011RT2008A",
+        "품목명": "REAR PANEL",
+        "규격명": "ABS HF380-16740(WHT)",
+        "comparison_notes": "mid=Z (not_in_code_table); case=00 (not_in_code_table); pack=8 (not_in_code_table); vend=A (not_in_code_table)"
+      },
+      {
+        "품목코드": "SZ8080WS4000A",
+        "품목명": "RATING LABEL",
+        "규격명": "WS-4000 PE-100／S692N／G",
+        "comparison_notes": "mid=Z (not_in_code_table); case=00 (not_in_code_table); pack=0 (not_in_code_table); vend=A (not_in_code_table)"
+      }
+    ],
+    "matched": [
+      {
+        "품목코드": "RCP63J1004TP-",
+        "품목명": "RES CHIP",
+        "규격명": "6432 J 1M GS공청 신규",
+        "comparison_notes": ""
+      },
+      {
+        "품목코드": "19LW114502---",
+        "품목명": "CONN WAFER",
+        "규격명": "LW1145-02",
+        "comparison_notes": ""
+      },
+      {
+        "품목코드": "RCRS-6J5601T-",
+        "품목명": "RES CARBON",
+        "규격명": "1／6 5.6K OHM J",
+        "comparison_notes": ""
+      },
+      {
+        "품목코드": "RCP10F1004TP-",
+        "품목명": "RES CHIP",
+        "규격명": "1608 F 1M",
+        "comparison_notes": ""
+      }
+    ]
+  },
+  "interpretation": "layout_conflict means not eligible for manual-based slot labels; the original code may belong to a different valid customer scheme"
+}
