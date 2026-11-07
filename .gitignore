@@ -4,6 +4,7 @@ __pycache__/
 .env
 *.joblib
 *.pt
+!artifacts/encoder_v7/weights.pt
 *.safetensors
 artifacts/batch_jobs/
 .recovery_env/
