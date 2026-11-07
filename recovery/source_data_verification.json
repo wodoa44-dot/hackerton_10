@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "original_csv_rows": {
+    "training": 11399,
+    "inference": 2850,
+    "full": 14249
+  },
+  "csv_canonical_hashes_match_previous_release": {
+    "training": "59445267a24e1f1a5f98751cb8eb758b98b1f5b9229bc7441c29fbd486147db8",
+    "inference": "fd8d8adcb201099f9ab13a054c3fdcdbff6f4ec18765ea56e2736176ad6ea9c2"
+  },
+  "retained_training_rows": 10834,
+  "parseable_training_rows": 1931,
+  "parseable_inference_rows": 473,
+  "reproduced_training_label_counts": {
+    "classification": 10629,
+    "trait": 1521,
+    "part_number": 724,
+    "case": 1386,
+    "packing": 1423,
+    "vendor": 1883
+  },
+  "reproduced_rank_groups": 546,
+  "python_syntax": "passed",
+  "trained_weights_recovered": false
+}

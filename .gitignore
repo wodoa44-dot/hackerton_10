@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.joblib
+*.pt
+*.safetensors
+artifacts/batch_jobs/
+.recovery_env/
+*.log

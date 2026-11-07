@@ -1,0 +1,616 @@
+{
+  "thread_id": "01a1b372-9895-7591-9195-1a5f2e892f48",
+  "source_restored": true,
+  "trained_weights_restored": false,
+  "encoder_trained": false,
+  "rules_sha256_matches_previous_release": true,
+  "rules_sha256": "a3c20d88bb5c1ec2390f0493c4654edd7c20f9165aeb5a915af87ac8c561333a",
+  "recorded_operations_replayed": 313,
+  "unavailable_original_files": [
+    "erp_model/diagnose_material.py",
+    "erp_model/evaluate_material.py",
+    "erp_model/evaluate.py",
+    "erp_model/report.py",
+    "tests/test_material.py"
+  ],
+  "recreated_or_local_sources": [
+    {
+      "path": "recovery/partial_sources/train_original_first145.py.txt",
+      "reason": "Incomplete historical capture; not imported"
+    },
+    {
+      "path": "erp_model/train.py",
+      "reason": "Original common helpers recovered; truncated legacy trainer replaced with current training entrypoint"
+    },
+    {
+      "path": "erp_model/__init__.py",
+      "reason": "Package marker recreated"
+    },
+    {
+      "path": "erp_model/train_material.py",
+      "reason": "Reconstructed compatibility helpers; not the missing original legacy trainer"
+    },
+    {
+      "path": "erp_model/encoder_data.py",
+      "reason": "Preserved local encoder/audit source from this chat"
+    },
+    {
+      "path": "erp_model/encoder_network.py",
+      "reason": "Preserved local encoder/audit source from this chat"
+    },
+    {
+      "path": "erp_model/encoder_runtime.py",
+      "reason": "Preserved local encoder/audit source from this chat"
+    },
+    {
+      "path": "erp_model/evaluate_encoder.py",
+      "reason": "Preserved local encoder/audit source from this chat"
+    },
+    {
+      "path": "erp_model/label_quality.py",
+      "reason": "Preserved local encoder/audit source from this chat"
+    },
+    {
+      "path": "erp_model/training_audit.py",
+      "reason": "Preserved local encoder/audit source from this chat"
+    },
+    {
+      "path": "erp_model/train_encoder.py",
+      "reason": "Preserved local encoder/audit source from this chat"
+    },
+    {
+      "path": "tests/test_encoder.py",
+      "reason": "Preserved local tests from this chat"
+    },
+    {
+      "path": "tests/test_training_quality.py",
+      "reason": "Preserved local tests from this chat"
+    },
+    {
+      "path": "requirements-encoder.txt",
+      "reason": "Recreated optional encoder dependencies"
+    },
+    {
+      "path": "requirements-browser.txt",
+      "reason": "Recreated optional browser-test dependency"
+    },
+    {
+      "path": ".gitignore",
+      "reason": "Recreated generated-file exclusions"
+    },
+    {
+      "path": "RECOVERY.md",
+      "reason": "Recovery status and instructions added"
+    }
+  ],
+  "unapplied_historical_edits_superseded_by_later_snapshots": [
+    {
+      "ordinal": 1804,
+      "path": "erp_model/web/assets/app.js",
+      "kind": "edit_missing_base_or_match",
+      "old_occurrences": 0
+    },
+    {
+      "ordinal": 1805,
+      "path": "erp_model/web/assets/app.js",
+      "kind": "edit_missing_base_or_match",
+      "old_occurrences": 0
+    },
+    {
+      "ordinal": 1807,
+      "path": "erp_model/web/assets/app.js",
+      "kind": "edit_missing_base_or_match",
+      "old_occurrences": 0
+    },
+    {
+      "ordinal": 1808,
+      "path": "erp_model/web/assets/app.js",
+      "kind": "edit_missing_base_or_match",
+      "old_occurrences": 0
+    },
+    {
+      "ordinal": 1828,
+      "path": "erp_model/web/assets/app.js",
+      "kind": "edit_missing_base_or_match",
+      "old_occurrences": 0
+    },
+    {
+      "ordinal": 1957,
+      "path": "erp_model/web/assets/app.js",
+      "kind": "edit_missing_base_or_match",
+      "old_occurrences": 0
+    },
+    {
+      "ordinal": 2166,
+      "path": "erp_model/web/assets/app.js",
+      "kind": "edit_missing_base_or_match",
+      "old_occurrences": 0
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 218,
+      "sha256": "7eaf133a51239f53fa9ed36383b6d08762c4360ea5601af8d35b3f1fe2048299"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 102,
+      "sha256": "48d7b2e88e4dfbb61d8f69d2ccf190d9bec01adf2d4f381154e658aab67334f6"
+    },
+    {
+      "path": "artifacts/generation_v5/company_rules.json",
+      "bytes": 145431,
+      "sha256": "a3c20d88bb5c1ec2390f0493c4654edd7c20f9165aeb5a915af87ac8c561333a"
+    },
+    {
+      "path": "artifacts/generation_v5/manual_source.json",
+      "bytes": 3531,
+      "sha256": "d598ffb7a017345884c1a246f17f59b1b3ce072b42293e1ceac7d9b51983a377"
+    },
+    {
+      "path": "artifacts/generation_v6/company_rules.json",
+      "bytes": 145431,
+      "sha256": "a3c20d88bb5c1ec2390f0493c4654edd7c20f9165aeb5a915af87ac8c561333a"
+    },
+    {
+      "path": "artifacts/generation_v6/manual_source.json",
+      "bytes": 3531,
+      "sha256": "d598ffb7a017345884c1a246f17f59b1b3ce072b42293e1ceac7d9b51983a377"
+    },
+    {
+      "path": "artifacts/manual_v5_before/company_rules.json",
+      "bytes": 137659,
+      "sha256": "85c5908e39998c2f7d7bb62cb680a4bcb3f71c2bdb385d6e59f798c117e21b5c"
+    },
+    {
+      "path": "config/code_rules.json",
+      "bytes": 1194,
+      "sha256": "2489feef43fb8d2344c0726973e93db00c2d1524f0be9893b5a4a5af3639a040"
+    },
+    {
+      "path": "config/company_rules.json",
+      "bytes": 145431,
+      "sha256": "a3c20d88bb5c1ec2390f0493c4654edd7c20f9165aeb5a915af87ac8c561333a"
+    },
+    {
+      "path": "config/manual_source.json",
+      "bytes": 3531,
+      "sha256": "d598ffb7a017345884c1a246f17f59b1b3ce072b42293e1ceac7d9b51983a377"
+    },
+    {
+      "path": "dataset/ERP_원재료_inference.csv",
+      "bytes": 274764,
+      "sha256": "efe070556da31f6a0bbb81fd2a337dbe3706a8f2d45e682d80ee8340ec6f9d3a"
+    },
+    {
+      "path": "dataset/ERP_원재료_training.csv",
+      "bytes": 1100993,
+      "sha256": "88b20641573ff5b1b0cd759a1ca29efc8390363791cb46258578f4685758eba2"
+    },
+    {
+      "path": "dataset/ERP_원재료_전체.csv",
+      "bytes": 1375648,
+      "sha256": "b9283e9f21edfd5498d71529942333a5e5e0b999b3f7280096fd3f408e18b3ca"
+    },
+    {
+      "path": "deploy/assemble_generation_v6.py",
+      "bytes": 2930,
+      "sha256": "058dfcc22b52467f98030a5f1c1f9aa9243bb7ff29cbbfe1ae38f7ebefea8280"
+    },
+    {
+      "path": "deploy/manage_web.py",
+      "bytes": 2324,
+      "sha256": "1500292463e2ba22939712801d0bd3b299bca0836291e5fbdd40065c85b5c963"
+    },
+    {
+      "path": "docs/build_architecture.py",
+      "bytes": 18936,
+      "sha256": "10d7db4fba736caabad7367d42b25e4a8e3e304e276ef25b7b58c1fd21a64311"
+    },
+    {
+      "path": "docs/erp-code-model-v6-onepage.png",
+      "bytes": 1916225,
+      "sha256": "b6d73e606327a2891ee7b3960593e8ae49508f04bddec81d1c199031b397ec96"
+    },
+    {
+      "path": "docs/erp-code-model-v6-onepage.svg",
+      "bytes": 597747,
+      "sha256": "658f572cd3f3dc4f6857b432c7241d811a727272fdb139e88f54ef8e7a96249c"
+    },
+    {
+      "path": "docs/README_chat_recovered.md",
+      "bytes": 12630,
+      "sha256": "752617def8a9a00f07fc2f82c182f6134511d5c2e68adb4920ffa20d50310818"
+    },
+    {
+      "path": "docs/품목코드메뉴얼(정신전자) (1).pdf",
+      "bytes": 543319,
+      "sha256": "0a50aeb8e3529da605a9a7a98c022e262771c9b56697219fd0f439636e0c6767"
+    },
+    {
+      "path": "erp_model/__init__.py",
+      "bytes": 69,
+      "sha256": "9d31b316358b946dddb94c0a668ddf6c457ecf73e4f0b4d36b2e9988b0f9d72c"
+    },
+    {
+      "path": "erp_model/__main__.py",
+      "bytes": 2387,
+      "sha256": "4907f6dcd516b6468ca3c54c8b52aa61694e16aad9d46c12dce79c73593ae299"
+    },
+    {
+      "path": "erp_model/accuracy_candidates.py",
+      "bytes": 5924,
+      "sha256": "ff38fb78a071ea3572bfecd1c17a5dacc57dbce336db13be474871dc309d41a4"
+    },
+    {
+      "path": "erp_model/accuracy_runtime.py",
+      "bytes": 12029,
+      "sha256": "1ac5e35af67cd41e51d8022362d8930e26d205fe85ef56c55e07a36ff0fb28b5"
+    },
+    {
+      "path": "erp_model/artifact_paths.py",
+      "bytes": 879,
+      "sha256": "952bbd4e58f0064c9dca853e9f2c94a1996a9232d66060b2b9cdfd15ba5ac55f"
+    },
+    {
+      "path": "erp_model/attribute_models.py",
+      "bytes": 5861,
+      "sha256": "c96b18b7948a1be338494af83049b24a1a80c8f7a768728331eb599c85ae7fdc"
+    },
+    {
+      "path": "erp_model/batch_csv.py",
+      "bytes": 13604,
+      "sha256": "a3de7956aedbb2f1d685ba6fa0fea7b88a8ae35b1408aeb61e9885bb163d7b4d"
+    },
+    {
+      "path": "erp_model/candidates_v2.py",
+      "bytes": 1191,
+      "sha256": "5139e31fecb963197f7af086b27d4f10a3a2d87f24d73f5879355bcdc9e42590"
+    },
+    {
+      "path": "erp_model/code_metrics.py",
+      "bytes": 3002,
+      "sha256": "4a5188d5437f93be7d2f9f9b3c5822d3f365d9749d91d4b547b210c29ce7e9a0"
+    },
+    {
+      "path": "erp_model/code_rules.py",
+      "bytes": 2564,
+      "sha256": "7eb5688a0ce3285d6650cfca2eb2393a29213c998c3192c87d0e3a600a62292f"
+    },
+    {
+      "path": "erp_model/company_bridge.cjs",
+      "bytes": 3623,
+      "sha256": "2cf637dff9202f4997fdb9130fbf3e3a6cb86d4cb7b7717ea167a6d799143898"
+    },
+    {
+      "path": "erp_model/company_engine.js",
+      "bytes": 29658,
+      "sha256": "a70f42accc67f0f21620b985e7a503e2d3d4c788ba4ea89a83b89c92b56bd5f1"
+    },
+    {
+      "path": "erp_model/company_schema.py",
+      "bytes": 8923,
+      "sha256": "13bd84e49bc1d76758998ac9badc4468d37dda20b27c13ab742326950b1f21d7"
+    },
+    {
+      "path": "erp_model/encoder_data.py",
+      "bytes": 4216,
+      "sha256": "de44d21d40cb59b507a44bbcd1d4123c61c0852a0210cc74b4b134249fea070b"
+    },
+    {
+      "path": "erp_model/encoder_network.py",
+      "bytes": 2909,
+      "sha256": "6d42713d29d8b82e91d331fcdb10245ec86fe160cf67784591ea21bb7ecbbb86"
+    },
+    {
+      "path": "erp_model/encoder_runtime.py",
+      "bytes": 5084,
+      "sha256": "4993d0e2f2887593f8bb71ae143d67ca7755df1bf5cabbe28639d6e2029debe2"
+    },
+    {
+      "path": "erp_model/evaluate_encoder.py",
+      "bytes": 4633,
+      "sha256": "08559d9d996040f72c93c71c32a727d6441bcd9092e4f5a1609a1e3948be45ad"
+    },
+    {
+      "path": "erp_model/evaluate_generation.py",
+      "bytes": 6046,
+      "sha256": "c30127adea91b39253bb33adfde8bc77e0e191a5527c96ea4666706fc39a7587"
+    },
+    {
+      "path": "erp_model/evaluate_spectrum.py",
+      "bytes": 11245,
+      "sha256": "7ed285faa5d925bd400c92e45d0c28980731fb5e29d846641afb5c2e4693a507"
+    },
+    {
+      "path": "erp_model/evaluation_audit.py",
+      "bytes": 2085,
+      "sha256": "63add1bbc6837606afc571d003c313d757004ba05badd37bae9f9c9528545330"
+    },
+    {
+      "path": "erp_model/existing_lookup.py",
+      "bytes": 3041,
+      "sha256": "da5f543636be86be1bda1eea728b489eb5a1d6b1816f29b1b25c28453912bcea"
+    },
+    {
+      "path": "erp_model/exploratory.py",
+      "bytes": 7502,
+      "sha256": "2dd1ed70efe281d303d855772dfc867f626e62d8acbf488a4f76ed0643762d11"
+    },
+    {
+      "path": "erp_model/family_model.py",
+      "bytes": 1509,
+      "sha256": "461484390a4511273ede19b0f889510925e18694fe9181f8534e1e28c1619cd9"
+    },
+    {
+      "path": "erp_model/features.py",
+      "bytes": 2486,
+      "sha256": "38594388ec4efe95f190505b4109eb48949e9ffc7ab2489f01bad604517f977a"
+    },
+    {
+      "path": "erp_model/generation.py",
+      "bytes": 25540,
+      "sha256": "f57a888be16a89fe939e90c378194822c6695edae4d46efb005916a97dc86fe2"
+    },
+    {
+      "path": "erp_model/inference.py",
+      "bytes": 7993,
+      "sha256": "10b0d11bd9db00e4c6e1751ce749645cfc5be1e3bec8a06992f6afd29d45c282"
+    },
+    {
+      "path": "erp_model/label_quality.py",
+      "bytes": 1676,
+      "sha256": "d2bc259d522d4a1c763b8dce68d60bc44bbae7cedd4d2993ae50d39af1b239e8"
+    },
+    {
+      "path": "erp_model/manual_audit.py",
+      "bytes": 6946,
+      "sha256": "007cc392ab0736dcd2a172a97cd6b9d9f372464700f05176b7a22a9fdce72c25"
+    },
+    {
+      "path": "erp_model/material_runtime.py",
+      "bytes": 9130,
+      "sha256": "5f817bb2f69731613228d824ba2144375a93a05decf293eb9b402bf1bbd54f01"
+    },
+    {
+      "path": "erp_model/material_schema.py",
+      "bytes": 3580,
+      "sha256": "22b13bce9ed02b7bf295af23a57d430be292ea2122fa9c5fe845c0a8fadd1ddc"
+    },
+    {
+      "path": "erp_model/models.py",
+      "bytes": 4249,
+      "sha256": "67574ea16236cc80e16dc584317039dc5e66ff38e741997ef651accf4b9d67d3"
+    },
+    {
+      "path": "erp_model/preprocess.py",
+      "bytes": 9595,
+      "sha256": "63d82a7db4349faf7724ac6b3e4516312d3176a8f5cb257372261ffde0610a9c"
+    },
+    {
+      "path": "erp_model/registry.py",
+      "bytes": 3310,
+      "sha256": "32b808bae42dc0656faf85dd38a822d9a4a71cd9efb6322c593586b39e48b447"
+    },
+    {
+      "path": "erp_model/schema.py",
+      "bytes": 966,
+      "sha256": "e972778f67d1908b87b58ea4653b17e13e9f8df524a4998191b9f3230f8d9a03"
+    },
+    {
+      "path": "erp_model/service.py",
+      "bytes": 6079,
+      "sha256": "64513454a42e1f4dc1d7a77bac563066d61d515d985ccc9c6daf47c5b61974cc"
+    },
+    {
+      "path": "erp_model/spectrum.py",
+      "bytes": 11563,
+      "sha256": "e2286a07d6996e1d0e154c4fe989856f2bed383b5686083675254c2ac56fc1f5"
+    },
+    {
+      "path": "erp_model/train.py",
+      "bytes": 3619,
+      "sha256": "693b4f6a44ad2b8090d872cde158cc429c4d86fb3c1e1aafa8f2a7f2c029349c"
+    },
+    {
+      "path": "erp_model/train_accuracy.py",
+      "bytes": 4071,
+      "sha256": "b7ff57ef4e416b6452e37e55cbee2d408e1d94aaef1ad20f823677ad0239624d"
+    },
+    {
+      "path": "erp_model/train_attributes.py",
+      "bytes": 4795,
+      "sha256": "c994a273f49efdc9458c31d598c6ec1031611fa633f12226ad7473c887d6b9f2"
+    },
+    {
+      "path": "erp_model/train_encoder.py",
+      "bytes": 14703,
+      "sha256": "08efde7848125034f322e92f5b384ff26a6638679f0f037586a312a306137ad1"
+    },
+    {
+      "path": "erp_model/train_generation.py",
+      "bytes": 11877,
+      "sha256": "ec9b8b7ad4a8d6592f3136670560abb4a65cb31b6004ad7329a1cb32c6f2fbf0"
+    },
+    {
+      "path": "erp_model/train_material.py",
+      "bytes": 871,
+      "sha256": "68fe6ef3c2e22fa7ed23c37acef4057e0ac91bafbba1082c5ecfe6d0fc59a387"
+    },
+    {
+      "path": "erp_model/train_verified.py",
+      "bytes": 8364,
+      "sha256": "ee10441fe012c47035314cf961b6340487f4e072e3944b2d9fa1e1a8d7c59977"
+    },
+    {
+      "path": "erp_model/training_audit.py",
+      "bytes": 12798,
+      "sha256": "5638828f0a893dfdcaa15f2bf6f43918bf77b668de31e31fe253f5b048a43c08"
+    },
+    {
+      "path": "erp_model/validate_accuracy.py",
+      "bytes": 7040,
+      "sha256": "7975d827f06bd38504530f6185d54f21dca6222d825c9cf3851319b38eff4c65"
+    },
+    {
+      "path": "erp_model/verified_predictor.py",
+      "bytes": 880,
+      "sha256": "f3736f012f356be7d5cd9c6fab1d29c54c11f4ae39a193afca0ef57f11843ed9"
+    },
+    {
+      "path": "erp_model/web/assets/app.js",
+      "bytes": 35191,
+      "sha256": "bb015d178be7acb268e5b6f3afcefc09bc75df7913e4ddca9f742481c1e40e99"
+    },
+    {
+      "path": "erp_model/web/assets/k-chart.js",
+      "bytes": 4996,
+      "sha256": "06d7b811429b270911a785b1df427732a6ef198bafca5c43d5e1734fcd57d1ad"
+    },
+    {
+      "path": "erp_model/web/assets/style.css",
+      "bytes": 21511,
+      "sha256": "ee8245f40378c568b38b2754d10e98bbee06a02379cad85ec91cde42355a1ab7"
+    },
+    {
+      "path": "erp_model/web/index.html",
+      "bytes": 16578,
+      "sha256": "7cd189204bd1b2a8ecdf90e1ed91fee6bf43362ab6eafb8ff940c9075066ea37"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2650,
+      "sha256": "804c6e50084310f17261be973f9b8465a8a13f26e0bb48181bf407da4cca8194"
+    },
+    {
+      "path": "recovery/historical_metadata/data_audit.json",
+      "bytes": 2216,
+      "sha256": "b1222e79d1e4fbe5233b9370f2ea5cd6bd1bbc9804fd47e55a79488997678cd4"
+    },
+    {
+      "path": "recovery/historical_metadata/training_quality_tests.log",
+      "bytes": 1510,
+      "sha256": "da107494084021ff264e9d39bcd7b1e7f0c711c7ce6c29adee03fcbfd8359f05"
+    },
+    {
+      "path": "recovery/partial_sources/train_original_first145.py.txt",
+      "bytes": 11120,
+      "sha256": "24fd3dc79dd7af612d55b415c90f7a40af5ae0fbd3e856fdcb55f60b5dfe4b7a"
+    },
+    {
+      "path": "recovery/run_source_tests.py",
+      "bytes": 2067,
+      "sha256": "3dfca8d0fc88e2ec4f510eea91eda1276ced97d08c3d003ef7d8cab3329c3ba3"
+    },
+    {
+      "path": "recovery/source_data_verification.json",
+      "bytes": 722,
+      "sha256": "b161ff1c5869f9ddb540309b6f0931ce1dd3b527974d2271a1dcdedb8a3f4e30"
+    },
+    {
+      "path": "recovery/source_tests.json",
+      "bytes": 261,
+      "sha256": "a52fc430cb7b504e186494c2dc70bb8fc8924816298764ff55976caa1d95fb2e"
+    },
+    {
+      "path": "recovery/verify_source_data.py",
+      "bytes": 4056,
+      "sha256": "cfdec27de23cc6a03ec5348b7969bb4034bc4d755c6deb99b6065b260011a634"
+    },
+    {
+      "path": "RECOVERY.md",
+      "bytes": 1805,
+      "sha256": "0cc15c848dd84761b7466af623dbfb2baff7dd245cc754033c6b35ca81aef6b9"
+    },
+    {
+      "path": "requirements-browser.txt",
+      "bytes": 20,
+      "sha256": "5f7908241daaa3620dfb3ba8018b9233d6e4511220173f5467b1140155728f1a"
+    },
+    {
+      "path": "requirements-encoder.txt",
+      "bytes": 65,
+      "sha256": "f568a6287dfb4d72ea33e2ca691323776c14cb998cc8388287c707a144e0e67b"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 139,
+      "sha256": "33a91afdfc087fb156ee11944d3e8f31174200ec9086a7f516937a47f3ef5e98"
+    },
+    {
+      "path": "tests/browser_csv_audit.py",
+      "bytes": 4775,
+      "sha256": "b8a26f326fa2c7521d107e7cb325b3d502062950941627eb7aa766c17538732e"
+    },
+    {
+      "path": "tests/browser_exploratory_k.py",
+      "bytes": 4024,
+      "sha256": "73390a20153777563b5bcb231595c7eef5713f7c7ec8e1092e71329b6b620c46"
+    },
+    {
+      "path": "tests/browser_generation.py",
+      "bytes": 5328,
+      "sha256": "ad606f6a7d8181958d28a059f49f3380fd9f2b83567e12beddd48e05bf087c39"
+    },
+    {
+      "path": "tests/browser_smoke.py",
+      "bytes": 3734,
+      "sha256": "b2ae271e8ce6be86e0b83233923fb2622ea21f5e0bafe0a2188de770bcc7ccc6"
+    },
+    {
+      "path": "tests/browser_spectrum.py",
+      "bytes": 5147,
+      "sha256": "23ab563660c6461af81e0a3a61e4866a3359dd82091e61de09caee4901fbae1c"
+    },
+    {
+      "path": "tests/test_csv_and_audit.py",
+      "bytes": 7855,
+      "sha256": "4821d2d9a3e2df86c8f7e207f9d1dd9103538cdfad6651f2317b025a3760115a"
+    },
+    {
+      "path": "tests/test_encoder.py",
+      "bytes": 2406,
+      "sha256": "5682d348ae6d0b1cb224ec6d1cf607cd341e3488b31d4b19f2062f9f21090f86"
+    },
+    {
+      "path": "tests/test_exploratory.py",
+      "bytes": 5853,
+      "sha256": "2be11197017a3b4878fdaf8863aa5c94af1b537d55e6ba18adb292e173e910c1"
+    },
+    {
+      "path": "tests/test_generation.py",
+      "bytes": 5663,
+      "sha256": "30c25cac90e7258f12aa1a35fbfda1d0fb17bd78acfec5041bd267b491d4c1f8"
+    },
+    {
+      "path": "tests/test_manual.py",
+      "bytes": 10912,
+      "sha256": "e90b46bdacbba5d18a5d3a9d4a5a4f06bb1f361f1a610741a33b6cf0398a6cdf"
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "bytes": 7612,
+      "sha256": "a45606c5cf3113664c9cbfd5e87f44659685938b923970a51a1cd9d94445c519"
+    },
+    {
+      "path": "tests/test_spectrum.py",
+      "bytes": 7076,
+      "sha256": "66a21ce72db2e947b1a8b812c868887512db26a29b6b818db4e42723e9cb0d97"
+    },
+    {
+      "path": "tests/test_training_quality.py",
+      "bytes": 4312,
+      "sha256": "3496d8a3ebe755a9785779db3d1eb55443d4de20974f616149068c7e2a22723e"
+    },
+    {
+      "path": "tests/test_web.py",
+      "bytes": 3335,
+      "sha256": "4c31ffbd6ec37629b26648924aed870da5a9ad99596ef5f2498dda73523952d3"
+    }
+  ],
+  "source_restore_status": "restored_with_documented_gaps",
+  "source_contract_tests_passed": 36,
+  "full_previous_model_evaluation_reproduced": false,
+  "recovery_workflow_recreated": "deploy/assemble_generation_v6.py"
+}

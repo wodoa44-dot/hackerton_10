@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "rules": [{
+    "code_scheme_id": "DIODE_GENERAL_13",
+    "verified": true,
+    "source": "User-provided general diode table: Python slices 0:1,1:2,2:9,9:11,11:12,12:13 and allowed values",
+    "pattern": "D[BFPRSUWZ][A-Z0-9-]{11}",
+    "length": 13,
+    "component_families": ["DIODE"],
+    "slots": {
+      "classification": {"start": 0, "end": 1, "allowed": ["D"]},
+      "trait": {"start": 1, "end": 2, "allowed": ["B","F","P","R","S","U","W","Z"]},
+      "part_number": {"start": 2, "end": 9, "not_only_hyphens": true},
+      "case": {"start": 9, "end": 11, "allowed": ["--","AD","BD","BS","C4","D1","D3","D4","DB","GJ","KL","KP","M3","M4","MD","MR","P6","R1","S1","S2","S3","S5","SA","SB","SC","T1","T2","T3","TA","TB","WB"]},
+      "packing": {"start": 11, "end": 12, "allowed": ["-","B","M","R","T"]},
+      "vendor": {"start": 12, "end": 13, "allowed": ["-","D","J","T","V","Y"]}
+    }
+  }],
+  "unverified_examples": [{"code": "60WH0083541A-R", "observed_length": 14, "observed_prefix": "60WH", "component_family": "THERMISTOR", "status": "unsupported_schema", "reason": "No verified semantic mapping for the six slots; never infer labels by fixed slicing"}]
+}

@@ -1,0 +1,9 @@
+{
+  "tests_run": 36,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "scope": "Recovered code contracts and synthetic encoder forward/backward; no pretrained download or model fitting.",
+  "lost_weight_dependent_evaluation_executed": false
+}

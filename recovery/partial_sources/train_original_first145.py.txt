@@ -1,0 +1,145 @@
+import csv
+import hashlib
+import json
+import platform
+from pathlib import Path
+from collections import Counter
+import numpy as np
+import joblib
+from sklearn.model_selection import StratifiedGroupKFold
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support, classification_report
+from .preprocess import preprocess, VERSION
+from .schema import labels, SLOTS, ALLOWED
+from .models import ClassifierBundle, RankBundle, WEIGHTS
+from .features import Features
+
+def write_json(path,obj):
+    Path(path).write_text(json.dumps(obj,ensure_ascii=False,indent=2,default=lambda x:x.item() if hasattr(x,'item') else str(x)),encoding='utf-8')
+def read_csv(path):
+    with open(path,encoding='utf-8-sig',newline='') as f:
+        data=list(csv.DictReader(f))
+    required={'품목명','규격명','품목코드'}
+    if not data or not required<=data[0].keys():raise ValueError('Missing CSV columns')
+    return data
+
+def metrics(y,pred,slot):
+    labs=sorted(set(y)|set(pred)); report=classification_report(y,pred,labels=labs,output_dict=True,zero_division=0)
+    out={'n':len(y),'accuracy':accuracy_score(y,pred),'macro_f1':report['macro avg']['f1-score'],'per_class':{k:report[k] for k in labs}}
+    if slot=='classification':out['D_precision']=report.get('D',{}).get('precision',0);out['D_recall']=report.get('D',{}).get('recall',0);out['D_f1']=report.get('D',{}).get('f1-score',0)
+    return out
+
+def score(m,slot):return m['D_f1'] if slot=='classification' else m['macro_f1']
+def forest_adopt(base,mix,slot):
+    if slot=='classification':return mix['D_precision']>=base['D_precision'] and mix['D_recall']>=base['D_recall'] and score(mix,slot)>score(base,slot)
+    return mix['macro_f1']>base['macro_f1']
+
+def thresholds(y,probs,classes,slot):
+    order=np.argsort(-probs,axis=1);best=probs[np.arange(len(y)),order[:,0]];second=probs[np.arange(len(y)),order[:,1]] if len(classes)>1 else np.zeros(len(y))
+    pred=np.array(classes)[order[:,0]];y=np.array(y);out={}
+    for label in classes:
+        target=.98 if slot=='classification' else .9
+        eligible=pred==label;winner=None
+        for cut in [0.,.4,.5,.6,.7,.8,.85,.9,.95,.98,.99]:
+            for gap in [0.,.05,.1,.2,.3,.5]:
+                mask=eligible&(best>=cut)&(best-second>=gap); n=int(mask.sum())
+                if n<3:continue
+                precision=float((pred[mask]==y[mask]).mean())
+                if precision>=target and (winner is None or (n,precision,-cut,-gap)>winner[0]):winner=((n,precision,-cut,-gap),{'score':cut,'margin':gap,'oof_accepted':n,'oof_accuracy':precision,'target':target})
+        out[label]=winner[1] if winner else {'score':1.01,'margin':1.01,'oof_accepted':0,'reason':'fewer than 3 correct-confidence validation predictions at target precision','target':target}
+    return out
+
+def candidate_audit(prepared,truth):
+    out={'n':len(prepared)}
+    for stage in [1,2,3]:
+        counts=[sum(c['stage']<=stage for c in p.candidates) for p in prepared]
+        hits=[y in {c['value'] for c in p.candidates if c['stage']<=stage} for p,y in zip(prepared,truth)]
+        out[str(stage)]={'included':sum(hits),'coverage':float(np.mean(hits)) if hits else 0,'candidate_mean':float(np.mean(counts)) if counts else 0,'candidate_median':float(np.median(counts)) if counts else 0,'candidate_max':max(counts,default=0)}
+    return out
+
+def train(train_path,eval_path,out_dir,full_path=None):
+    out=Path(out_dir);out.mkdir(parents=True,exist_ok=True)
+    raw=read_csv(train_path); final_raw=read_csv(eval_path)
+    print('Preprocessing inputs (only name/spec)',flush=True)
+    pp=[preprocess(r['품목명'],r['규격명']) for r in raw]
+    ep=[preprocess(r['품목명'],r['규격명']) for r in final_raw]
+    eval_keys={p.key for p in ep};keep=[i for i,p in enumerate(pp) if p.key not in eval_keys]
+    lab=[labels(r['품목코드']) for r in raw]
+    detail_original=[i for i,l in enumerate(lab) if l[1]]
+    classification_idx=[i for i in keep if 'classification' in lab[i][0]]
+    detail_idx=[i for i in keep if lab[i][1]]
+    audit={'train_rows':len(raw),'evaluation_rows':len(final_raw),'total_rows':len(raw)+len(final_raw),'excluded_overlap_rows':len(raw)-len(keep),'remaining_training_rows':len(keep),
+           'train_regex_matches':sum(l[0].get('classification')=='D' for l in lab),'train_detail_original':len(detail_original),'train_detail_after_overlap':len(detail_idx),
+           'classification_training_rows':len(classification_idx),'classification_review_rows':sum(not l[0] for l in lab),
+           'code_overlap':len({r['품목코드'].upper() for r in raw}&{r['품목코드'].upper() for r in final_raw}),
+           'normalized_input_overlap_after_exclusion':len({pp[i].key for i in keep}&eval_keys),'full_file_status':'not provided; only train+evaluation counts verified',
+           'candidate_audit_original_107':candidate_audit([pp[i] for i in detail_original],[lab[i][0]['part_number'] for i in detail_original]),
+           'candidate_audit_retained':candidate_audit([pp[i] for i in detail_idx],[lab[i][0]['part_number'] for i in detail_idx]),
+           'raw_sha256':{str(p):hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in [train_path,eval_path]}}
+    if full_path:
+        full=read_csv(full_path)
+        def counter(rs):return Counter(tuple(sorted(r.items())) for r in rs)
+        audit['full_file_status']={'rows':len(full),'multiset_matches':counter(full)==counter(raw+final_raw)}
+        if not audit['full_file_status']['multiset_matches']:raise ValueError('Full CSV does not match train+evaluation multiset')
+    assert audit['normalized_input_overlap_after_exclusion']==0
+    review=[{'source_row':i+2,'code':raw[i]['품목코드'],'reasons':lab[i][2]} for i in range(len(raw)) if lab[i][2]]
+    write_json(out/'label_review_training.json',review)
+    groups=[json.dumps(pp[i].key,ensure_ascii=False) for i in classification_idx]
+    cy=[lab[i][0]['classification'] for i in classification_idx]
+    folds={}
+    for f,(_,valid) in enumerate(StratifiedGroupKFold(3,shuffle=True,random_state=42).split(np.zeros(len(cy)),cy,groups)):
+        for j in valid:folds[classification_idx[j]]=f
+    assert len(folds)==len(classification_idx)
+    for f in range(3):assert not {pp[i].key for i in folds if folds[i]==f}&{pp[i].key for i in folds if folds[i]!=f}
+    with (out/'fold_assignments.csv').open('w',encoding='utf-8-sig',newline='') as fh:
+        w=csv.writer(fh);w.writerow(['source_row','normalized_name','normalized_spec','classification','detail_eligible','fold'])
+        for i,f in folds.items():w.writerow([i+2,*pp[i].key,lab[i][0]['classification'],lab[i][1],f])
+    audit['folds']={str(f):{'classification':dict(Counter(lab[i][0]['classification'] for i in folds if folds[i]==f)),'detail':sum(folds[i]==f for i in detail_idx)} for f in range(3)}
+    write_json(out/'data_audit.json',audit)
+    manifest={'version':VERSION,'seed':42,'python':platform.python_version(),'slots':{},'feature_inputs':['품목명','규격명'],'preprocessor':{'normalization':'NFKC, uppercase, dash unification, whitespace collapse','tfidf':{'analyzer':'char','ngram_range':[2,4],'min_df':2,'max_features_per_column':10000}},'validation':'StratifiedGroupKFold(n_splits=3, shuffle=True, random_state=42), classification labels, shared groups','confirmation_note':'Thresholds selected on pooled training OOF predictions; these are empirical scores, not calibrated guarantees.'}
+    # A single shared text vocabulary per fold, fitted exclusively on that fold's training inputs.
+    shared={f:Features('classification',False).fit([pp[i] for i in classification_idx if folds[i]!=f]).text for f in range(3)}
+    shared_final=Features('classification',False).fit([pp[i] for i in classification_idx]).text
+    comparisons={};oof_records={};issues=[]
+    for slot in SLOTS:
+        idx=classification_idx if slot=='classification' else detail_idx
+        rows=[pp[i] for i in idx];y=[lab[i][0][slot] for i in idx];classes=sorted(set(y));sf=np.array([folds[i] for i in idx])
+        print('Training slot',slot,'rows',len(idx),'classes',len(classes),flush=True)
+        modes={}; buffers={}; unsafe=set()
+        for structured in [False,True]:
+            mode='tfidf_structured' if structured else 'tfidf'
+            if slot=='part_number':
+                preds={k:['']*len(idx) for k in ['xgb','lgb','ensemble']};rank_oof=[None]*len(idx)
+            else:probs={k:np.zeros((len(idx),len(classes))) for k in (['xgb','lgb','ensemble','forest','ensemble_forest'] if slot in ['classification','packing'] else ['xgb','lgb','ensemble'])}
+            fold_info=[]
+            for f in range(3):
+                ti=np.flatnonzero(sf!=f);vi=np.flatnonzero(sf==f)
+                if not len(ti) or not len(vi):raise ValueError('Empty train/validation fold '+slot)
+                tr=[rows[j] for j in ti];va=[rows[j] for j in vi];yt=[y[j] for j in ti]
+                absent=sorted(set(classes)-set(yt));unsafe.update(absent)
+                info={'fold':f,'train':len(ti),'valid':len(vi),'absent_training_labels':absent}
+                if slot=='part_number':
+                    model=RankBundle(structured).fit(tr,yt,shared[f]);ranks=model.rankings(va)
+                    info['mixed_candidate_train_groups']=model.train_groups
+                    for j,rr in zip(vi,ranks):
+                        rank_oof[j]=rr
+                        for kind,values in rr.items():preds[kind][j]=rows[j].candidates[int(np.argmin(values))]['value'] if values else ''
+                else:
+                    model=ClassifierBundle(slot,structured).fit(tr,yt,shared[f]);ps=model.probabilities(va,classes)
+                    for k in probs:probs[k][vi]=ps[k]
+                if model.issue:info['untrainable']=model.issue
+                fold_info.append(info)
+                print(' ',mode,'fold',f,'done',flush=True)
+            if slot=='part_number':
+                mm={k:{'n':len(y),'top1_accuracy':float(np.mean(np.array(v)==y)),'top1_correct':int(sum(a==b for a,b in zip(v,y)))} for k,v in preds.items()}
+                mm['candidate_audit']=candidate_audit(rows,y);mm['folds']=fold_info
+                modes[mode]=mm;buffers[mode]={'preds':preds,'ranks':rank_oof}
+            else:
+                mm={k:metrics(y,np.array(classes)[p.argmax(axis=1)].tolist(),slot) for k,p in probs.items()}
+                mm['folds']=fold_info
+                if slot in ['classification','packing']:
+                    base_pred=np.array(classes)[probs['ensemble'].argmax(axis=1)];rf_pred=np.array(classes)[probs['forest'].argmax(axis=1)];yy=np.array(y)
+                    mm['forest_complement']={'base_wrong':int(sum(base_pred!=yy)),'forest_rescued_base_errors':int(sum((base_pred!=yy)&(rf_pred==yy))),'forest_broke_base_correct':int(sum((base_pred==yy)&(rf_pred!=yy))),
+                       'adopt_mixture':forest_adopt(mm['ensemble'],mm['ensemble_forest'],slot),'criterion':'D precision and recall must not fall, D F1 must improve' if slot=='classification' else 'macro F1 must improve'}
+                modes[mode]=mm;buffers[mode]=probs
+        comparisons[slot]=modes
+        if slot=='part_number':
