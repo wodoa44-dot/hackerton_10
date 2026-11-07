@@ -38,30 +38,41 @@ window.renderEncoderComparison = function(info) {
     panel.innerHTML = '<div class="panel table-panel"><h2>학습 인코더 유무 · Top-K 비교</h2><p class="muted">두 방식의 학습과 동일 평가가 끝나면 이곳에 실제 수치가 표시됩니다. 결과가 준비되기 전에는 정확도를 표시하지 않습니다.</p></div>';
     return;
   }
-  page.querySelector('.page-heading p').textContent = '동일한 평가 행과 후보 수로 학습 인코더의 효과를 비교합니다. 학습 내부 검증으로 모델과 학습 횟수를 정했습니다.';
+  page.querySelector('.page-heading p').textContent = '분류·특성·세분류/품번·형상·Packing·Vendor의 독립 결과를 각각 비교합니다. 각 칸의 K와 평가 건수를 따로 확인하세요.';
   const badge = page.querySelector('.page-heading .outline-badge');
   if (badge) badge.textContent = '동일 조건 · 실제 비교 평가';
   panel.innerHTML = `
     <section class="panel comparison-intro">
-      <div class="context-heading"><div><div class="eyebrow">ENCODER A/B · TOP-K</div><h2>학습 인코더를 더했을 때 얼마나 달라졌나요?</h2></div><span class="outline-badge">후보 상한 10개 · 두 방식 동일</span></div>
+      <div class="context-heading"><div><div class="eyebrow">SIX OUTPUTS · ENCODER A/B</div><h2>6개 코드의 결과를 각각 확인하세요.</h2></div><span class="outline-badge">칸별 독립 Top-K</span></div>
       <p>공통 전처리 → TF-IDF·구조화 특징 → XGBoost·LightGBM·Forest → 코드 규칙과 후보 조합. 인코더 사용 방식은 여기에 <strong>직접 학습한 문자 CNN 특징</strong>을 추가합니다. 칸별 모델 선택·가중치와 조회·규칙은 동일하게 유지했습니다.</p>
-      <div class="comparison-controls"><label>평가 범위<select id="encoder-scope"><option value="all">전체 품목</option><option value="manual">매뉴얼 해석 가능</option><option value="unmapped">구간 규칙 미확인</option></select></label><label>K · 확인할 완성 코드 후보 수<select id="encoder-k">${Array.from({length:10},(_,i)=>'<option value="'+(i+1)+'"'+(i===4?' selected':'')+'>Top-'+(i+1)+'</option>').join('')}</select></label></div>
-      <p id="encoder-scope-note" class="muted"></p>
     </section>
-    <div class="comparison-cards" id="encoder-summary"></div>
-    <section class="panel table-panel">
+    <section class="slot-results-section" id="encoder-slot-section">
+      <div class="context-heading"><h2>6개 코드별 독립 평가 결과</h2><label class="comparison-field-label">평가 기준<select id="encoder-slot-mode"><option value="raw">각 칸 학습 모델의 후보</option><option value="part">규칙을 반영한 각 칸의 후보</option><option value="joint">완성 코드에서 해석한 각 칸</option></select></label></div>
+      <p id="encoder-slot-note" class="muted"></p>
+      <div class="comparison-legend">${series.map(([,label,color])=>'<span><i style="background:'+color+'"></i>'+label+'</span>').join('')}</div>
+      <div class="independent-slot-grid">${slotLabels.map(([slot,label],index)=>`
+        <article class="panel independent-slot-panel" data-slot-panel="${slot}" aria-labelledby="encoder-slot-title-${slot}">
+          <div class="context-heading"><div><span class="slot-number">0${index+1}</span><h3 id="encoder-slot-title-${slot}">${label}</h3></div><label class="slot-k-label" for="encoder-slot-k-${slot}">이 칸의 K<select id="encoder-slot-k-${slot}" data-slot-k-select="${slot}">${Array.from({length:10},(_,i)=>'<option value="'+(i+1)+'"'+(i===4?' selected':'')+'>Top-'+(i+1)+'</option>').join('')}</select></label></div>
+          <p class="slot-scope muted" id="encoder-slot-scope-${slot}"></p>
+          <div class="slot-score-cards" id="encoder-slot-scores-${slot}"></div>
+          <p class="slot-macro muted" id="encoder-slot-macro-${slot}"></p>
+          <div class="slot-k-chart" id="encoder-slot-chart-${slot}" data-slot-chart="${slot}"></div>
+          <p class="slot-chart-detail" id="encoder-slot-detail-${slot}" role="status" aria-live="polite"></p>
+          <p class="comparison-table-hint muted">표를 좌우로 밀어 비교하세요.</p>
+          <div class="table-scroll"><table><thead><tr><th>K</th><th>인코더 없음</th><th>인코더 사용</th><th>차이</th></tr></thead><tbody id="encoder-slot-table-${slot}"></tbody></table></div>
+          <div class="slot-downloads"><button type="button" class="batch-secondary" data-slot-svg="${slot}">이 칸 그래프 ↓</button><button type="button" class="batch-secondary" data-slot-csv="${slot}">이 칸 Top-K CSV ↓</button></div>
+          <div class="slot-row-downloads"><a href="comparison-downloads/no_encoder/${slot}_predictions.csv" download>없음 · 행별 결과 ↓</a><a href="comparison-downloads/encoder/${slot}_predictions.csv" download>사용 · 행별 결과 ↓</a></div>
+          ${slot==='part_number'?'<p class="muted slot-special-note">수치형 세분류도 평가에 포함됩니다. 학습 모델 후보 모드에서는 수치 계산 규칙을 적용하기 전의 품번 후보를 채점합니다.</p>':''}
+        </article>`).join('')}</div>
+    </section>
+    <details class="whole-code-results" id="encoder-whole-results"><summary>완성 코드 조합 결과도 보기 <span>6개 칸을 합친 코드의 Top-K</span></summary><section class="panel table-panel">
       <div class="context-heading"><h2>완성 코드 · K에 따른 정답 포함률</h2><button id="encoder-chart-save" class="batch-secondary" type="button">그래프 저장 ↓</button></div>
       <p class="muted">Hit@K = 앞의 K개 완성 코드 안에 원본 정답 코드가 있는 행 수 ÷ 해당 범위의 전체 행 수. 코드가 나오지 않은 행도 분모에 포함합니다. K보다 후보가 적으면 실제 생성된 후보까지만 확인합니다.</p>
+      <div class="comparison-controls"><label>완성 코드 평가 범위<select id="encoder-scope"><option value="all">전체 품목</option><option value="manual">매뉴얼 해석 가능</option><option value="unmapped">구간 규칙 미확인</option></select></label><label>완성 코드의 K<select id="encoder-k">${Array.from({length:10},(_,i)=>'<option value="'+(i+1)+'"'+(i===4?' selected':'')+'>Top-'+(i+1)+'</option>').join('')}</select></label></div>
+      <p id="encoder-scope-note" class="muted"></p><div class="comparison-cards" id="encoder-summary"></div>
       <div id="encoder-legend" class="comparison-legend"></div><div id="encoder-chart" class="comparison-chart"></div><p id="encoder-chart-detail" class="k-chart-detail" role="status" aria-live="polite"></p>
       <div class="table-scroll"><table><thead><tr><th>후보 수 K</th><th>학습 인코더 없음</th><th>학습 인코더 사용</th><th>차이 · 사용 − 없음</th><th>평균 생성 후보 수 · 없음 / 사용</th></tr></thead><tbody id="encoder-k-table"></tbody></table></div>
-    </section>
-    <section class="panel table-panel">
-      <div class="context-heading"><h2>6개 칸별 비교</h2><label class="comparison-field-label">평가 결과<select id="encoder-slot-mode"><option value="final">최종 코드 결과</option><option value="raw">각 칸 학습 모델 자체</option></select></label></div>
-      <p id="encoder-slot-note" class="muted"></p>
-      <p class="comparison-table-hint muted">표를 좌우로 밀어 두 모델의 결과를 비교하세요.</p>
-      <div class="table-scroll"><table><thead><tr><th>예측 칸</th><th>채점 가능 / 전체</th><th>없음 · Top-1</th><th>사용 · Top-1</th><th id="encoder-a-k">없음 · Top-5</th><th id="encoder-b-k">사용 · Top-5</th><th>Top-K 차이</th><th>Macro F1 · 없음 / 사용</th></tr></thead><tbody id="encoder-slot-table"></tbody></table></div>
-      <p class="muted">이 표는 각 칸 정답이 확인되는 행만 채점합니다. 위의 완성 코드 그래프는 선택한 범위 전체를 채점합니다. 지정값 정확도는 ‘-’, ‘--’ 등 미지정 정답을 제외한 별도 수치입니다.</p>
-    </section>
+    </section></details>
     <section class="panel table-panel">
       <h2>예측 결과 다운로드</h2><p class="muted">같은 행의 두 방식 결과와 K별 정답 여부를 직접 대조할 수 있습니다.</p>
       <div class="downloads"><a class="download-link" href="comparison-downloads/paired_predictions.csv" download>행별 A/B 결과 CSV ↓</a><a class="download-link" href="comparison-downloads/top_k_comparison.csv" download>Top-1·3·5·10 CSV ↓</a><a class="download-link" href="comparison-downloads/candidate_k_curve.csv" download>K=1~10 전체 수치 CSV ↓</a><a class="download-link" href="comparison-downloads/six_slot_comparison.csv" download>6개 칸 평가 CSV ↓</a></div>
@@ -69,7 +80,7 @@ window.renderEncoderComparison = function(info) {
       <details class="comparison-protocol"><summary>비교 조건과 평가 범위</summary><div id="encoder-protocol"></div></details>
     </section>`;
   const $c = id => document.getElementById(id);
-  const active = {scope:'all',k:5,mode:'final'};
+  const active = {scope:'all',k:5,mode:'raw',slotK:Object.fromEntries(slotLabels.map(([slot])=>[slot,5]))};
   const group = id => report.variants[id].candidate_k_metrics.groups[active.scope];
   const point = (id,k) => group(id).points.find(value => value.k === k) || {};
   function chart() {
@@ -93,18 +104,60 @@ window.renderEncoderComparison = function(info) {
     });
     $c('encoder-chart-detail').textContent = 'Top-'+active.k+' · '+series.map(([id,label])=>{const p=point(id,active.k);return label+' '+fmt(p.rate)+' ('+count(p.correct)+'/'+count(p.n)+'건)';}).join(' · ');
   }
-  function renderSlots() {
-    const k=active.k, raw=active.mode==='raw';
-    $c('encoder-a-k').textContent='없음 · Top-'+k;
-    $c('encoder-b-k').textContent='사용 · Top-'+k;
-    $c('encoder-slot-note').textContent=raw ? '입력 규칙·조회·코드 조합 전, 각 칸 학습 모델의 후보를 따로 채점합니다. Top-K는 독립 칸 후보 K개 안의 정답 포함률이며 완성 코드 Top-K와 다릅니다. 수치형 세분류도 같은 정답 범위에 포함하므로 규칙으로 계산해야 하는 값은 원시 품번 랭커에서 오답이 될 수 있습니다. 이 표는 위 범위 필터와 독립적으로 칸별 전체 채점 가능 행을 평가합니다.' : 'Top-1은 최종 표시된 칸 값의 정확도입니다. Top-K는 앞의 K개 완성 코드에서 해석 가능한 해당 칸 중 정답이 하나라도 있는 비율입니다. 각 칸의 후보를 임의로 섞지 않습니다. 이 표는 위 그래프의 범위 필터와 독립적으로 칸별 전체 채점 가능 행을 평가합니다.';
-    $c('encoder-slot-table').innerHTML=slotLabels.map(([slot,label])=>{
-      const values=series.map(([id])=>raw ? report.variants[id].raw_heads?.[slot] : report.variants[id].slots[slot]);
-      const [a,b]=values, audits=series.map(([id])=>report.variants[id].slots[slot].audit || {});
-      const rates=values.map(value=>(raw?value?.at_k:value?.joint_at_k)?.[String(k)]);
-      const top1=values.map((value,i)=>'<td>'+fmt(value?.accuracy)+(raw?'':'<small>지정값 '+fmt(audits[i].designated_accuracy)+' · '+count(audits[i].designated_correct)+'/'+count(audits[i].designated_n)+'</small>')+'</td>').join('');
-      return '<tr><th scope="row">'+label+'</th><td>'+count(a?.n)+' / '+count(report.variants.no_encoder.evaluation_rows)+'<small>'+fmt(audits[0].coverage)+' 채점 가능</small></td>'+top1+rates.map(value=>'<td>'+fmt(value?.rate)+'<small>'+count(value?.correct)+' / '+count(value?.n)+'</small></td>').join('')+'<td>'+delta(rates[0]?.rate,rates[1]?.rate)+'</td><td>'+fmt(a?.macro_f1)+' / '+fmt(b?.macro_f1)+'</td></tr>';
+  const modeLabels={raw:'각 칸 학습 모델의 후보',part:'규칙을 반영한 각 칸의 후보',joint:'완성 코드에서 해석한 각 칸'};
+  function slotPoints(variant,slot) {
+    const data=report.variants[variant];
+    return active.mode==='raw' ? data.raw_heads?.[slot]?.at_k : data.slots[slot][active.mode==='part'?'marginal_at_k':'joint_at_k'];
+  }
+  const slotPoint=(variant,slot,k)=>slotPoints(variant,slot)?.[String(k)] || {};
+  function drawSlot(slot) {
+    const host=$c('encoder-slot-chart-'+slot),label=slotLabels.find(([key])=>key===slot)[1],selected=active.slotK[slot];
+    const w=Math.max(260,Math.round(host.clientWidth || 480)),h=250,l=44,r=14,t=24,b=42;
+    const x=k=>l+(k-1)*(w-l-r)/9,y=v=>t+(1-v)*(h-t-b);
+    let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+w+' '+h+'" width="100%" role="img" aria-labelledby="slot-title-'+slot+' slot-desc-'+slot+'" font-family="sans-serif"><title id="slot-title-'+slot+'">'+esc(label+' · '+modeLabels[active.mode]+' · 인코더 유무 Top-K')+'</title><desc id="slot-desc-'+slot+'">이 칸의 K 1부터 10에 따른 정답 포함률. 인코더 없음은 파란 점선, 사용은 초록 실선입니다.</desc>';
+    for(let v=0;v<=100;v+=20) svg+='<line x1="'+l+'" x2="'+(w-r)+'" y1="'+y(v/100)+'" y2="'+y(v/100)+'" stroke="#e0e8ec"/><text x="'+(l-7)+'" y="'+(y(v/100)+4)+'" text-anchor="end" font-size="10" fill="#607586">'+v+'%</text>';
+    svg+='<text x="'+l+'" y="12" fill="#476475" font-size="10">'+esc(label)+' 정답 포함률</text>';
+    for(let k=1;k<=10;k++)svg+='<text x="'+x(k)+'" y="'+(h-b+19)+'" text-anchor="middle" font-size="10" fill="#607586">'+k+'</text>';
+    svg+='<text x="'+((l+w-r)/2)+'" y="'+(h-3)+'" text-anchor="middle" font-size="11" fill="#476475">K · 이 칸의 후보 수</text><line x1="'+x(selected)+'" x2="'+x(selected)+'" y1="'+t+'" y2="'+(h-b)+'" stroke="#aac0ca" stroke-dasharray="3 4"/>';
+    for(const [variant,name,color] of series) {
+      const points=Object.entries(slotPoints(variant,slot)||{}).map(([k,p])=>({...p,k:Number(k)})).filter(p=>p.rate!=null).sort((a,b)=>a.k-b.k);
+      svg+='<path data-slot-curve="'+variant+'" d="'+points.map((p,i)=>(i?'L':'M')+x(p.k)+' '+y(p.rate)).join(' ')+'" fill="none" stroke="'+color+'" stroke-width="2.5"'+(variant==='no_encoder'?' stroke-dasharray="6 4"':'')+'/>';
+      for(const p of points)svg+='<circle data-slot-k="'+p.k+'" data-variant="'+variant+'" cx="'+x(p.k)+'" cy="'+y(p.rate)+'" r="'+(p.k===selected?5:3.5)+'" fill="'+color+'" stroke="white" stroke-width="1" role="button" tabindex="0" aria-pressed="'+String(p.k===selected)+'" aria-label="'+esc(label+' '+name+' Top-'+p.k+' '+fmt(p.rate))+'"><title>'+esc(label+' · '+name+' Top-'+p.k+' '+fmt(p.rate)+' ('+p.correct+'/'+p.n+')')+'</title></circle>';
+    }
+    host.innerHTML=svg+'</svg>';
+    host.querySelectorAll('[data-slot-k]').forEach(el=>{
+      const choose=()=>{active.slotK[slot]=Number(el.dataset.slotK);$c('encoder-slot-k-'+slot).value=String(active.slotK[slot]);renderSlot(slot);};
+      el.addEventListener('click',choose);el.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();choose();}});
+    });
+  }
+  function renderSlot(slot) {
+    const k=active.slotK[slot],a=slotPoint('no_encoder',slot,k),b=slotPoint('encoder',slot,k);
+    const audit=report.variants.no_encoder.slots[slot].audit || {};
+    $c('encoder-slot-scope-'+slot).textContent='채점 가능 '+count(a.n)+' / '+count(report.variants.no_encoder.evaluation_rows)+'행 · 미지정 정답(- 등) '+count(audit.placeholder_n)+'행 포함';
+    $c('encoder-slot-scores-'+slot).innerHTML=series.map(([variant,label,color])=>{
+      const p=slotPoint(variant,slot,k);
+      return '<div data-variant="'+variant+'" style="--comparison-color:'+color+'"><span>'+label.replace('학습 ','')+' · Top-'+k+'</span><strong>'+fmt(p.rate)+'</strong><small>'+count(p.correct)+' / '+count(p.n)+'행</small></div>';
+    }).join('')+'<div class="slot-score-delta"><span>사용 − 없음</span><strong>'+delta(a.rate,b.rate)+'</strong></div>';
+    const macro=$c('encoder-slot-macro-'+slot);macro.hidden=active.mode!=='raw';
+    macro.textContent='모델 Macro F1 · 없음 '+fmt(report.variants.no_encoder.raw_heads?.[slot]?.macro_f1)+' / 사용 '+fmt(report.variants.encoder.raw_heads?.[slot]?.macro_f1);
+    $c('encoder-slot-table-'+slot).innerHTML=[1,3,5,10].map(kk=>{
+      const pa=slotPoint('no_encoder',slot,kk),pb=slotPoint('encoder',slot,kk);
+      return '<tr'+(kk===k?' class="comparison-selected"':'')+'><th scope="row">Top-'+kk+'</th>'+[pa,pb].map(p=>'<td>'+fmt(p.rate)+'<small>'+count(p.correct)+' / '+count(p.n)+'</small></td>').join('')+'<td>'+delta(pa.rate,pb.rate)+'</td></tr>';
     }).join('');
+    $c('encoder-slot-detail-'+slot).textContent='Top-'+k+' · '+modeLabels[active.mode]+' · 없음 '+fmt(a.rate)+' ('+count(a.correct)+'/'+count(a.n)+') · 사용 '+fmt(b.rate)+' ('+count(b.correct)+'/'+count(b.n)+')';
+    drawSlot(slot);
+  }
+  function renderSlots() {
+    $c('encoder-slot-note').textContent={
+      raw:'각 칸 학습 모델이 낸 독립 후보를 채점합니다. 예를 들어 Vendor Top-5는 Vendor 후보 5개 안의 정답 포함률입니다. 완성 코드 5개의 일치율과 다릅니다. 각 패널의 K는 다른 칸과 독립적으로 바뀝니다.',
+      part:'규칙과 모델을 반영한 각 칸의 독립 후보를 채점합니다. 여섯 칸을 합친 코드의 순위는 사용하지 않습니다. 후보가 K개보다 적으면 실제 있는 후보까지만 확인합니다.',
+      joint:'앞의 K개 완성 코드에서 해석할 수 있는 해당 칸에 정답이 있는지 채점합니다. 이는 각 칸 모델 자체의 순위와 다릅니다. 구간 의미가 미확인인 후보에는 상세 칸 정답을 임의로 채우지 않습니다.'
+    }[active.mode]+' 칸별 정답을 확인할 수 있는 행을 분모로 고정하며, 미지정 정답(-, -- 등)도 포함합니다.';
+    slotLabels.forEach(([slot])=>renderSlot(slot));
+  }
+  function saveBlob(content,type,filename) {
+    const url=URL.createObjectURL(new Blob([content],{type}));
+    const a=document.createElement('a');a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
   function render() {
     const a=point('no_encoder',active.k), b=point('encoder',active.k);
@@ -112,7 +165,7 @@ window.renderEncoderComparison = function(info) {
     $c('encoder-summary').innerHTML=series.map(([id,label,color])=>{const p=point(id,active.k);return '<div class="metric-card" style="--comparison-color:'+color+'"><span>'+label+' · Top-'+active.k+'</span><strong>'+fmt(p.rate)+'</strong><small>'+count(p.correct)+' / '+count(p.n)+'행 · '+scopes[active.scope]+'</small></div>';}).join('')+'<div class="metric-card"><span>학습 인코더 사용에 따른 차이</span><strong class="comparison-delta">'+delta(a.rate,b.rate)+'</strong><small>Top-'+active.k+' · '+count(b.correct-a.correct)+'행 차이</small></div>';
     $c('encoder-legend').innerHTML=series.map(([id,label,color])=>'<span><i style="background:'+color+'"></i>'+label+' · n='+count(group(id).n)+'</span>').join('');
     $c('encoder-k-table').innerHTML=[1,3,5,10].map(k=>{const pa=point('no_encoder',k),pb=point('encoder',k);return '<tr'+(k===active.k?' class="comparison-selected"':'')+'><th scope="row">Top-'+k+'</th>'+[pa,pb].map(p=>'<td>'+fmt(p.rate)+'<small>'+count(p.correct)+' / '+count(p.n)+'행</small></td>').join('')+'<td>'+delta(pa.rate,pb.rate)+'</td><td>'+Number(pa.average_candidates??0).toFixed(2)+' / '+Number(pb.average_candidates??0).toFixed(2)+'</td></tr>';}).join('');
-    chart();renderSlots();
+    chart();
   }
   function downloads() {
     const variant=$c('encoder-part-variant').value;
@@ -122,13 +175,32 @@ window.renderEncoderComparison = function(info) {
   $c('encoder-scope').addEventListener('change',event=>{active.scope=event.target.value;render();});
   $c('encoder-k').addEventListener('change',event=>{active.k=Number(event.target.value);render();});
   $c('encoder-slot-mode').addEventListener('change',event=>{active.mode=event.target.value;renderSlots();});
+  panel.querySelectorAll('[data-slot-k-select]').forEach(select=>select.addEventListener('change',()=>{
+    const slot=select.dataset.slotKSelect;active.slotK[slot]=Number(select.value);renderSlot(slot);
+  }));
+  panel.querySelectorAll('[data-slot-svg]').forEach(button=>button.addEventListener('click',()=>{
+    const slot=button.dataset.slotSvg,svg=$c('encoder-slot-chart-'+slot).querySelector('svg');
+    if(svg)saveBlob(svg.outerHTML,'image/svg+xml;charset=utf-8',slot+'_'+active.mode+'_top_k.svg');
+  }));
+  panel.querySelectorAll('[data-slot-csv]').forEach(button=>button.addEventListener('click',()=>{
+    const slot=button.dataset.slotCsv,label=slotLabels.find(([key])=>key===slot)[1];
+    const rows=[['slot','label','mode','variant','k','correct','n','rate']];
+    for(const [variant] of series)for(let k=1;k<=10;k++){
+      const p=slotPoint(variant,slot,k);rows.push([slot,label,active.mode,variant,k,p.correct??'',p.n??'',p.rate??'']);
+    }
+    const csv='\uFEFF'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');
+    saveBlob(csv,'text/csv;charset=utf-8',slot+'_'+active.mode+'_top_k.csv');
+  }));
   $c('encoder-part-variant').addEventListener('change',downloads);
   $c('encoder-chart-save').addEventListener('click',()=>{
     const svg=$c('encoder-chart').querySelector('svg');if(!svg)return;
     const url=URL.createObjectURL(new Blob([svg.outerHTML],{type:'image/svg+xml;charset=utf-8'}));
     const link=document.createElement('a');link.href=url;link.download='인코더유무_TopK_'+active.scope+'.svg';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   });
-  render();downloads();
+  render();renderSlots();downloads();
   if (panel._encoderObserver) panel._encoderObserver.disconnect();
   panel._encoderObserver=new ResizeObserver(chart);panel._encoderObserver.observe($c('encoder-chart'));
+  if(panel._slotObserver)panel._slotObserver.disconnect();
+  panel._slotObserver=new ResizeObserver(entries=>entries.forEach(entry=>drawSlot(entry.target.dataset.slotChart)));
+  panel.querySelectorAll('[data-slot-chart]').forEach(host=>panel._slotObserver.observe(host));
 };
