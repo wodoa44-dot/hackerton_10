@@ -489,11 +489,6 @@
       "sha256": "b1222e79d1e4fbe5233b9370f2ea5cd6bd1bbc9804fd47e55a79488997678cd4"
     },
     {
-      "path": "recovery/historical_metadata/training_quality_tests.log",
-      "bytes": 1510,
-      "sha256": "da107494084021ff264e9d39bcd7b1e7f0c711c7ce6c29adee03fcbfd8359f05"
-    },
-    {
       "path": "recovery/partial_sources/train_original_first145.py.txt",
       "bytes": 11120,
       "sha256": "24fd3dc79dd7af612d55b415c90f7a40af5ae0fbd3e856fdcb55f60b5dfe4b7a"
