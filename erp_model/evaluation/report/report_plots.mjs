@@ -65,7 +65,7 @@ export function slotSpec(metrics,view,population,{slot=null,delta=false}={}){
     marks.push(panel({rows,title:LABELS[s],n,x:80+(single?0:i%2*620),y:165+(single?0:Math.floor(i/2)*320),width:single?580:480,height:single?245:215,delta,domain}));
   }
   marks.push(text(65,height-35,'두 모델은 동일한 규칙 검증·학습 마스크를 사용합니다. 후보에 정답이 없으면 K가 커져도 오답입니다.',12));
-  marks.push(text(65,height-15,view==='joint'&&population==='designated'?'미지정 제외의 완성 코드 칸 지표는 행별 기록이 있는 K=1·3·5·10만 표시합니다.':'미지정 제외: 정답이 -, -- 등인 행만 제외하며, 지정 정답에 대한 미지정 예측은 오답입니다.',12));
+  marks.push(text(65,height-15,view==='joint'&&population==='designated'?'미지정 제외로 N이 달라지는 항목은 K=1·3·5·10을 재계산하며, N이 같으면 기존 집계를 사용합니다.':'미지정 제외: 정답이 -, -- 등인 행만 제외하며, 지정 정답에 대한 미지정 예측은 오답입니다.',12));
   return {$schema:'https://vega.github.io/schema/vega/v6.json',width,height,padding:0,background:'white',autosize:'none',marks};
 }
 export function wholeSpec(rows){
