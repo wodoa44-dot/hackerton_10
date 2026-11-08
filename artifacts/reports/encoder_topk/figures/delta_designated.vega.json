@@ -1,0 +1,2258 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "width": 1260,
+  "height": 1160,
+  "padding": 0,
+  "background": "white",
+  "autosize": "none",
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 40
+          },
+          "text": {
+            "value": "인코더 추가 효과 · 미지정 정답 제외"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 25
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#172a45"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 84
+          },
+          "text": {
+            "value": "보라색: 문자 CNN 사용 - 미사용 · 양수는 개선, 음수는 하락"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#7c3aed"
+          }
+        }
+      }
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 165
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "slot": "classification",
+              "k": 1,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.03964912280701749,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 2,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.02491228070175444,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 3,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.014385964912280613,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 4,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.00736842105263158,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 5,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.009122807017543866,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 6,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.008421052631578885,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 7,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.004210526315789442,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 8,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.0014035087719298511,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 9,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.002456140350877156,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "classification",
+              "k": 10,
+              "n": 2850,
+              "variant": "encoder",
+              "rate": -0.0028070175438597023,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            -0.05,
+            0.05
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": false
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "encode": {
+            "labels": {
+              "update": {
+                "text": {
+                  "signal": "(datum.value < 0 ? '-' : datum.value > 0 ? '+' : '') + format(abs(datum.value) * 100, '.0f') + '%p'"
+                }
+              }
+            }
+          },
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률 차이 (%p)",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "분류"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 2,850"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "x2": {
+                "value": 480
+              },
+              "y": {
+                "scale": "y",
+                "value": 0
+              },
+              "stroke": {
+                "value": "#8795aa"
+              },
+              "strokeDash": {
+                "value": [
+                  4,
+                  3
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "value": "#7c3aed"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && false ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "value": "#7c3aed"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 165
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "slot": "trait",
+              "k": 1,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 2,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0.0026525198938992522,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 3,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0.01326259946949604,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 4,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0.013262599469495928,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 5,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0.021220159151193685,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 6,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0.021220159151193574,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 7,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0.01591511936339518,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 8,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0.0053050397877983935,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 9,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "trait",
+              "k": 10,
+              "n": 377,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            -0.05,
+            0.05
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": false
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "encode": {
+            "labels": {
+              "update": {
+                "text": {
+                  "signal": "(datum.value < 0 ? '-' : datum.value > 0 ? '+' : '') + format(abs(datum.value) * 100, '.0f') + '%p'"
+                }
+              }
+            }
+          },
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률 차이 (%p)",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "특성"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 377"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "x2": {
+                "value": 480
+              },
+              "y": {
+                "scale": "y",
+                "value": 0
+              },
+              "stroke": {
+                "value": "#8795aa"
+              },
+              "strokeDash": {
+                "value": [
+                  4,
+                  3
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "value": "#7c3aed"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && false ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "value": "#7c3aed"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 485
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "slot": "part_number",
+              "k": 1,
+              "n": 465,
+              "variant": "encoder",
+              "rate": 0.008602150537634384,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 2,
+              "n": 465,
+              "variant": "encoder",
+              "rate": 0.008602150537634412,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 3,
+              "n": 465,
+              "variant": "encoder",
+              "rate": -0.004301075268817178,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 4,
+              "n": 465,
+              "variant": "encoder",
+              "rate": 0.004301075268817234,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 5,
+              "n": 465,
+              "variant": "encoder",
+              "rate": 0.006451612903225767,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 6,
+              "n": 465,
+              "variant": "encoder",
+              "rate": 0.002150537634408589,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 7,
+              "n": 465,
+              "variant": "encoder",
+              "rate": 0.004301075268817178,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 8,
+              "n": 465,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 9,
+              "n": 465,
+              "variant": "encoder",
+              "rate": -0.002150537634408589,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "part_number",
+              "k": 10,
+              "n": 465,
+              "variant": "encoder",
+              "rate": -0.002150537634408589,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            -0.05,
+            0.05
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": false
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "encode": {
+            "labels": {
+              "update": {
+                "text": {
+                  "signal": "(datum.value < 0 ? '-' : datum.value > 0 ? '+' : '') + format(abs(datum.value) * 100, '.0f') + '%p'"
+                }
+              }
+            }
+          },
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률 차이 (%p)",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "세분류·품번"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 465"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "x2": {
+                "value": 480
+              },
+              "y": {
+                "scale": "y",
+                "value": 0
+              },
+              "stroke": {
+                "value": "#8795aa"
+              },
+              "strokeDash": {
+                "value": [
+                  4,
+                  3
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "value": "#7c3aed"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && false ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "value": "#7c3aed"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 485
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "slot": "case",
+              "k": 1,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.015625,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 2,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.015625,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 3,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.015625,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 4,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.018749999999999933,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 5,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.015625,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 6,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.018750000000000044,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 7,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.025000000000000022,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 8,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.018749999999999933,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 9,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.018750000000000044,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "case",
+              "k": 10,
+              "n": 320,
+              "variant": "encoder",
+              "rate": -0.015625,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            -0.05,
+            0.05
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": false
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "encode": {
+            "labels": {
+              "update": {
+                "text": {
+                  "signal": "(datum.value < 0 ? '-' : datum.value > 0 ? '+' : '') + format(abs(datum.value) * 100, '.0f') + '%p'"
+                }
+              }
+            }
+          },
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률 차이 (%p)",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "형상"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 320"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "x2": {
+                "value": 480
+              },
+              "y": {
+                "scale": "y",
+                "value": 0
+              },
+              "stroke": {
+                "value": "#8795aa"
+              },
+              "strokeDash": {
+                "value": [
+                  4,
+                  3
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "value": "#7c3aed"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && false ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "value": "#7c3aed"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 805
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "slot": "packing",
+              "k": 1,
+              "n": 323,
+              "variant": "encoder",
+              "rate": -0.015479876160990669,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 2,
+              "n": 323,
+              "variant": "encoder",
+              "rate": -0.003095975232198178,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 3,
+              "n": 323,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 4,
+              "n": 323,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 5,
+              "n": 323,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 6,
+              "n": 323,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 7,
+              "n": 323,
+              "variant": "encoder",
+              "rate": -0.003095975232198178,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 8,
+              "n": 323,
+              "variant": "encoder",
+              "rate": -0.006191950464396245,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 9,
+              "n": 323,
+              "variant": "encoder",
+              "rate": -0.009287925696594423,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "packing",
+              "k": 10,
+              "n": 323,
+              "variant": "encoder",
+              "rate": -0.009287925696594423,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            -0.05,
+            0.05
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": false
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "encode": {
+            "labels": {
+              "update": {
+                "text": {
+                  "signal": "(datum.value < 0 ? '-' : datum.value > 0 ? '+' : '') + format(abs(datum.value) * 100, '.0f') + '%p'"
+                }
+              }
+            }
+          },
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률 차이 (%p)",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "Packing"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 323"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "x2": {
+                "value": 480
+              },
+              "y": {
+                "scale": "y",
+                "value": 0
+              },
+              "stroke": {
+                "value": "#8795aa"
+              },
+              "strokeDash": {
+                "value": [
+                  4,
+                  3
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "value": "#7c3aed"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && false ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "value": "#7c3aed"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 805
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "slot": "vendor",
+              "k": 1,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0.014925373134328401,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 2,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0.02985074626865669,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 3,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0.04477611940298509,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 4,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0.01492537313432829,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 5,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 6,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 7,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 8,
+              "n": 67,
+              "variant": "encoder",
+              "rate": 0,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 9,
+              "n": 67,
+              "variant": "encoder",
+              "rate": -0.014925373134328401,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "slot": "vendor",
+              "k": 10,
+              "n": 67,
+              "variant": "encoder",
+              "rate": -0.014925373134328401,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            -0.05,
+            0.05
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": false
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "encode": {
+            "labels": {
+              "update": {
+                "text": {
+                  "signal": "(datum.value < 0 ? '-' : datum.value > 0 ? '+' : '') + format(abs(datum.value) * 100, '.0f') + '%p'"
+                }
+              }
+            }
+          },
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률 차이 (%p)",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "Vendor"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 67"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "x2": {
+                "value": 480
+              },
+              "y": {
+                "scale": "y",
+                "value": 0
+              },
+              "stroke": {
+                "value": "#8795aa"
+              },
+              "strokeDash": {
+                "value": [
+                  4,
+                  3
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "value": "#7c3aed"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && false ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "value": "#7c3aed"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 1125
+          },
+          "text": {
+            "value": "두 모델은 동일한 규칙 검증·학습 마스크를 사용합니다. 후보에 정답이 없으면 K가 커져도 오답입니다."
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 1145
+          },
+          "text": {
+            "value": "미지정 제외: 정답이 -, -- 등인 행만 제외하며, 지정 정답에 대한 미지정 예측은 오답입니다."
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    }
+  ]
+}

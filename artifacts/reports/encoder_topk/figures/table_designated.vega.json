@@ -1,0 +1,2900 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "width": 1160,
+  "height": 645,
+  "padding": 0,
+  "background": "white",
+  "autosize": "none",
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 30
+          },
+          "y": {
+            "value": 40
+          },
+          "text": {
+            "value": "원시 칸 모델 · 미지정 정답 제외 · Top-K 정답률"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 24
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#172a45"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 65
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 40
+          },
+          "fill": {
+            "value": "#eaf0f9"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 91
+          },
+          "text": {
+            "value": "항목"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 16
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 91
+          },
+          "text": {
+            "value": "특징 인코더"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 16
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 91
+          },
+          "text": {
+            "value": "N"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 16
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 91
+          },
+          "text": {
+            "value": "Top-1"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 16
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 91
+          },
+          "text": {
+            "value": "Top-3"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 16
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 91
+          },
+          "text": {
+            "value": "Top-5"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 16
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 91
+          },
+          "text": {
+            "value": "Top-10"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 16
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 109
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 135
+          },
+          "text": {
+            "value": "분류"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 135
+          },
+          "text": {
+            "value": "미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#1e54b8"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 135
+          },
+          "text": {
+            "value": "2850"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 135
+          },
+          "text": {
+            "value": "82.32%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 135
+          },
+          "text": {
+            "value": "91.58%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 135
+          },
+          "text": {
+            "value": "93.79%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 135
+          },
+          "text": {
+            "value": "96.11%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 149
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 175
+          },
+          "text": {
+            "value": ""
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 175
+          },
+          "text": {
+            "value": "문자 CNN (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#bc4d08"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 175
+          },
+          "text": {
+            "value": "2850"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 175
+          },
+          "text": {
+            "value": "78.35%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 175
+          },
+          "text": {
+            "value": "90.14%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 175
+          },
+          "text": {
+            "value": "92.88%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 175
+          },
+          "text": {
+            "value": "95.82%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 189
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#f4f7fb"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 215
+          },
+          "text": {
+            "value": "특성"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 215
+          },
+          "text": {
+            "value": "미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#1e54b8"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 215
+          },
+          "text": {
+            "value": "377"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 215
+          },
+          "text": {
+            "value": "77.45%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 215
+          },
+          "text": {
+            "value": "84.08%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 215
+          },
+          "text": {
+            "value": "85.15%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 215
+          },
+          "text": {
+            "value": "87.53%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 229
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#f4f7fb"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 255
+          },
+          "text": {
+            "value": ""
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 255
+          },
+          "text": {
+            "value": "문자 CNN (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#bc4d08"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 255
+          },
+          "text": {
+            "value": "377"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 255
+          },
+          "text": {
+            "value": "77.45%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 255
+          },
+          "text": {
+            "value": "85.41%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 255
+          },
+          "text": {
+            "value": "87.27%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 255
+          },
+          "text": {
+            "value": "87.53%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 269
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 295
+          },
+          "text": {
+            "value": "세분류·품번"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 295
+          },
+          "text": {
+            "value": "미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#1e54b8"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 295
+          },
+          "text": {
+            "value": "465"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 295
+          },
+          "text": {
+            "value": "20.00%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 295
+          },
+          "text": {
+            "value": "25.81%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 295
+          },
+          "text": {
+            "value": "27.10%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 295
+          },
+          "text": {
+            "value": "29.25%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 309
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 335
+          },
+          "text": {
+            "value": ""
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 335
+          },
+          "text": {
+            "value": "문자 CNN (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#bc4d08"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 335
+          },
+          "text": {
+            "value": "465"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 335
+          },
+          "text": {
+            "value": "20.86%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 335
+          },
+          "text": {
+            "value": "25.38%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 335
+          },
+          "text": {
+            "value": "27.74%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 335
+          },
+          "text": {
+            "value": "29.03%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 349
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#f4f7fb"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 375
+          },
+          "text": {
+            "value": "형상"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 375
+          },
+          "text": {
+            "value": "미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#1e54b8"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 375
+          },
+          "text": {
+            "value": "320"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 375
+          },
+          "text": {
+            "value": "74.38%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 375
+          },
+          "text": {
+            "value": "81.56%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 375
+          },
+          "text": {
+            "value": "84.06%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 375
+          },
+          "text": {
+            "value": "85.94%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 389
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#f4f7fb"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 415
+          },
+          "text": {
+            "value": ""
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 415
+          },
+          "text": {
+            "value": "문자 CNN (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#bc4d08"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 415
+          },
+          "text": {
+            "value": "320"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 415
+          },
+          "text": {
+            "value": "72.81%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 415
+          },
+          "text": {
+            "value": "80.00%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 415
+          },
+          "text": {
+            "value": "82.50%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 415
+          },
+          "text": {
+            "value": "84.38%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 429
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 455
+          },
+          "text": {
+            "value": "Packing"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 455
+          },
+          "text": {
+            "value": "미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#1e54b8"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 455
+          },
+          "text": {
+            "value": "323"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 455
+          },
+          "text": {
+            "value": "88.54%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 455
+          },
+          "text": {
+            "value": "96.59%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 455
+          },
+          "text": {
+            "value": "98.14%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 455
+          },
+          "text": {
+            "value": "99.07%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 469
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#ffffff"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 495
+          },
+          "text": {
+            "value": ""
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 495
+          },
+          "text": {
+            "value": "문자 CNN (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#bc4d08"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 495
+          },
+          "text": {
+            "value": "323"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 495
+          },
+          "text": {
+            "value": "87.00%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 495
+          },
+          "text": {
+            "value": "96.59%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 495
+          },
+          "text": {
+            "value": "98.14%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 495
+          },
+          "text": {
+            "value": "98.14%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 509
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#f4f7fb"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 535
+          },
+          "text": {
+            "value": "Vendor"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 535
+          },
+          "text": {
+            "value": "미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#1e54b8"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 535
+          },
+          "text": {
+            "value": "67"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 535
+          },
+          "text": {
+            "value": "43.28%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 535
+          },
+          "text": {
+            "value": "77.61%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 535
+          },
+          "text": {
+            "value": "91.04%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 535
+          },
+          "text": {
+            "value": "92.54%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 20
+          },
+          "y": {
+            "value": 549
+          },
+          "width": {
+            "value": 1120
+          },
+          "height": {
+            "value": 39
+          },
+          "fill": {
+            "value": "#f4f7fb"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 35
+          },
+          "y": {
+            "value": 575
+          },
+          "text": {
+            "value": ""
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 185
+          },
+          "y": {
+            "value": 575
+          },
+          "text": {
+            "value": "문자 CNN (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#bc4d08"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 575
+          },
+          "text": {
+            "value": "67"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 540
+          },
+          "y": {
+            "value": 575
+          },
+          "text": {
+            "value": "44.78%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 690
+          },
+          "y": {
+            "value": 575
+          },
+          "text": {
+            "value": "82.09%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 840
+          },
+          "y": {
+            "value": 575
+          },
+          "text": {
+            "value": "91.04%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 990
+          },
+          "y": {
+            "value": 575
+          },
+          "text": {
+            "value": "91.04%"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 30
+          },
+          "y": {
+            "value": 622
+          },
+          "text": {
+            "value": "특징 인코더 미사용 모델에도 규칙 검증·전처리는 적용되어 있습니다. 수치는 같은 행 집합에서 비교했습니다."
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    }
+  ]
+}

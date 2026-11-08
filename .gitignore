@@ -12,3 +12,6 @@ __pycache__/
 **/batch_jobs/
 .recovery_env/
 *.log
+
+# 행별 실데이터 생성물은 서버에 보관합니다.
+/artifacts/reports/**/private/

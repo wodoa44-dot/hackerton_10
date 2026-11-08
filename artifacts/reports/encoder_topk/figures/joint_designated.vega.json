@@ -1,0 +1,3008 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "width": 1260,
+  "height": 1160,
+  "padding": 0,
+  "background": "white",
+  "autosize": "none",
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 40
+          },
+          "text": {
+            "value": "완성 코드 후보에서 해석 · 미지정 정답 제외"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 25
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#172a45"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "x2": {
+            "value": 113
+          },
+          "y": {
+            "value": 79
+          },
+          "stroke": {
+            "value": "#2563eb"
+          },
+          "strokeWidth": {
+            "value": 3
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 123
+          },
+          "y": {
+            "value": 84
+          },
+          "text": {
+            "value": "특징 인코더 미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 505
+          },
+          "x2": {
+            "value": 538
+          },
+          "y": {
+            "value": 79
+          },
+          "stroke": {
+            "value": "#e66b18"
+          },
+          "strokeWidth": {
+            "value": 3
+          },
+          "strokeDash": {
+            "value": [
+              6,
+              3
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 548
+          },
+          "y": {
+            "value": 84
+          },
+          "text": {
+            "value": "문자 CNN 특징 사용 (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 165
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1784,
+              "rate": 0.6259649122807017,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1890,
+              "rate": 0.6631578947368421,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1943,
+              "rate": 0.6817543859649123,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1981,
+              "rate": 0.6950877192982456,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2000,
+              "rate": 0.7017543859649122,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2039,
+              "rate": 0.7154385964912281,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2080,
+              "rate": 0.7298245614035088,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2094,
+              "rate": 0.7347368421052631,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2101,
+              "rate": 0.7371929824561404,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2128,
+              "rate": 0.7466666666666667,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 1,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1781,
+              "rate": 0.6249122807017544,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 2,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1887,
+              "rate": 0.6621052631578948,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 3,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1940,
+              "rate": 0.6807017543859649,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 4,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1978,
+              "rate": 0.6940350877192982,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 5,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 1997,
+              "rate": 0.7007017543859649,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 6,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2036,
+              "rate": 0.7143859649122807,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 7,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2077,
+              "rate": 0.7287719298245614,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 8,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2091,
+              "rate": 0.7336842105263158,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 9,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2098,
+              "rate": 0.736140350877193,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 10,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2125,
+              "rate": 0.7456140350877193,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "분류"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 2,850"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 165
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 319,
+              "rate": 0.8461538461538461,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 320,
+              "rate": 0.8488063660477454,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 320,
+              "rate": 0.8488063660477454,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 325,
+              "rate": 0.8620689655172413,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 332,
+              "rate": 0.8806366047745358,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 332,
+              "rate": 0.8806366047745358,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 334,
+              "rate": 0.8859416445623343,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 335,
+              "rate": 0.8885941644562334,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 335,
+              "rate": 0.8885941644562334,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 1,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 319,
+              "rate": 0.8461538461538461,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 2,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 320,
+              "rate": 0.8488063660477454,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 3,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 320,
+              "rate": 0.8488063660477454,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 4,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 326,
+              "rate": 0.8647214854111406,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 5,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 331,
+              "rate": 0.8779840848806366,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 6,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 331,
+              "rate": 0.8779840848806366,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 7,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 332,
+              "rate": 0.8806366047745358,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 8,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 334,
+              "rate": 0.8859416445623343,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 9,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 335,
+              "rate": 0.8885941644562334,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 10,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 335,
+              "rate": 0.8885941644562334,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "특성"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 377"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 485
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 371,
+              "rate": 0.7978494623655914,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 372,
+              "rate": 0.8,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 383,
+              "rate": 0.8236559139784946,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 386,
+              "rate": 0.8301075268817204,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 390,
+              "rate": 0.8387096774193549,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 394,
+              "rate": 0.8473118279569892,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 394,
+              "rate": 0.8473118279569892,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 394,
+              "rate": 0.8473118279569892,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 394,
+              "rate": 0.8473118279569892,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 396,
+              "rate": 0.8516129032258064,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 1,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 372,
+              "rate": 0.8,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 2,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 373,
+              "rate": 0.8021505376344086,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 3,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 382,
+              "rate": 0.821505376344086,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 4,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 386,
+              "rate": 0.8301075268817204,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 5,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 388,
+              "rate": 0.8344086021505376,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 6,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 390,
+              "rate": 0.8387096774193549,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 7,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 390,
+              "rate": 0.8387096774193549,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 8,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 390,
+              "rate": 0.8387096774193549,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 9,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 394,
+              "rate": 0.8473118279569892,
+              "basis": "저장된 동일 모집단 집계",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 10,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 395,
+              "rate": 0.8494623655913979,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "세분류·품번"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 465"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 485
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 264,
+              "rate": 0.825,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 265,
+              "rate": 0.828125,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 275,
+              "rate": 0.859375,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 280,
+              "rate": 0.875,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 1,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 265,
+              "rate": 0.828125,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 3,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 266,
+              "rate": 0.83125,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 5,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 274,
+              "rate": 0.85625,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 10,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 279,
+              "rate": 0.871875,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "형상"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 320"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 805
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 283,
+              "rate": 0.8761609907120743,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 297,
+              "rate": 0.9195046439628483,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 301,
+              "rate": 0.9318885448916409,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 310,
+              "rate": 0.9597523219814241,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 1,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 283,
+              "rate": 0.8761609907120743,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 3,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 296,
+              "rate": 0.9164086687306502,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 5,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 298,
+              "rate": 0.9226006191950464,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 10,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 309,
+              "rate": 0.9566563467492261,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "Packing"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 323"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 805
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 38,
+              "rate": 0.5671641791044776,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 48,
+              "rate": 0.7164179104477612,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 52,
+              "rate": 0.7761194029850746,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 60,
+              "rate": 0.8955223880597015,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 1,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 38,
+              "rate": 0.5671641791044776,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 3,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 49,
+              "rate": 0.7313432835820896,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 5,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 53,
+              "rate": 0.7910447761194029,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "joint",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 10,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 62,
+              "rate": 0.9253731343283582,
+              "basis": "행별 완성 코드 칸 적중 기록",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "Vendor"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 67"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 1125
+          },
+          "text": {
+            "value": "두 모델은 동일한 규칙 검증·학습 마스크를 사용합니다. 후보에 정답이 없으면 K가 커져도 오답입니다."
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 1145
+          },
+          "text": {
+            "value": "미지정 제외의 완성 코드 칸 지표는 행별 기록이 있는 K=1·3·5·10만 표시합니다."
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    }
+  ]
+}

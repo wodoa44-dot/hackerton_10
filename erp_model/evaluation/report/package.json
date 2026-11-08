@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "vega": "^6.4.0"
+  },
+  "private": true,
+  "scripts": {
+    "generate": "node generate_encoder_report.mjs"
+  }
+}

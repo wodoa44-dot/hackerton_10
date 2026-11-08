@@ -1,0 +1,3584 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "width": 1260,
+  "height": 1160,
+  "padding": 0,
+  "background": "white",
+  "autosize": "none",
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 40
+          },
+          "text": {
+            "value": "원시 칸 모델 · 미지정 정답 제외"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 25
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#172a45"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "x2": {
+            "value": 113
+          },
+          "y": {
+            "value": 79
+          },
+          "stroke": {
+            "value": "#2563eb"
+          },
+          "strokeWidth": {
+            "value": 3
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 123
+          },
+          "y": {
+            "value": 84
+          },
+          "text": {
+            "value": "특징 인코더 미사용 (v6)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "rule",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 505
+          },
+          "x2": {
+            "value": 538
+          },
+          "y": {
+            "value": 79
+          },
+          "stroke": {
+            "value": "#e66b18"
+          },
+          "strokeWidth": {
+            "value": 3
+          },
+          "strokeDash": {
+            "value": [
+              6,
+              3
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 548
+          },
+          "y": {
+            "value": 84
+          },
+          "text": {
+            "value": "문자 CNN 특징 사용 (v7)"
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 15
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 165
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2346,
+              "rate": 0.8231578947368421,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.5944984433439133,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2549,
+              "rate": 0.8943859649122807,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2610,
+              "rate": 0.9157894736842105,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2642,
+              "rate": 0.9270175438596491,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2673,
+              "rate": 0.9378947368421052,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2694,
+              "rate": 0.9452631578947368,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2702,
+              "rate": 0.9480701754385965,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2712,
+              "rate": 0.9515789473684211,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2726,
+              "rate": 0.9564912280701754,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2739,
+              "rate": 0.9610526315789474,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 1,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2233,
+              "rate": 0.7835087719298246,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.5563824766803367,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 2,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2478,
+              "rate": 0.8694736842105263,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 3,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2569,
+              "rate": 0.9014035087719299,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 4,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2621,
+              "rate": 0.9196491228070175,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 5,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2647,
+              "rate": 0.9287719298245614,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 6,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2670,
+              "rate": 0.9368421052631579,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 7,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2690,
+              "rate": 0.9438596491228071,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 8,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2708,
+              "rate": 0.9501754385964912,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 9,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2719,
+              "rate": 0.9540350877192982,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "classification",
+              "variant": "encoder",
+              "k": 10,
+              "n": 2850,
+              "all_n": 2850,
+              "excluded_n": 0,
+              "correct": 2731,
+              "rate": 0.9582456140350877,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "분류"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 2,850"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 165
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 292,
+              "rate": 0.7745358090185677,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.3728406401157179,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 307,
+              "rate": 0.8143236074270557,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 317,
+              "rate": 0.8408488063660478,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 320,
+              "rate": 0.8488063660477454,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 321,
+              "rate": 0.8514588859416445,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 322,
+              "rate": 0.8541114058355438,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 324,
+              "rate": 0.8594164456233422,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 328,
+              "rate": 0.870026525198939,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 1,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 292,
+              "rate": 0.7745358090185677,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.384353377818679,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 2,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 308,
+              "rate": 0.8169761273209549,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 3,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 322,
+              "rate": 0.8541114058355438,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 4,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 325,
+              "rate": 0.8620689655172413,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 5,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 329,
+              "rate": 0.8726790450928382,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 6,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 7,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 8,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 9,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "trait",
+              "variant": "encoder",
+              "k": 10,
+              "n": 377,
+              "all_n": 377,
+              "excluded_n": 0,
+              "correct": 330,
+              "rate": 0.8753315649867374,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "특성"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 377"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 485
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 93,
+              "rate": 0.2,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.1785028790786948,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 107,
+              "rate": 0.23010752688172043,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 120,
+              "rate": 0.25806451612903225,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 124,
+              "rate": 0.26666666666666666,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 126,
+              "rate": 0.2709677419354839,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 129,
+              "rate": 0.27741935483870966,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 131,
+              "rate": 0.2817204301075269,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 134,
+              "rate": 0.28817204301075267,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 136,
+              "rate": 0.2924731182795699,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 136,
+              "rate": 0.2924731182795699,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 1,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 97,
+              "rate": 0.2086021505376344,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.18725868725868725,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 2,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 111,
+              "rate": 0.23870967741935484,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 3,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 118,
+              "rate": 0.2537634408602151,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 4,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 126,
+              "rate": 0.2709677419354839,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 5,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 129,
+              "rate": 0.27741935483870966,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 6,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 130,
+              "rate": 0.27956989247311825,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 7,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 133,
+              "rate": 0.2860215053763441,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 8,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 134,
+              "rate": 0.28817204301075267,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 9,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 135,
+              "rate": 0.2903225806451613,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "part_number",
+              "variant": "encoder",
+              "k": 10,
+              "n": 465,
+              "all_n": 465,
+              "excluded_n": 0,
+              "correct": 135,
+              "rate": 0.2903225806451613,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "세분류·품번"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 465"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 485
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 238,
+              "rate": 0.74375,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.2715710526502625,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 255,
+              "rate": 0.796875,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 261,
+              "rate": 0.815625,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 267,
+              "rate": 0.834375,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 269,
+              "rate": 0.840625,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 271,
+              "rate": 0.846875,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 273,
+              "rate": 0.853125,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 274,
+              "rate": 0.85625,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 275,
+              "rate": 0.859375,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 275,
+              "rate": 0.859375,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 1,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 233,
+              "rate": 0.728125,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.264423333621523,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 2,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 250,
+              "rate": 0.78125,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 3,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 256,
+              "rate": 0.8,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 4,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 261,
+              "rate": 0.815625,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 5,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 264,
+              "rate": 0.825,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 6,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 265,
+              "rate": 0.828125,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 7,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 265,
+              "rate": 0.828125,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 8,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 268,
+              "rate": 0.8375,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 9,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 269,
+              "rate": 0.840625,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "case",
+              "variant": "encoder",
+              "k": 10,
+              "n": 320,
+              "all_n": 348,
+              "excluded_n": 28,
+              "correct": 270,
+              "rate": 0.84375,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "형상"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 320"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 805
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 286,
+              "rate": 0.8854489164086687,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.4254608910056852,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 302,
+              "rate": 0.934984520123839,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 312,
+              "rate": 0.9659442724458205,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 315,
+              "rate": 0.9752321981424149,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 318,
+              "rate": 0.9845201238390093,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 319,
+              "rate": 0.9876160990712074,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 320,
+              "rate": 0.9907120743034056,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 320,
+              "rate": 0.9907120743034056,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 1,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 281,
+              "rate": 0.8699690402476781,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.3474609885602502,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 2,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 301,
+              "rate": 0.9318885448916409,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 3,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 312,
+              "rate": 0.9659442724458205,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 4,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 315,
+              "rate": 0.9752321981424149,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 5,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 6,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 7,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 8,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 9,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "packing",
+              "variant": "encoder",
+              "k": 10,
+              "n": 323,
+              "all_n": 352,
+              "excluded_n": 29,
+              "correct": 317,
+              "rate": 0.9814241486068112,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "Packing"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 323"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 700
+          },
+          "y": {
+            "value": 805
+          },
+          "width": {
+            "value": 480
+          },
+          "height": {
+            "value": 215
+          }
+        }
+      },
+      "data": [
+        {
+          "name": "points",
+          "values": [
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 1,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 29,
+              "rate": 0.43283582089552236,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.22496966397895188,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 2,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 44,
+              "rate": 0.6567164179104478,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 3,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 52,
+              "rate": 0.7761194029850746,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 4,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 60,
+              "rate": 0.8955223880597015,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 5,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 6,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 7,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 8,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 9,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 62,
+              "rate": 0.9253731343283582,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "no_encoder",
+              "k": 10,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 62,
+              "rate": 0.9253731343283582,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "특징 인코더 미사용 (v6)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 1,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 30,
+              "rate": 0.44776119402985076,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": 0.2573250878451219,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 2,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 46,
+              "rate": 0.6865671641791045,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 3,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 55,
+              "rate": 0.8208955223880597,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 4,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 5,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 6,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 7,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 8,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 9,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            },
+            {
+              "view": "raw",
+              "population": "designated",
+              "slot": "vendor",
+              "variant": "encoder",
+              "k": 10,
+              "n": 67,
+              "all_n": 465,
+              "excluded_n": 398,
+              "correct": 61,
+              "rate": 0.9104477611940298,
+              "basis": "행별 Top-10 후보 재계산",
+              "status": "available",
+              "macro_f1": null,
+              "variant_label": "문자 CNN 특징 사용 (v7)"
+            }
+          ]
+        }
+      ],
+      "scales": [
+        {
+          "name": "x",
+          "type": "linear",
+          "domain": [
+            1,
+            10
+          ],
+          "range": [
+            0,
+            480
+          ],
+          "zero": false
+        },
+        {
+          "name": "y",
+          "type": "linear",
+          "domain": [
+            0,
+            1
+          ],
+          "range": [
+            215,
+            0
+          ],
+          "zero": true
+        },
+        {
+          "name": "color",
+          "type": "ordinal",
+          "domain": [
+            "no_encoder",
+            "encoder"
+          ],
+          "range": [
+            "#2563eb",
+            "#e66b18"
+          ]
+        }
+      ],
+      "axes": [
+        {
+          "orient": "bottom",
+          "scale": "x",
+          "values": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "title": "Top-K (K)",
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "domainColor": "#b4c1d4",
+          "tickColor": "#b4c1d4",
+          "titlePadding": 10
+        },
+        {
+          "orient": "left",
+          "scale": "y",
+          "format": ".0%",
+          "tickCount": 6,
+          "grid": true,
+          "gridScale": "x",
+          "gridColor": "#e5eaf2",
+          "domain": false,
+          "ticks": false,
+          "labelFont": "NanumGothic",
+          "titleFont": "NanumGothic",
+          "labelFontSize": 12,
+          "titleFontSize": 13,
+          "title": "정답률",
+          "titlePadding": 9
+        }
+      ],
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -36
+              },
+              "text": {
+                "value": "Vendor"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 19
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": -15
+              },
+              "text": {
+                "value": "평가 N = 67"
+              },
+              "font": {
+                "value": "NanumGothic"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "normal"
+              },
+              "fill": {
+                "value": "#34455e"
+              }
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": {
+              "name": "series",
+              "data": "points",
+              "groupby": "variant"
+            }
+          },
+          "marks": [
+            {
+              "type": "line",
+              "from": {
+                "data": "series"
+              },
+              "sort": {
+                "field": "k"
+              },
+              "encode": {
+                "update": {
+                  "x": {
+                    "scale": "x",
+                    "field": "k"
+                  },
+                  "y": {
+                    "scale": "y",
+                    "field": "rate"
+                  },
+                  "stroke": {
+                    "scale": "color",
+                    "field": "variant"
+                  },
+                  "strokeWidth": {
+                    "value": 2.5
+                  },
+                  "strokeDash": {
+                    "signal": "datum.variant === 'encoder' && true ? [6,3] : [1,0]"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "symbol",
+          "from": {
+            "data": "points"
+          },
+          "encode": {
+            "enter": {
+              "x": {
+                "scale": "x",
+                "field": "k"
+              },
+              "y": {
+                "scale": "y",
+                "field": "rate"
+              },
+              "shape": {
+                "signal": "datum.variant === 'encoder' ? 'square' : 'circle'"
+              },
+              "size": {
+                "value": 42
+              },
+              "fill": {
+                "value": "white"
+              },
+              "stroke": {
+                "scale": "color",
+                "field": "variant"
+              },
+              "strokeWidth": {
+                "value": 1.8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 1125
+          },
+          "text": {
+            "value": "두 모델은 동일한 규칙 검증·학습 마스크를 사용합니다. 후보에 정답이 없으면 K가 커져도 오답입니다."
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 65
+          },
+          "y": {
+            "value": 1145
+          },
+          "text": {
+            "value": "미지정 제외: 정답이 -, -- 등인 행만 제외하며, 지정 정답에 대한 미지정 예측은 오답입니다."
+          },
+          "font": {
+            "value": "NanumGothic"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "normal"
+          },
+          "fill": {
+            "value": "#34455e"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "python_files_parsed": 67,
+  "internal_imports_checked": 216,
+  "legacy_aliases_checked": 47,
+  "legacy_pickle_global_verified": true,
+  "retained_model_files_hash_verified": 19,
+  "node_rule_bridge_verified": true,
+  "model_inference_rerun": false
+}
