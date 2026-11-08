@@ -47,8 +47,9 @@ function makeCard([slot, title, label], i) {
   });
   return card;
 }
-slots.forEach((slot,i) => $('result-grid').append(makeCard(slot,i)));
+if ($('result-grid')) slots.forEach((slot,i) => $('result-grid').append(makeCard(slot,i)));
 function renderSegments() {
+  if (!$('code-segments')) return;
   if (selectedHypothesis) {
     $('code-segments').hidden = !selectedHypothesis.semantic_layout_verified;
     $('code-segments').innerHTML = selectedHypothesis.parts.map(piece =>
@@ -79,7 +80,7 @@ function renderSegments() {
 }
 renderSegments();
 function resetCard(slot, status) {
-  const card = $(`card-${slot}`); card.dataset.status = status;
+  const card = $(`card-${slot}`); if (!card) return; card.dataset.status = status;
   card.querySelector('.slot-value').textContent = status === 'loading' ? '…' : '—';
   card.querySelector('.slot-value-label').textContent = status === 'loading' ? '예측 결과를 기다리는 중' : '입력 대기';
   card.querySelector('.result-reason').hidden = true;
@@ -117,8 +118,8 @@ function resultEvent(event) {
   if (!names[event.slot]) return;
   const isNew = !results[event.slot]; results[event.slot] = event;
   if (isNew) completed += 1;
-  $('counter').textContent = `${completed} / ${requested.length} 완료`;
-  const card = $(`card-${event.slot}`); card.dataset.status = event.status;
+  if ($('counter')) $('counter').textContent = `${completed} / ${requested.length} 완료`;
+  const card = $(`card-${event.slot}`); if (!card) return; card.dataset.status = event.status;
   const topCandidate = (event.top_candidates || event.candidates)?.[0];
   card.querySelector('.slot-value').textContent = event.requires_input_review ? '입력 확인' : event.value ?? event.predicted_value ?? topCandidate?.value ?? (event.status === 'error' ? '오류' : event.status === 'unsupported_schema' ? '해석 보류' : event.status === 'not_applicable' ? '해당 없음' : '후보 없음');
   card.querySelector('.slot-value-label').textContent = event.status === 'confirmed' ? '예측값 · 자동 검증 통과' : topCandidate ? '1순위 예측값' : '예측 결과';
@@ -172,9 +173,9 @@ function selectHypothesis(index) {
         requires_input_review:false,candidates:selectedCandidates,top_candidates:selectedCandidates,
         reason:applicable?'선택한 '+(index+1)+'순위 코드의 해당 구간입니다.':candidate.semantic_layout_verified?'이 코드 체계에는 해당 구간이 없습니다.':'매뉴얼에서 구간 의미를 확인하지 못했습니다.'});
     });
-    $('parts-body').innerHTML=candidate.parts.map(p=>'<tr><td>'+escape(names[p.slot] || (p.slot==='fixed'?'고정 구분자':'미해석'))+'</td><td>'+escape(p.label)+'</td><td>'+p.position_start+'–'+p.position_end+'</td><td><code>'+escape(p.value)+'</code></td><td>'+escape(p.meaning || (p.slot==='unmapped'?'구간 의미 미확인':'—'))+'</td></tr>').join('');
+    if ($('parts-body')) $('parts-body').innerHTML=candidate.parts.map(p=>'<tr><td>'+escape(names[p.slot] || (p.slot==='fixed'?'고정 구분자':'미해석'))+'</td><td>'+escape(p.label)+'</td><td>'+p.position_start+'–'+p.position_end+'</td><td><code>'+escape(p.value)+'</code></td><td>'+escape(p.meaning || (p.slot==='unmapped'?'구간 의미 미확인':'—'))+'</td></tr>').join('');
   } else {
-    $('parts-body').innerHTML='';
+    if ($('parts-body')) $('parts-body').innerHTML='';
   }
   document.querySelectorAll('[data-spectrum-row]').forEach(row=>row.classList.toggle('selected-hypothesis',Number(row.dataset.spectrumRow)===index));
   renderAssembly(lastAssembly || {});
@@ -210,13 +211,13 @@ document.querySelectorAll('[data-sample]').forEach(button=>button.addEventListen
 $('predict-form').addEventListener('submit',async e=>{
   e.preventDefault();if(active)return;
   if(!$('name').value.trim())return;
-  active=true;results={};completed=0;assembledCode=null;materialContext=null;selectedRegistryId=null;lastAssembly=null;selectedSpectrumRank=0;selectedHypothesis=null;$('exploratory-panel').hidden=true;$('spectrum-panel').hidden=true;$('parts-body').innerHTML='';$('context-panel').hidden=true;$('code-title').textContent='ERP 품목코드';$('code-provenance').textContent='';
+  active=true;results={};completed=0;assembledCode=null;materialContext=null;selectedRegistryId=null;lastAssembly=null;selectedSpectrumRank=0;selectedHypothesis=null;$('exploratory-panel').hidden=true;$('spectrum-panel').hidden=true;if ($('parts-body')) $('parts-body').innerHTML='';$('context-panel').hidden=true;$('code-title').textContent='ERP 품목코드';$('code-provenance').textContent='';
   requested=$('slot').value?[$('slot').value]:slots.map(s=>s[0]);
   slots.forEach(([s])=>resetCard(s,requested.includes(s)?'loading':'idle'));
-  renderSegments();$('predicted-code').textContent='—';$('result-summary').hidden=true;$('form-error').hidden=true;$('copy-code').disabled=true;$('copy-code').innerHTML='코드 복사 <span>⧉</span>';
+  renderSegments();$('predicted-code').textContent='—';if ($('result-summary')) $('result-summary').hidden=true;$('form-error').hidden=true;$('copy-code').disabled=true;$('copy-code').innerHTML='코드 복사 <span>⧉</span>';
   $('assembly-badge').textContent=requested.length===1?'단일 칸 실행':'예측 중';$('assembly-badge').className='assembly-badge';
   $('assembly-reason').textContent=requested.length===1?'단일 칸 실행에서는 완성 코드를 조립하지 않습니다.':'각 칸의 확정 여부를 확인하고 있습니다.';
-  $('counter').textContent=`0 / ${requested.length} 완료`;
+  if ($('counter')) $('counter').textContent=`0 / ${requested.length} 완료`;
   $('run-button').disabled=true;$('run-button').firstElementChild.textContent='모델 예측 중…';
   let gotAssembly=false;
   function consume(line){if(!line.trim())return;const item=JSON.parse(line);if(item.slot==='assembly')gotAssembly=true;resultEvent(item);}
@@ -371,7 +372,7 @@ function renderExploratory(event) {
     try{await navigator.clipboard.writeText(code);button.textContent='복사 완료 ✓';}
     catch{button.textContent=code;}
   }));
-  $('exploratory-heads').innerHTML=slots.map(([slot,label])=>{
+  if ($('exploratory-heads')) $('exploratory-heads').innerHTML=slots.map(([slot,label])=>{
     const item=extra.head_estimates?.[slot];const values=(item?.candidates || []).map(c=>c.value);
     return '<tr><td>'+escape(label)+'</td><td>'+values.map(v=>'<code>'+escape(v)+'</code>').join(' / ')+'</td><td>'+escape(values.length?'적용 규칙 미검증':'추정할 입력·학습 근거 부족')+'</td></tr>';
   }).join('');

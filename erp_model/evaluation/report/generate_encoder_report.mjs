@@ -111,6 +111,27 @@ const sections=Object.keys(VIEWS).flatMap(view=>Object.keys(POPULATIONS).map(pop
 const created=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',dateStyle:'medium',timeStyle:'short'}).format(new Date());
 const html='<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ERP 인코더 유무 Top-K 평가</title><style>body{font-family:system-ui,"Malgun Gothic",sans-serif;margin:0;background:#f3f6fb;color:#20334e}main{max-width:1280px;margin:auto;padding:24px}h1{font-size:28px}p,li{line-height:1.65}article,details{background:white;border:1px solid #dfe6f0;border-radius:12px;padding:20px;margin:18px 0}summary{font-weight:700;font-size:20px;cursor:pointer;margin-bottom:16px}svg{max-width:100%;height:auto;display:block}a{color:#174fac}.table{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:780px}th,td{padding:11px;border-bottom:1px solid #e4eaf3;text-align:right;white-space:nowrap}th:first-child,td:nth-child(2){text-align:left}.no_encoder{color:#2563eb}.encoder{color:#bd510d}.muted{color:#5c6c83;font-size:14px}.downloads{display:flex;gap:18px;flex-wrap:wrap}</style><main><h1>학습 특징 인코더 유무 · 6개 코드 항목별 Top-K</h1><p class="muted">생성: '+escape(created)+' · 기존 v6 / 문자 CNN 추가 v7 비교 · 평가 2,850행</p><article><strong>평가 기준</strong><ul><li>두 방식 모두 공통 전처리·규칙 검증·학습 라벨 마스크를 사용합니다. 비교되는 인코더는 추가 학습형 문자 CNN입니다.</li><li>원시 칸 모델은 각 모델의 후보를 직접 채점합니다. 규칙 반영 후보·완성 코드 칸·완성 코드 전체의 정답률은 별도로 표시합니다.</li><li>미지정 제외는 정답이 -, -- 등인 행만 제외합니다. 지정 정답에 대한 미지정 예측은 오답입니다. 후보가 부족해도 K별 분모 N은 같습니다.</li><li>기존 진단 데이터의 저장된 예측을 재채점했습니다. 학습이나 새 추론은 실행하지 않았고, 현재 웹의 v8 가중치 모델 성능과 섞지 않았습니다.</li><li>품번 원시 점수에는 숫자형과 문자형이 함께 들어 있습니다. Vendor 구간에는 코드 체계에 따른 제조사·버전 구간이 포함됩니다.</li><li>미지정 제외로 행 집합이 달라졌고 후보 기록이 부족한 지표는 —로 표시합니다. 행 집합이 같으면 기존 집계를 사용합니다. 0%나 다른 실험으로 채우지 않습니다.</li></ul><div class="downloads"><a href="topk_summary.csv">Top-1·3·5·10 비교 표</a><a href="topk_by_slot.csv">K=1~10 전체 지표</a><a href="paired_topk_changes.csv">인코더로 바뀐 정답·오답</a><a href="topk_by_component.csv">부품 분류별 세부 지표</a><span>행별 상세 CSV는 서버 private/predictions에 보관</span></div></article>'+sections+'<details><summary>인코더 추가 효과 · 원시 칸 모델 · 미지정 제외</summary>'+graphs.delta_designated+'</details><details><summary>완성 품목코드 전체 Top-K</summary>'+graphs.whole+'<p><a href="whole_code_topk.csv">완성 코드 지표 CSV</a> · <a href="figures/whole_code_topk.png">PNG</a></p></details><article><h2>항목별 결과 파일</h2><ul>'+SLOTS.map(s=>'<li>'+escape(LABELS[s])+': 서버 상세 CSV '+escape(s)+'.csv · <a href="figures/slots/'+s+'_designated.png">미지정 제외 그래프</a></li>').join('')+'</ul><p class="muted">출처·파일 해시·검증 횟수·실행 환경: <a href="run_manifest.json">run_manifest.json</a>. 인터넷 연결 없이 이 HTML의 내장 표와 그래프를 볼 수 있으며, CSV와 개별 이미지는 함께 생성된 파일을 사용합니다.</p></article></main></html>';
 fs.writeFileSync(path.join(out,'report.html'),html);
+
+const webComparison=structuredClone(experiment.comparison);
+webComparison.comparison_kind='encoder';
+webComparison.variant_order=VARIANTS;
+webComparison.variant_labels=MODELS;
+webComparison.derived_from_recorded_predictions=true;
+for(const variant of VARIANTS){
+  const target=webComparison.variants[variant];
+  target.designated={policy:'정답의 미지정 값만 제외하며 미지정 예측은 오답으로 유지',raw_heads:{},slots:{}};
+  for(const slot of SLOTS){
+    const all=experiment.parts[variant].filter(r=>r.slot===slot&&truthy(r.eligible));
+    const rows=all.filter(r=>!placeholder(r.truth));
+    const points=view=>Object.fromEntries(metrics.filter(r=>r.view===view&&r.population==='designated'&&r.slot===slot&&r.variant===variant).map(r=>[String(r.k),{correct:r.correct,n:r.n,rate:r.rate,source:r.basis}]));
+    const correct=rows.filter(r=>r.truth===r.displayed_value).length;
+    const majority=target.slots[slot].audit?.training_majority_label;
+    target.designated.raw_heads[slot]={n:rows.length,accuracy:rows.length?rows.filter(r=>r.truth===r.raw_model_value).length/rows.length:null,macro_f1:macroF1(rows,r=>r.raw_model_value),at_k:points('raw')};
+    target.designated.slots[slot]={n:rows.length,accuracy:rows.length?correct/rows.length:null,macro_f1:macroF1(rows,r=>r.displayed_value),joint_at_k:points('joint'),marginal_at_k:points('marginal'),audit:{...target.slots[slot].audit,eligible_n:rows.length,correct,coverage:rows.length/target.evaluation_rows,all_eligible_n:all.length,excluded_placeholder_truth_n:all.length-rows.length,placeholder_n:0,designated_n:rows.length,designated_correct:correct,designated_accuracy:rows.length?correct/rows.length:null,training_majority_baseline:rows.length?rows.filter(r=>r.truth===majority).length/rows.length:null}};
+  }
+}
+fs.writeFileSync(path.join(out,'web_comparison.json'),JSON.stringify(webComparison,null,2)+'\n');
+
 let evaluationHashVerified=false;
 const evaluationCSV=path.resolve(input,'../../dataset/ERP_원재료_inference.csv');
 if(fs.existsSync(evaluationCSV)){assert.equal(sha256(fs.readFileSync(evaluationCSV)),experiment.comparison.protocol.evaluation_csv_sha256);evaluationHashVerified=true;}

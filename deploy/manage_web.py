@@ -3,6 +3,7 @@
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 import signal
 import subprocess
@@ -18,7 +19,9 @@ def alive():
         proc=Path('/proc')/str(pid)
         if proc.exists():
             cmd=(proc/'cmdline').read_bytes()
-            if b'erp_model' not in cmd or b'serve' not in cmd:return None
+            legacy=b'erp_model' in cmd and b'serve' in cmd
+            grouped=str(ROOT/'run.py').encode() in cmd and (b'web' in cmd or b'serve' in cmd)
+            if not (legacy or grouped):return None
         return pid
     except (OSError,ValueError):return None
 
@@ -34,8 +37,11 @@ def main():
     if pid:print('Already running',pid);return
     python=ROOT/'.venv/bin/python'
     if not python.exists():python=ROOT/'.venv/Scripts/python.exe'
+    if not python.exists():python=Path(sys.executable)
     env=os.environ.copy()
-    runtime=ROOT.parent/'runtime_environment.json'
+    runtime=Path(os.environ.get('ERP_RUNTIME_ENVIRONMENT',str(ROOT.parent/'runtime_environment.json')))
+    if not runtime.is_file() and (ROOT.parent.parent/'runtime_environment.json').is_file():
+        runtime=ROOT.parent.parent/'runtime_environment.json'
     if runtime.is_file():
         saved=json.loads(runtime.read_text())
         for key in ['PATH','LD_LIBRARY_PATH','TMPDIR','CUDA_CACHE_PATH','CUDA_CACHE_MAXSIZE','TRITON_CACHE_DIR']:
@@ -44,7 +50,7 @@ def main():
                PYTHONDONTWRITEBYTECODE='1',MALLOC_ARENA_MAX='2')
     (ROOT/'artifacts').mkdir(exist_ok=True)
     with (ROOT/'artifacts/web.log').open('ab') as log:
-        proc=subprocess.Popen([str(python),'-m','erp_model','serve','--models',str(ROOT/'artifacts/run1'),'--host','0.0.0.0','--port',str(a.port),'--root-path',a.prefix],cwd=ROOT,env=env,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+        proc=subprocess.Popen([str(python),str(ROOT/'run.py'),'web','--models',str(ROOT/'artifacts/run1'),'--host','0.0.0.0','--port',str(a.port),'--root-path',a.prefix],cwd=ROOT,env=env,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
     PID.write_text(str(proc.pid))
     for _ in range(40):
         if proc.poll() is not None:raise RuntimeError('Web startup failed; inspect artifacts/web.log')

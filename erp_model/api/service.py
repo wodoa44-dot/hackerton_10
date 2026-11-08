@@ -1,6 +1,7 @@
 from erp_model.shared.paths import PACKAGE_ROOT
 """HTTP adapter for whole-material code generation and independent slot events."""
 import json
+import os
 from pathlib import Path
 from contextlib import asynccontextmanager
 
@@ -21,9 +22,7 @@ class Input(BaseModel):
     model_variant: str | None = None
 
 
-def create_app(directory, root_path=""):
-    from erp_model.prediction.generation import GenerationPredictor
-
+def create_app(directory, root_path="", predictor_type=None, public_report_only=None):
     from erp_model.shared.artifact_paths import generation_directory
     current = generation_directory(directory)
     @asynccontextmanager
@@ -36,11 +35,17 @@ def create_app(directory, root_path=""):
     app = FastAPI(root_path=root_path, lifespan=lifespan, title="ERP 원재료 품목코드 생성",
                   description="품목명과 규격명에서 실제 코드 분류값과 여섯 칸을 예측하고 회사 규칙에 맞춰 코드를 생성합니다.")
     manifest = json.loads((current / "manifest.json").read_text(encoding="utf-8"))
-    if str(manifest["version"]).startswith(("6", "7")):
-        from erp_model.prediction.spectrum import SpectrumPredictor
-        predictor_type = SpectrumPredictor
-    else:
-        predictor_type = GenerationPredictor
+    if predictor_type is None:
+        from erp_model.prediction.generation import GenerationPredictor
+        if str(manifest["version"]).startswith(("6", "7")):
+            from erp_model.prediction.spectrum import SpectrumPredictor
+            predictor_type = SpectrumPredictor
+        else:
+            predictor_type = GenerationPredictor
+    if public_report_only is None:
+        public_report_only = os.environ.get("ERP_PUBLIC_REPORTS", "1") != "0"
+    source_commit = os.environ.get("ERP_SOURCE_COMMIT")
+    report_root = current.parent / "reports" / "encoder_topk"
     predictor = predictor_type(current)
     app.state.material_factory = lambda slot=None: predictor_type(current, slot)
     comparison_root = current.parent / "encoder_comparison"
@@ -53,7 +58,9 @@ def create_app(directory, root_path=""):
                 for key, path in variant_paths.items()}
 
     def comparison_report():
-        target = comparison_root / "comparison.json"
+        target = report_root / "web_comparison.json"
+        if not target.is_file():
+            target = comparison_root / "comparison.json"
         try:
             return json.loads(target.read_text(encoding="utf-8"))
         except (FileNotFoundError, json.JSONDecodeError):
@@ -85,13 +92,16 @@ def create_app(directory, root_path=""):
         return {
             "version": manifest["version"],
             "csv_upload": True,
+            "source_commit": source_commit,
+            "row_result_downloads": not public_report_only,
+            "evaluation_report_url": "reports/encoder-topk/" if (report_root / "report.html").is_file() else None,
             "encoder_comparison": comparison,
             "model_variants": variants(),
             "active_model_variant": active_variant,
             "candidate_k_metrics": json.loads((current / "candidate_k_metrics.json").read_text(encoding="utf-8")) if (current / "candidate_k_metrics.json").exists() else None,
             "spectrum_metrics": json.loads((current / "spectrum_metrics.json").read_text(encoding="utf-8")) if (current / "spectrum_metrics.json").exists() else None,
             "pipeline_validation": json.loads((current / "pipeline_validation.json").read_text(encoding="utf-8")) if (current / "pipeline_validation.json").exists() else None,
-            "downloads": [name for name in ["original_code_parts.csv","prediction_parts.csv","spectrum_parts_top5.csv","exploratory_predictions.csv"] if (current / name).exists()],
+            "downloads": [name for name in ["original_code_parts.csv","prediction_parts.csv","spectrum_parts_top5.csv","exploratory_predictions.csv"] if not public_report_only and (current / name).exists()],
             "generation_metrics": metrics,
             "metrics": metrics,
             "web_lookup_audit": json.loads((current / "web_lookup_audit.json").read_text(encoding="utf-8")) if (current / "web_lookup_audit.json").exists() else None,
@@ -111,6 +121,10 @@ def create_app(directory, root_path=""):
 
     @app.get("/comparison-downloads/{filename}")
     def comparison_download(filename: str):
+        if public_report_only and filename == "paired_predictions.csv":
+            raise HTTPException(404, "행별 평가 결과는 서버 전용 파일입니다.")
+        if filename == "comparison.json" and (report_root / "web_comparison.json").is_file():
+            return FileResponse(report_root / "web_comparison.json",filename=filename)
         allowed = {"comparison.json", "candidate_k_curve.csv", "candidate_k_curve.svg",
                    "top_k_comparison.csv", "six_slot_comparison.csv", "paired_predictions.csv"}
         if filename not in allowed or not (comparison_root / filename).is_file():
@@ -119,6 +133,8 @@ def create_app(directory, root_path=""):
 
     @app.get("/comparison-downloads/{variant}/{filename}")
     def comparison_parts(variant: str, filename: str):
+        if public_report_only:
+            raise HTTPException(404, "행별 평가 결과는 서버 전용 파일입니다.")
         allowed = {slot + "_predictions.csv" for slot in SLOTS} | {"prediction_parts.csv", "six_slot_predictions.csv"}
         target = comparison_root / variant / filename
         if variant not in variant_paths or filename not in allowed or not target.is_file():
@@ -127,6 +143,8 @@ def create_app(directory, root_path=""):
 
     @app.get("/downloads/{filename}")
     def download(filename: str):
+        if public_report_only:
+            raise HTTPException(404, "행별 평가 결과는 서버 전용 파일입니다.")
         if filename not in {"original_code_parts.csv", "prediction_parts.csv", "spectrum_parts_top5.csv", "exploratory_predictions.csv", "candidate_k_curve.csv"}:
             raise HTTPException(404, "Unknown download")
         target = current / filename
@@ -136,7 +154,7 @@ def create_app(directory, root_path=""):
 
     @app.get("/health")
     def health():
-        return {"status": "ok", "models": str(current), "version": predictor.state.manifest["version"]}
+        return {"status": "ok", "models": str(current), "version": predictor.state.manifest["version"], "source_commit": source_commit}
 
     @app.post("/predict")
     def predict(data: Input):
@@ -159,6 +177,8 @@ def create_app(directory, root_path=""):
         return StreamingResponse(stream(), media_type="application/x-ndjson",
                                  headers={"X-Accel-Buffering": "no", "Cache-Control": "no-cache"})
 
+    from erp_model.api.reports import register_report_routes
+    register_report_routes(app, report_root)
     from erp_model.api.batch_csv import register_csv_routes
     register_csv_routes(app, current, lambda: app.state.material_factory(None))
     return app

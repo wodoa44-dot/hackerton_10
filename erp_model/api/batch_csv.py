@@ -5,7 +5,6 @@ from pathlib import Path
 from fastapi import HTTPException,Request
 from fastapi.responses import FileResponse,Response
 from erp_model.shared.schema import SLOTS
-from erp_model.prediction.spectrum import describe_code
 
 MAX_BYTES=20*1024*1024
 MAX_ROWS=30000
@@ -140,6 +139,7 @@ class CsvJobs:
                         values={};parts=[];status="";reason="";review=False;candidate_codes=[]
                         try:
                             if code.strip():
+                                from erp_model.prediction.spectrum import describe_code
                                 status="기존코드유지";reason="입력 CSV의 코드";job["kept"]+=1
                                 detail=describe_code(predictor.state.book,code.strip().upper())
                                 values=detail["values"];parts=detail["parts"]

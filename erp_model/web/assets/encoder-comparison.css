@@ -32,6 +32,9 @@
 .comparison-protocol p {font-size:13px;line-height:1.8;color:#61788b}
 .slot-results-section > .context-heading {margin-bottom:12px}
 .slot-results-section > .context-heading h2 {font-size:20px}
+.slot-evaluation-filters {display:flex;gap:14px;flex-wrap:wrap}
+.slot-evaluation-filters .comparison-field-label {min-width:160px}
+.encoder-comparison .population-note {padding:12px 16px;background:#edf6f4;border-left:3px solid #3b9b8e;border-radius:4px;font-size:12px;line-height:1.9;color:#486b71}
 .slot-results-section > .muted {font-size:12px;line-height:1.9;color:#61788b}
 .independent-slot-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:20px}
 .independent-slot-panel {min-width:0;padding:22px;overflow:hidden}
@@ -48,6 +51,7 @@
 .slot-score-cards .slot-score-delta {grid-column:1/-1;border:0;padding:6px 10px;display:flex;align-items:center;justify-content:space-between}
 .slot-score-cards .slot-score-delta strong {font-size:15px}
 .independent-slot-panel .slot-macro {margin:10px 0;font-size:10px;color:#71899b}
+.independent-slot-panel .slot-balance-note {font-size:10px;line-height:1.8;color:#72766b;background:#f6f6ee;padding:8px 10px;border-radius:4px}
 .slot-k-chart {min-width:0;width:100%;margin-top:16px}
 .slot-k-chart svg {display:block}
 .slot-k-chart circle {cursor:pointer}
@@ -70,6 +74,7 @@
 @media(max-width:1150px){.independent-slot-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:600px){.independent-slot-panel{padding:18px}.independent-slot-panel h3{font-size:18px}.slot-results-section>.context-heading h2{font-size:18px}.whole-code-results>summary span{display:block;margin:6px 0 0}.slot-chart-detail{font-size:11px}}
 @media(max-width:600px){.comparison-table-hint{display:block}}
+@media(max-width:600px){.slot-evaluation-filters{width:100%;gap:12px}.slot-evaluation-filters .comparison-field-label{min-width:0;flex:1 1 100%}}
 @media(max-width:900px){.comparison-cards{gap:12px}.comparison-cards .metric-card{padding:22px 16px}.comparison-cards .metric-card strong{font-size:29px}.comparison-cards .metric-card .comparison-delta{font-size:25px}.comparison-intro{padding:24px}}
 @media(max-width:800px){.mobile-tabs{display:flex;gap:6px;margin-bottom:24px}.mobile-tabs .nav-item{flex:1;justify-content:center;gap:0;margin:0;padding:10px 4px;background:white;color:#567086;border:1px solid #dce6ec;font-size:10px;white-space:nowrap}.mobile-tabs .nav-item.active{background:#224059;color:white;border-color:#224059}}
 @media(max-width:600px){.comparison-cards{grid-template-columns:1fr}.comparison-cards .metric-card{padding:19px 22px}.comparison-intro{padding:22px 18px}.comparison-intro h2{font-size:20px}.comparison-controls{gap:12px}.comparison-controls label{min-width:0;flex:1 1 140px}.comparison-legend{gap:12px;font-size:11px}.encoder-comparison .context-heading{flex-wrap:wrap;gap:12px}.comparison-field-label{min-width:100%;width:100%}.comparison-cards .metric-card strong{font-size:34px}}
