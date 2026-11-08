@@ -1,0 +1,719 @@
+{
+  "checked_at": "2026-11-08T00:43:11.449Z",
+  "worker_version": "8.0-rule-balanced",
+  "comparison_kind": "class_balance",
+  "slots": [
+    "classification",
+    "trait",
+    "part_number",
+    "case",
+    "packing",
+    "vendor"
+  ],
+  "ks": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "slot_prediction_card_present": false,
+  "predictions": [],
+  "predict_http_status": 200,
+  "event_count": 8,
+  "events": [
+    {
+      "slot": "context",
+      "raw_input": {
+        "품목명": "DIODE",
+        "규격명": "1N4148"
+      },
+      "normalized_input": {
+        "품목명": "DIODE",
+        "규격명": "1N4148"
+      },
+      "component_family": "DIODE",
+      "family": {
+        "value": "DIODE",
+        "evidence": [
+          {
+            "source_column": "품목명",
+            "matched_text": "DIODE",
+            "normalized_value": "DIODE",
+            "transformation": "versioned_component_name_alias_v1",
+            "family": "DIODE"
+          }
+        ]
+      },
+      "code_scheme_id": "COMPANY_D",
+      "code_scheme_title": "Diode",
+      "code_scheme_candidates": [
+        "COMPANY_D"
+      ],
+      "registry_candidates": [
+        {
+          "id": "b61a2839896c9ae6d6d3",
+          "registered_name": "DIODE",
+          "registered_spec": "1N4148",
+          "code": "DW1n4148-D3TV",
+          "code_length": 13,
+          "normalized_input": [
+            "DIODE",
+            "1N4148"
+          ],
+          "component_family": "DIODE",
+          "scheme": {
+            "code_scheme_id": "DIODE_GENERAL_13",
+            "length": 13,
+            "interpretation": "confirmed_rule",
+            "generation_supported": true,
+            "rule_source": "User supplied general diode 1+1+7+2+1+1 code table",
+            "company_rule": null,
+            "applicability": [
+              "classification",
+              "trait",
+              "part_number",
+              "case",
+              "packing",
+              "vendor"
+            ]
+          },
+          "source_file": "dataset/ERP_원재료_training.csv",
+          "source_row": 132,
+          "family_label_source": "unambiguous name alias",
+          "division_observed": "공통",
+          "code_source": "registry_exact",
+          "status": "confirmed",
+          "auto_confirmed": true,
+          "input_name": "DIODE",
+          "input_spec": "1N4148",
+          "name_differs": false,
+          "normalized_name_matches": true,
+          "match_basis": [
+            "normalized name and specification exact"
+          ],
+          "evidence": [
+            {
+              "source_column": "규격명",
+              "matched_text": "1N4148",
+              "normalized_value": "1N4148",
+              "transformation": "NFKC+uppercase+dash+whitespace"
+            }
+          ],
+          "reason": "Existing ERP master record; no generated segments"
+        }
+      ],
+      "registry_provenance": {
+        "scope": "retained_training_only",
+        "rows": 10834
+      },
+      "generation_supported": true,
+      "expected_code_length": 13,
+      "slot_layout": {
+        "classification": {
+          "length": 1,
+          "spans": [
+            {
+              "start": 0,
+              "end": 1,
+              "key": "_major",
+              "label": "분류"
+            }
+          ]
+        },
+        "trait": {
+          "length": 1,
+          "spans": [
+            {
+              "start": 1,
+              "end": 2,
+              "key": "char",
+              "label": "특성"
+            }
+          ]
+        },
+        "part_number": {
+          "length": 7,
+          "spans": [
+            {
+              "start": 2,
+              "end": 9,
+              "key": "pn",
+              "label": "세분류(품번)"
+            }
+          ]
+        },
+        "case": {
+          "length": 2,
+          "spans": [
+            {
+              "start": 9,
+              "end": 11,
+              "key": "case",
+              "label": "형상(Case)"
+            }
+          ]
+        },
+        "packing": {
+          "length": 1,
+          "spans": [
+            {
+              "start": 11,
+              "end": 12,
+              "key": "pack",
+              "label": "Packing"
+            }
+          ]
+        },
+        "vendor": {
+          "length": 1,
+          "spans": [
+            {
+              "start": 12,
+              "end": 13,
+              "key": "vend",
+              "label": "Vendor"
+            }
+          ]
+        }
+      },
+      "fixed_segments": [],
+      "schema_validation": {
+        "status": "matched",
+        "category_id": "D",
+        "issues": [],
+        "actual_prefix": "D",
+        "length": 13,
+        "manual_pages": [
+          13,
+          14,
+          15
+        ],
+        "schema_origin": "manual"
+      },
+      "manual_pages": [
+        13,
+        14,
+        15
+      ],
+      "schema_origin": "manual",
+      "scheme_note": "품목코드메뉴얼(정신전자) PDF 30쪽 + CSV 대조, 2026-11-07",
+      "capacity_mode": null,
+      "capacity_policy": null,
+      "required_information": [],
+      "prediction_mode": "spectrum",
+      "lookup_candidates": [
+        {
+          "id": "b61a2839896c9ae6d6d3",
+          "registered_name": "DIODE",
+          "registered_spec": "1N4148",
+          "code": "DW1n4148-D3TV",
+          "code_length": 13,
+          "normalized_input": [
+            "DIODE",
+            "1N4148"
+          ],
+          "component_family": "DIODE",
+          "scheme": {
+            "code_scheme_id": "DIODE_GENERAL_13",
+            "length": 13,
+            "interpretation": "confirmed_rule",
+            "generation_supported": true,
+            "rule_source": "User supplied general diode 1+1+7+2+1+1 code table",
+            "company_rule": null,
+            "applicability": [
+              "classification",
+              "trait",
+              "part_number",
+              "case",
+              "packing",
+              "vendor"
+            ]
+          },
+          "source_file": "dataset/ERP_원재료_training.csv",
+          "source_row": 132,
+          "family_label_source": "unambiguous name alias",
+          "division_observed": "공통",
+          "code_source": "registry_exact",
+          "status": "confirmed",
+          "auto_confirmed": true,
+          "input_name": "DIODE",
+          "input_spec": "1N4148",
+          "name_differs": false,
+          "normalized_name_matches": true,
+          "match_basis": [
+            "normalized name and specification exact"
+          ],
+          "evidence": [
+            {
+              "source_column": "규격명",
+              "matched_text": "1N4148",
+              "normalized_value": "1N4148",
+              "transformation": "NFKC+uppercase+dash+whitespace"
+            }
+          ],
+          "reason": "Existing ERP master record; no generated segments",
+          "retrieval_score": 1,
+          "retrieval_basis": "normalized_name_and_specification",
+          "strong_match": true
+        }
+      ],
+      "spectrum_limit": 5
+    },
+    {
+      "slot": "case",
+      "value": "D3",
+      "predicted_value": "D3",
+      "status": "confirmed",
+      "candidates": [
+        {
+          "value": "D3",
+          "score": null,
+          "score_type": "registered_field"
+        }
+      ],
+      "top_candidates": [],
+      "fields": [
+        {
+          "start": 9,
+          "end": 11,
+          "key": "case",
+          "label": "형상(Case)",
+          "value": "D3"
+        }
+      ],
+      "evidence": [],
+      "reason": "등록 코드의 실제 값을 구간별로 읽었습니다.",
+      "code_scheme_id": "COMPANY_D"
+    },
+    {
+      "slot": "classification",
+      "value": "D",
+      "predicted_value": "D",
+      "status": "confirmed",
+      "candidates": [
+        {
+          "value": "D",
+          "score": null,
+          "score_type": "registered_field"
+        }
+      ],
+      "top_candidates": [],
+      "fields": [
+        {
+          "start": 0,
+          "end": 1,
+          "key": "_major",
+          "label": "분류",
+          "value": "D"
+        }
+      ],
+      "evidence": [],
+      "reason": "등록 코드의 실제 값을 구간별로 읽었습니다.",
+      "code_scheme_id": "COMPANY_D"
+    },
+    {
+      "slot": "vendor",
+      "value": "V",
+      "predicted_value": "V",
+      "status": "confirmed",
+      "candidates": [
+        {
+          "value": "V",
+          "score": null,
+          "score_type": "registered_field"
+        }
+      ],
+      "top_candidates": [],
+      "fields": [
+        {
+          "start": 12,
+          "end": 13,
+          "key": "vend",
+          "label": "Vendor",
+          "value": "V"
+        }
+      ],
+      "evidence": [],
+      "reason": "등록 코드의 실제 값을 구간별로 읽었습니다.",
+      "code_scheme_id": "COMPANY_D"
+    },
+    {
+      "slot": "part_number",
+      "value": "1N4148-",
+      "predicted_value": "1N4148-",
+      "status": "confirmed",
+      "candidates": [
+        {
+          "value": "1N4148-",
+          "score": null,
+          "score_type": "registered_field"
+        }
+      ],
+      "top_candidates": [],
+      "fields": [
+        {
+          "start": 2,
+          "end": 9,
+          "key": "pn",
+          "label": "세분류(품번)",
+          "value": "1N4148-"
+        }
+      ],
+      "evidence": [],
+      "reason": "등록 코드의 실제 값을 구간별로 읽었습니다.",
+      "code_scheme_id": "COMPANY_D"
+    },
+    {
+      "slot": "packing",
+      "value": "T",
+      "predicted_value": "T",
+      "status": "confirmed",
+      "candidates": [
+        {
+          "value": "T",
+          "score": null,
+          "score_type": "registered_field"
+        }
+      ],
+      "top_candidates": [],
+      "fields": [
+        {
+          "start": 11,
+          "end": 12,
+          "key": "pack",
+          "label": "Packing",
+          "value": "T"
+        }
+      ],
+      "evidence": [],
+      "reason": "등록 코드의 실제 값을 구간별로 읽었습니다.",
+      "code_scheme_id": "COMPANY_D"
+    },
+    {
+      "slot": "trait",
+      "value": "W",
+      "predicted_value": "W",
+      "status": "confirmed",
+      "candidates": [
+        {
+          "value": "W",
+          "score": null,
+          "score_type": "registered_field"
+        }
+      ],
+      "top_candidates": [],
+      "fields": [
+        {
+          "start": 1,
+          "end": 2,
+          "key": "char",
+          "label": "특성",
+          "value": "W"
+        }
+      ],
+      "evidence": [],
+      "reason": "등록 코드의 실제 값을 구간별로 읽었습니다.",
+      "code_scheme_id": "COMPANY_D"
+    },
+    {
+      "slot": "assembly",
+      "value": "DW1N4148-D3TV",
+      "display_code": "DW1N4148-D3TV",
+      "predicted_code": "DW1N4148-D3TV",
+      "predicted_values": {
+        "classification": "D",
+        "trait": "W",
+        "part_number": "1N4148-",
+        "case": "D3",
+        "packing": "T",
+        "vendor": "V"
+      },
+      "status": "confirmed",
+      "auto_confirmed": true,
+      "code_length": 13,
+      "code_source": "registry_exact",
+      "code_scheme_id": "COMPANY_D",
+      "component_family": "DIODE",
+      "registry_candidates": [
+        {
+          "id": "b61a2839896c9ae6d6d3",
+          "registered_name": "DIODE",
+          "registered_spec": "1N4148",
+          "code": "DW1n4148-D3TV",
+          "code_length": 13,
+          "normalized_input": [
+            "DIODE",
+            "1N4148"
+          ],
+          "component_family": "DIODE",
+          "scheme": {
+            "code_scheme_id": "DIODE_GENERAL_13",
+            "length": 13,
+            "interpretation": "confirmed_rule",
+            "generation_supported": true,
+            "rule_source": "User supplied general diode 1+1+7+2+1+1 code table",
+            "company_rule": null,
+            "applicability": [
+              "classification",
+              "trait",
+              "part_number",
+              "case",
+              "packing",
+              "vendor"
+            ]
+          },
+          "source_file": "dataset/ERP_원재료_training.csv",
+          "source_row": 132,
+          "family_label_source": "unambiguous name alias",
+          "division_observed": "공통",
+          "code_source": "registry_exact",
+          "status": "confirmed",
+          "auto_confirmed": true,
+          "input_name": "DIODE",
+          "input_spec": "1N4148",
+          "name_differs": false,
+          "normalized_name_matches": true,
+          "match_basis": [
+            "normalized name and specification exact"
+          ],
+          "evidence": [
+            {
+              "source_column": "규격명",
+              "matched_text": "1N4148",
+              "normalized_value": "1N4148",
+              "transformation": "NFKC+uppercase+dash+whitespace"
+            }
+          ],
+          "reason": "Existing ERP master record; no generated segments"
+        }
+      ],
+      "manual_pages": [
+        13,
+        14,
+        15
+      ],
+      "schema_origin": "manual",
+      "capacity_mode": null,
+      "required_information": [],
+      "validation_passed": true,
+      "reason": "등록된 코드 후보입니다. 원문과 입력 정보를 함께 확인하세요.",
+      "parts": [
+        {
+          "start": 0,
+          "end": 1,
+          "key": "_major",
+          "label": "분류",
+          "value": "D",
+          "slot": "classification",
+          "meaning": null,
+          "position_start": 1,
+          "position_end": 1
+        },
+        {
+          "start": 1,
+          "end": 2,
+          "key": "char",
+          "label": "특성",
+          "value": "W",
+          "slot": "trait",
+          "meaning": "Switching",
+          "position_start": 2,
+          "position_end": 2
+        },
+        {
+          "start": 2,
+          "end": 9,
+          "key": "pn",
+          "label": "세분류(품번)",
+          "value": "1N4148-",
+          "slot": "part_number",
+          "meaning": null,
+          "position_start": 3,
+          "position_end": 9
+        },
+        {
+          "start": 9,
+          "end": 11,
+          "key": "case",
+          "label": "형상(Case)",
+          "value": "D3",
+          "slot": "case",
+          "meaning": "DO-35",
+          "position_start": 10,
+          "position_end": 11
+        },
+        {
+          "start": 11,
+          "end": 12,
+          "key": "pack",
+          "label": "Packing",
+          "value": "T",
+          "slot": "packing",
+          "meaning": "Taping",
+          "position_start": 12,
+          "position_end": 12
+        },
+        {
+          "start": 12,
+          "end": 13,
+          "key": "vend",
+          "label": "Vendor",
+          "value": "V",
+          "slot": "vendor",
+          "meaning": "Vishay",
+          "position_start": 13,
+          "position_end": 13
+        }
+      ],
+      "prediction_mode": "spectrum",
+      "spectrum": [
+        {
+          "code": "DW1N4148-D3TV",
+          "relative_score": 1,
+          "source": "registry_exact",
+          "score_type": "relative_rank_score_not_probability",
+          "capacity_mode": null,
+          "values": {
+            "classification": "D",
+            "trait": "W",
+            "part_number": "1N4148-",
+            "case": "D3",
+            "packing": "T",
+            "vendor": "V"
+          },
+          "parts": [
+            {
+              "start": 0,
+              "end": 1,
+              "key": "_major",
+              "label": "분류",
+              "value": "D",
+              "slot": "classification",
+              "meaning": null,
+              "position_start": 1,
+              "position_end": 1
+            },
+            {
+              "start": 1,
+              "end": 2,
+              "key": "char",
+              "label": "특성",
+              "value": "W",
+              "slot": "trait",
+              "meaning": "Switching",
+              "position_start": 2,
+              "position_end": 2
+            },
+            {
+              "start": 2,
+              "end": 9,
+              "key": "pn",
+              "label": "세분류(품번)",
+              "value": "1N4148-",
+              "slot": "part_number",
+              "meaning": null,
+              "position_start": 3,
+              "position_end": 9
+            },
+            {
+              "start": 9,
+              "end": 11,
+              "key": "case",
+              "label": "형상(Case)",
+              "value": "D3",
+              "slot": "case",
+              "meaning": "DO-35",
+              "position_start": 10,
+              "position_end": 11
+            },
+            {
+              "start": 11,
+              "end": 12,
+              "key": "pack",
+              "label": "Packing",
+              "value": "T",
+              "slot": "packing",
+              "meaning": "Taping",
+              "position_start": 12,
+              "position_end": 12
+            },
+            {
+              "start": 12,
+              "end": 13,
+              "key": "vend",
+              "label": "Vendor",
+              "value": "V",
+              "slot": "vendor",
+              "meaning": "Vishay",
+              "position_start": 13,
+              "position_end": 13
+            }
+          ],
+          "category_id": "D",
+          "semantic_layout_verified": true,
+          "input_numeric_checks": [],
+          "input_numeric_consistent": null,
+          "registered_name": "DIODE",
+          "registered_spec": "1N4148",
+          "auto_confirmed": true,
+          "rank": 1
+        }
+      ],
+      "part_spectra": {
+        "case": [
+          {
+            "value": "D3",
+            "relative_score": 1,
+            "basis": "selected_value"
+          }
+        ],
+        "classification": [
+          {
+            "value": "D",
+            "relative_score": 1,
+            "basis": "selected_value"
+          }
+        ],
+        "vendor": [
+          {
+            "value": "V",
+            "relative_score": 1,
+            "basis": "selected_value"
+          }
+        ],
+        "part_number": [
+          {
+            "value": "1N4148-",
+            "relative_score": 1,
+            "basis": "selected_value"
+          }
+        ],
+        "packing": [
+          {
+            "value": "T",
+            "relative_score": 1,
+            "basis": "selected_value"
+          }
+        ],
+        "trait": [
+          {
+            "value": "W",
+            "relative_score": 1,
+            "basis": "selected_value"
+          }
+        ]
+      },
+      "spectrum_size": 1,
+      "score_note": "후보의 상대 순위 점수이며 정답 확률이 아닙니다.",
+      "registry_provenance": {
+        "scope": "retained_training_only",
+        "rows": 10834
+      },
+      "exploratory": {
+        "active": false,
+        "candidates": [],
+        "head_estimates": {}
+      }
+    }
+  ]
+}

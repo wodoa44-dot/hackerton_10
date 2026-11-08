@@ -1,0 +1,27 @@
+{
+  "updated_at": "2026-11-08T00:44:57.442Z",
+  "project_server": "proxy-ssh-server-5d5b67c46b-jhc85",
+  "project_path": "/data/main",
+  "project_active_generation": {
+    "directory": "generation_v7",
+    "version": "7.0-char-cnn-augmented"
+  },
+  "live_web": {
+    "url": "https://devopen-gpu.jntp-ax.or.kr/i/OsAdz8rQR7JSXeW6/",
+    "version": "8.0-rule-balanced",
+    "active_variant": "balanced",
+    "worker_path": "/data/erp_encoder_20261107_v7/source"
+  },
+  "latest_evaluation": "artifacts/balance_comparison",
+  "client_snapshot": "recovery/live_web_20261108",
+  "full_latest_worker_source_and_weights_copied": false,
+  "github_latest_changes_pushed": false,
+  "pc_execution_prohibited": true,
+  "project_required_weights_hash_verified": 19,
+  "git_preparation": {
+    "branch": "codex/server-sync",
+    "base": "639f1638da3049283a65c714202a9652c1b2832c",
+    "scope": "보존된 v7 프로젝트, v8 공개 평가 및 웹 클라이언트 스냅샷",
+    "latest_v8_backend_source_and_weights_not_available_on_this_server": true
+  }
+}

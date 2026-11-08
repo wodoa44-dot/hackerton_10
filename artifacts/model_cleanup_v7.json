@@ -1,0 +1,203 @@
+{
+  "status": "complete",
+  "started_at": "2026-11-08T00:35:47.836Z",
+  "hostname": "proxy-ssh-server-5d5b67c46b-jhc85",
+  "project": "/data/main",
+  "selection_basis": "User selected v7 using complete-code exact match; preserved evaluated model without retraining",
+  "selected_model": {
+    "directory": "generation_v7",
+    "version": "7.0-char-cnn-augmented"
+  },
+  "active_before": {
+    "directory": "generation_v6",
+    "version": "6.0"
+  },
+  "kept_required_files": [
+    {
+      "path": "/data/main/artifacts/generation_v7/manifest.json",
+      "bytes": 20995,
+      "sha256": "e1fcbf0eabcec9ef0fdf32b4359bc926e1ebe7d94d4af177d53eceac12eefa20"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/preprocessor.joblib",
+      "bytes": 155969,
+      "sha256": "bbce17a626cae9d2b2910cb68368fdb534780a6c2547212d3d0dd19dadabdb02"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/reference.joblib",
+      "bytes": 3941419,
+      "sha256": "b598d375301ff768e82a52c0953436d2a020b00c6fe2d709be4ef7ece48b1bd9"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/attributes.joblib",
+      "bytes": 11602253,
+      "sha256": "29b633d3bb592db20c9959eb3e7fd757b2e4fda98738dd79546b6a5f107875c9"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/company_rules.json",
+      "bytes": 145431,
+      "sha256": "a3c20d88bb5c1ec2390f0493c4654edd7c20f9165aeb5a915af87ac8c561333a"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/manual_source.json",
+      "bytes": 3531,
+      "sha256": "d598ffb7a017345884c1a246f17f59b1b3ce072b42293e1ceac7d9b51983a377"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/scheme_values.json",
+      "bytes": 33456,
+      "sha256": "0302c1542f0cb2092e0a3eb4a226eff65f676227e958ea8d77bdcb7bbc6e44f1"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/operational_master.json",
+      "bytes": 9909980,
+      "sha256": "9092fce3a4857f5c849dcd72db20ea9e682fdde633bc9b91678235b433ad69fa"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/training_counts.json",
+      "bytes": 23796,
+      "sha256": "0df68be7c70f0554fcd3abb4163bd0e5629ea21dc433d55070be069feaa240dc"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/data_audit.json",
+      "bytes": 2215,
+      "sha256": "4383ad8e1ddb93ded9b36675ac48c0e5fedb76707e4571a4bae55ca19b6c2f2f"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/classification.joblib",
+      "bytes": 52866605,
+      "sha256": "3b866ab076469aa088ff60dbf802d6f04ba7ef81943f7b5e722198d70b4d05be"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/trait.joblib",
+      "bytes": 3766722,
+      "sha256": "6f8fd1093b38d686ad5b592c3298b393d605451ff967da4b82bb86f47fa29080"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/part_number.joblib",
+      "bytes": 431848,
+      "sha256": "d6d96eb206a9ba7adb5d3ca39a405f72a1fa4a35f2654e33a510a9b9ee5d8512"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/case.joblib",
+      "bytes": 3660389,
+      "sha256": "7948b7897a570c82e842b62d34f6d7e6e45d979368adeeba5f62befbe8c0529a"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/packing.joblib",
+      "bytes": 4187672,
+      "sha256": "c62ed325d40cb207099539b08103d1357c4e916efe61da92cd0766b6c03a308d"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/vendor.joblib",
+      "bytes": 1053037,
+      "sha256": "32b969f8276caba8cce2bb128fb23da58dd2248ac916d7a3822081ec370430f1"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/encoder/encoder_config.json",
+      "bytes": 8524,
+      "sha256": "b5dafab0ea77bd3a1f876746ba017fe1d43c2edce47ff4e24b0f92bee8849c6c"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/encoder/tokenizer/character_tokenizer.json",
+      "bytes": 119,
+      "sha256": "694573b9b6f3acc89853241767867c57a061c54ede4a6f55181978f69629d8e7"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v7/encoder/weights.pt",
+      "bytes": 1617664,
+      "sha256": "c532110a81029005068a60a12a0d2dca69bc924cd522baefe36a0e131b2dc680"
+    }
+  ],
+  "delete_files": [
+    {
+      "path": "/data/main/artifacts/generation_v6/classification.joblib",
+      "bytes": 56642655,
+      "sha256": "d10ed282bcd55d9770bf6dd70c42f1d12b8377f0d865e797991f80ed76bb75f7"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/trait.joblib",
+      "bytes": 2055634,
+      "sha256": "43bcee99a1ef4c09485db9b46aae96d930564c5aa8b4f199a4316b6485e6a4b9"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/part_number.joblib",
+      "bytes": 424980,
+      "sha256": "2c02c4abe619b6e35d0557aa73db2d66df3fb0f6f36868d58bb400d17dde75dd"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/case.joblib",
+      "bytes": 2197039,
+      "sha256": "ca376c474d8dd790d8a8709221edaf9815972234a39ac446e1c4321967f0477c"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/packing.joblib",
+      "bytes": 4735855,
+      "sha256": "a8fb7bd4ae608d8d4d4df6fa60c2cb5fec51193cc1faa6aec7d70db21b3838fc"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/vendor.joblib",
+      "bytes": 1074288,
+      "sha256": "abb409e07e85efb291862634ab4ff183170ca988f89d6ac84fbd460e1b7d4e34"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/preprocessor.joblib",
+      "bytes": 155969,
+      "sha256": "bbce17a626cae9d2b2910cb68368fdb534780a6c2547212d3d0dd19dadabdb02"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/reference.joblib",
+      "bytes": 3941419,
+      "sha256": "b598d375301ff768e82a52c0953436d2a020b00c6fe2d709be4ef7ece48b1bd9"
+    },
+    {
+      "path": "/data/main/artifacts/generation_v6/attributes.joblib",
+      "bytes": 11602253,
+      "sha256": "29b633d3bb592db20c9959eb3e7fd757b2e4fda98738dd79546b6a5f107875c9"
+    },
+    {
+      "path": "/data/main/artifacts/encoder_v7/weights.pt",
+      "bytes": 1617664,
+      "sha256": "c532110a81029005068a60a12a0d2dca69bc924cd522baefe36a0e131b2dc680"
+    },
+    {
+      "path": "/data/main/artifacts/encoder_v7/validation_checkpoint.pt",
+      "bytes": 1618786,
+      "sha256": "c875b8b670dc358f39d6e75e47aa39a71ad55bdea8004d9229b4c6d07b3a66ee"
+    }
+  ],
+  "delete_bytes": 86066542,
+  "preserved": "Source, dataset CSVs, configuration, training audit and historical evaluation reports",
+  "scope": "Project server only; GPU worker and live web process not changed",
+  "deleted_files": [
+    "/data/main/artifacts/generation_v6/classification.joblib",
+    "/data/main/artifacts/generation_v6/trait.joblib",
+    "/data/main/artifacts/generation_v6/part_number.joblib",
+    "/data/main/artifacts/generation_v6/case.joblib",
+    "/data/main/artifacts/generation_v6/packing.joblib",
+    "/data/main/artifacts/generation_v6/vendor.joblib",
+    "/data/main/artifacts/generation_v6/preprocessor.joblib",
+    "/data/main/artifacts/generation_v6/reference.joblib",
+    "/data/main/artifacts/generation_v6/attributes.joblib",
+    "/data/main/artifacts/encoder_v7/weights.pt",
+    "/data/main/artifacts/encoder_v7/validation_checkpoint.pt"
+  ],
+  "finished_at": "2026-11-08T00:35:47.919Z",
+  "active_after": {
+    "directory": "generation_v7",
+    "version": "7.0-char-cnn-augmented"
+  },
+  "remaining_weight_files": [
+    "/data/main/artifacts/generation_v7/attributes.joblib",
+    "/data/main/artifacts/generation_v7/case.joblib",
+    "/data/main/artifacts/generation_v7/classification.joblib",
+    "/data/main/artifacts/generation_v7/encoder/weights.pt",
+    "/data/main/artifacts/generation_v7/packing.joblib",
+    "/data/main/artifacts/generation_v7/part_number.joblib",
+    "/data/main/artifacts/generation_v7/preprocessor.joblib",
+    "/data/main/artifacts/generation_v7/reference.joblib",
+    "/data/main/artifacts/generation_v7/trait.joblib",
+    "/data/main/artifacts/generation_v7/vendor.joblib"
+  ],
+  "required_files_verified": 19
+}

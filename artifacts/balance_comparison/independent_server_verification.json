@@ -1,0 +1,202 @@
+{
+  "checked_at": "2026-11-08T00:37:37.228Z",
+  "server": "proxy-ssh-server-5d5b67c46b-jhc85",
+  "source_url": "https://devopen-gpu.jntp-ax.or.kr/i/OsAdz8rQR7JSXeW6",
+  "checks": 557844,
+  "slots": [
+    {
+      "variant": "baseline",
+      "slot": "classification",
+      "population": "all",
+      "n": 2850,
+      "raw_top1": 0.8231578947368421,
+      "raw_top5": 0.9378947368421052
+    },
+    {
+      "variant": "baseline",
+      "slot": "classification",
+      "population": "designated",
+      "n": 2850,
+      "raw_top1": 0.8231578947368421,
+      "raw_top5": 0.9378947368421052
+    },
+    {
+      "variant": "baseline",
+      "slot": "trait",
+      "population": "all",
+      "n": 377,
+      "raw_top1": 0.7745358090185677,
+      "raw_top5": 0.8514588859416445
+    },
+    {
+      "variant": "baseline",
+      "slot": "trait",
+      "population": "designated",
+      "n": 377,
+      "raw_top1": 0.7745358090185677,
+      "raw_top5": 0.8514588859416445
+    },
+    {
+      "variant": "baseline",
+      "slot": "part_number",
+      "population": "all",
+      "n": 465,
+      "raw_top1": 0.2,
+      "raw_top5": 0.2709677419354839
+    },
+    {
+      "variant": "baseline",
+      "slot": "part_number",
+      "population": "designated",
+      "n": 465,
+      "raw_top1": 0.2,
+      "raw_top5": 0.2709677419354839
+    },
+    {
+      "variant": "baseline",
+      "slot": "case",
+      "population": "all",
+      "n": 348,
+      "raw_top1": 0.7471264367816092,
+      "raw_top5": 0.853448275862069
+    },
+    {
+      "variant": "baseline",
+      "slot": "case",
+      "population": "designated",
+      "n": 320,
+      "raw_top1": 0.74375,
+      "raw_top5": 0.840625
+    },
+    {
+      "variant": "baseline",
+      "slot": "packing",
+      "population": "all",
+      "n": 352,
+      "raw_top1": 0.8835227272727273,
+      "raw_top5": 0.9829545454545454
+    },
+    {
+      "variant": "baseline",
+      "slot": "packing",
+      "population": "designated",
+      "n": 323,
+      "raw_top1": 0.8854489164086687,
+      "raw_top5": 0.9814241486068112
+    },
+    {
+      "variant": "baseline",
+      "slot": "vendor",
+      "population": "all",
+      "n": 465,
+      "raw_top1": 0.8946236559139785,
+      "raw_top5": 0.9870967741935484
+    },
+    {
+      "variant": "baseline",
+      "slot": "vendor",
+      "population": "designated",
+      "n": 67,
+      "raw_top1": 0.43283582089552236,
+      "raw_top5": 0.9104477611940298
+    },
+    {
+      "variant": "balanced",
+      "slot": "classification",
+      "population": "all",
+      "n": 2850,
+      "raw_top1": 0.8252631578947368,
+      "raw_top5": 0.9410526315789474
+    },
+    {
+      "variant": "balanced",
+      "slot": "classification",
+      "population": "designated",
+      "n": 2850,
+      "raw_top1": 0.8252631578947368,
+      "raw_top5": 0.9410526315789474
+    },
+    {
+      "variant": "balanced",
+      "slot": "trait",
+      "population": "all",
+      "n": 377,
+      "raw_top1": 0.7798408488063661,
+      "raw_top5": 0.8567639257294429
+    },
+    {
+      "variant": "balanced",
+      "slot": "trait",
+      "population": "designated",
+      "n": 377,
+      "raw_top1": 0.7798408488063661,
+      "raw_top5": 0.8567639257294429
+    },
+    {
+      "variant": "balanced",
+      "slot": "part_number",
+      "population": "all",
+      "n": 465,
+      "raw_top1": 0.2,
+      "raw_top5": 0.2709677419354839
+    },
+    {
+      "variant": "balanced",
+      "slot": "part_number",
+      "population": "designated",
+      "n": 465,
+      "raw_top1": 0.2,
+      "raw_top5": 0.2709677419354839
+    },
+    {
+      "variant": "balanced",
+      "slot": "case",
+      "population": "all",
+      "n": 348,
+      "raw_top1": 0.7586206896551724,
+      "raw_top5": 0.8591954022988506
+    },
+    {
+      "variant": "balanced",
+      "slot": "case",
+      "population": "designated",
+      "n": 320,
+      "raw_top1": 0.753125,
+      "raw_top5": 0.846875
+    },
+    {
+      "variant": "balanced",
+      "slot": "packing",
+      "population": "all",
+      "n": 352,
+      "raw_top1": 0.8778409090909091,
+      "raw_top5": 0.9886363636363636
+    },
+    {
+      "variant": "balanced",
+      "slot": "packing",
+      "population": "designated",
+      "n": 323,
+      "raw_top1": 0.8730650154798761,
+      "raw_top5": 0.9876160990712074
+    },
+    {
+      "variant": "balanced",
+      "slot": "vendor",
+      "population": "all",
+      "n": 465,
+      "raw_top1": 0.9182795698924732,
+      "raw_top5": 0.9827956989247312
+    },
+    {
+      "variant": "balanced",
+      "slot": "vendor",
+      "population": "designated",
+      "n": 67,
+      "raw_top1": 0.582089552238806,
+      "raw_top5": 0.8805970149253731
+    }
+  ],
+  "note": "학습 모델은 복사하지 않고 평가 근거만 보관했습니다.",
+  "status": "passed"
+}
