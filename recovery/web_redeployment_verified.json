@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "version": "7.0-char-cnn-augmented",
+  "source_commit": "f75cbbdd20dd51e9e540f7fc789c74b1d066b951",
+  "six_model_events": true,
+  "predicted_code": "DW1N4148-D4T-",
+  "csv_blank_filled": true,
+  "csv_existing_preserved": true,
+  "public_report": true,
+  "private_rows_blocked": true,
+  "server": "ff9ebb72-6ae84c15-cb087149",
+  "project_directory": "/data/erp_web",
+  "url": "https://devopen-gpu.jntp-ax.or.kr/i/OsAdz8rQR7JSXeW6/",
+  "production_pid": 97390,
+  "layout_tests": 8,
+  "http_route_tests": 5,
+  "production_contract_tests": 39,
+  "existing_model_weights_reused": true,
+  "checked_at_utc": "2026-11-08T02:09:09.044Z"
+}

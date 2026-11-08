@@ -13,16 +13,16 @@
 
 | 구분 | 상태 |
 |---|---|
-| 이 저장소와 프로젝트 서버 /data/main | generation_v7 / 7.0-char-cnn-augmented. 사용자가 보존 대상으로 선택한 모델 |
-| 현재 공개 웹 | 별도 GPU 학습 서버의 8.0-rule-balanced |
+| 저장소와 실제 배포 폴더 | generation_v7 / 7.0-char-cnn-augmented. 실제 서버 /data/erp_web |
+| 현재 공개 웹 | 7.0-char-cnn-augmented · 코드 배포 커밋 f75cbbdd20dd51e9e540f7fc789c74b1d066b951 |
 | 이번 정리 | 48개 Python 모듈을 기능별 폴더로 이동, 학습 보조 실행 코드도 training으로 이동, 공통 run.py 추가 |
 | 모델 파일 | v7의 작업 모델·공통 처리·내장 CNN을 보관. 필수 19개 파일 해시 재확인 |
 | 정리된 과거 모델 | v6 가중치와 독립 encoder_v7 중복 가중치는 삭제. 과거 평가·학습 감사는 보존 |
-| v8 전체 백엔드·가중치 | 이 저장소로 아직 동기화하지 못함. 평가 자료와 웹 클라이언트 사본만 보관 |
-| 실제 실행 검증 | 구조·호환 경로 테스트 8개, 규칙 Node 브리지, run.py check, run.py report |
-| 검증 한계 | 현재 연결된 프로젝트 서버에는 전체 ML 실행 환경이 없어, 이번 구조 변경 후 웹 모델 추론·재학습은 재실행하지 않음. 공개 웹의 기존 v8 API 응답은 별도로 확인 |
+| 이전 v8 | 이전 작업 경로에 롤백용으로 보존. 현재 공개 서비스는 v7 |
+| 실제 실행 검증 | 구조·호환 8개, HTTP 경로 5개, 실행 서버 계약 테스트 39개, 실제 모델·CSV 및 공개 HTTPS 검증 |
+| 검증 범위 | 기존 학습 가중치로 실제 추론·CSV·보고서 배포를 검증. 전체 의존성을 처음부터 설치하거나 운영 모델을 재학습한 것은 아님 |
 
-이번 소스 정리로 현재 공개 웹 프로세스가 새 구조로 재배포된 것은 아닙니다. 아래 실행 방법은 **저장소의 v7 모델** 기준입니다. v8 웹 사본을 완전한 v8 배포 소스로 간주하면 안 됩니다.
+새 폴더 구조의 v7을 실제 웹 서버에 재배포했습니다. 실제 서버는 ff9ebb72-6ae84c15-cb087149, Git 작업 폴더는 /data/erp_web입니다. /data/main은 별도 보관 서버의 사본입니다. 아래 실행 방법은 저장소와 현재 웹의 v7 기준입니다.
 
 ## 서비스 사용 흐름
 
@@ -125,7 +125,21 @@ python run.py manage-web status
 python run.py manage-web stop
 ```
 
-manage-web은 프로젝트 .venv의 Python을 사용하고 artifacts/web.log에 로그를 남깁니다. 기본 전경 실행과 별도로 프로세스를 유지할 때 사용합니다. 설치와 신규 웹 기동 명령은 현재 연결된 경량 프로젝트 서버에서 실행 검증하지 못했습니다.
+run.py는 준비된 .venv와 로컬 .deployment/environment.json을 자동 적용합니다. manage-web은 프로젝트 .venv의 Python을 사용하고 artifacts/web.log에 로그를 남깁니다. 실제 배포는 기존 Python 3.12.3 환경을 재사용해 검증했습니다. 접속 터미널과 분리된 프로세스로 실행되므로 연결 종료 후에도 웹이 유지됩니다. 처음부터의 의존성 설치는 별도로 재실행하지 않았습니다.
+
+### 현재 운영 서버에서 관리
+
+서버 ff9ebb72-6ae84c15-cb087149의 /data/erp_web에서 실행합니다. Git 실행 도구와 실행 설정도 /data 아래에 있습니다.
+
+```sh
+cd /data/erp_web
+python3 run.py manage-web status
+python3 run.py manage-web stop
+python3 run.py manage-web start --port 8501 --prefix /i/OsAdz8rQR7JSXeW6
+/data/tools/bin/git -C /data/erp_web pull --ff-only
+```
+
+로컬 .deployment 실행 설정과 PID는 Git에서 제외합니다. 모델·소스는 저장소에 보관하며, 운영 전환 전 별도 포트에서 실제 모델·CSV를 검증했습니다.
 
 ## CSV와 API
 
@@ -139,7 +153,7 @@ CSV의 필수 열은 품목명입니다. 규격명·품목코드는 선택 열�
 - 파일당 20MB, 30,000행까지 처리하며 결과는 UTF-8 BOM CSV입니다.
 - 업로드를 학습에 사용하지 않습니다. 작업 파일은 선택 모델의 batch_jobs 아래에 저장됩니다.
 
-공개용 예시는 examples/demo_input.csv의 더미 품목입니다. 샘플의 기존 코드 DEMO_EXISTING_CODE는 보존 동작을 보이기 위한 문자열이며 실제 ERP 코드가 아닙니다.
+입력 양식 예시는 examples/demo_input.csv의 더미 품목입니다. 샘플의 기존 코드 DEMO_EXISTING_CODE는 보존 동작을 보이기 위한 문자열이며 실제 ERP 코드가 아닙니다.
 
 ```sh
 curl -N http://127.0.0.1:8501/predict \
@@ -153,6 +167,18 @@ curl http://127.0.0.1:8501/batch-csv \
 ```
 
 POST /predict는 여섯 작업과 완성 코드의 이벤트를 NDJSON으로 반환합니다. CSV 업로드 응답의 id로 GET /batch-csv/{id}에서 상태를, GET /batch-csv/{id}/download에서 결과를 받습니다. GET /health와 GET /model-info는 버전과 평가 정보를 제공합니다.
+
+### Inference 데이터 예시 5개
+
+실제 [ERP_원재료_inference.csv](dataset/ERP_원재료_inference.csv)에서 품목군이 다른 5행을 골랐습니다. 웹에는 품목명과 규격명을 입력합니다. 정답 코드는 평가용으로 표시했습니다.
+
+| 품목명 | 규격명 | CSV의 정답 품목코드 |
+|---|---|---|
+| THERMISTOR AS 1 | IDU,TWI/TWO/THO | 60WH0083541A-R |
+| DIODE | ES2JA GS공청 신규 | DES2JA------- |
+| R-CARBON | 560ohm,5%,1/4W,AA,TP,2.4X6.4MM | ERE1/4W560J-OHM |
+| CAP FILM | 220NF 275V M DWD 15MM FUSE 성호전자 | CFX8F224M7KBH |
+| IC | PCA9635PW LED DRIVER GS공청 LED | SPCA9635PW--- |
 
 ## 아키텍처와 선택 모델
 
@@ -232,7 +258,7 @@ python run.py report --input artifacts/encoder_comparison --out artifacts/report
 | private/predictions/whole_codes.csv | 서버의 행별 완성 코드 결과 5,700행 |
 | private/predictions/{항목}.csv | 서버의 여섯 항목별 결과, 각 5,700행 |
 
-집계 CSV·그림·코드는 Git에 보관하고, 새로 생성한 행별 상세 CSV는 서버 전용 private 폴더에 둡니다. 공개 예시에는 더미 입력을 사용합니다.
+집계 CSV·그림·코드는 Git에 보관하고, 새로 생성한 행별 상세 CSV는 서버 전용 private 폴더에 둡니다. 입력 양식은 더미이며, 위의 추론 평가 예시 5개는 실제 inference CSV에서 골랐습니다.
 
 ![미지정 제외 항목별 Top-K 비교](artifacts/reports/encoder_topk/figures/raw_designated.png)
 
@@ -264,10 +290,12 @@ v6 실행 가중치는 현재 정리된 상태이지만 기록된 행별 후보�
 ## 이번 검증 기록
 
 - 구조·모듈 호환 테스트 8개 통과: tests/test_layout_compat.py
-- Python 67개 파일 문법, 내부 import 경로, 47개 이전 경로, 예전 pickle GLOBAL 참조 점검
+- Python 소스 문법, 내부 import 경로, 47개 이전 경로, 예전 pickle GLOBAL 참조 점검
 - v7 필수 19개 파일 해시 및 이동한 Node 규칙 엔진의 실제 요청·응답 확인
 - 행별 후보·저장 집계·동일 평가 행 집합에 대한 154,548개 확인
 - 보고서 명령 약 4초, 최대 메모리 약 0.5GiB, PNG/SVG 표·그림 23개 생성
-- 새로운 웹 모델 추론·전체 의존성 설치·GPU 재학습은 이번 연결 서버에서 미실행
+- 실제 실행 서버 계약 테스트 39개와 배포 모델의 6개 이벤트·완성 코드·CSV 채움 검증 통과
+- 공개 HTTPS 주소에서 같은 검증을 완료하고 private 행별 파일 차단을 확인
+- 전체 의존성 신규 설치와 운영 가중치 재학습은 미실행
 
-구조 기록은 recovery/grouped_layout_verified.json, 보고서 근거는 artifacts/reports/encoder_topk/run_manifest.json에 있습니다. 원본 복구 이력은 RECOVERY.md와 recovery에 남깁니다.
+배포 검증은 recovery/web_redeployment_verified.json, 구조 기록은 recovery/grouped_layout_verified.json, 보고서 근거는 artifacts/reports/encoder_topk/run_manifest.json에 있습니다. 원본 복구 이력은 RECOVERY.md와 recovery에 남깁니다.
